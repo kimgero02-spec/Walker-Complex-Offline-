@@ -11,6 +11,7 @@ def chainlen(pairs):
     for p in P:
         best[p]=1+max([best[q] for q in best if q[0]!=p[0] and q[0]&p[0]==q[0]]+[0])
     return max(best.values())
+if __name__!="__main__": raise SystemExit
 cnt=0;bad=[]
 t=time.time()
 for G in graph_atlas_g():
