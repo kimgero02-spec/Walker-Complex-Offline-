@@ -19,7 +19,7 @@ RESEARCHERS = list(DEFAULT_SPECIALTIES)
 
 class TeamMAD:
     def __init__(self, problem: str, backend: Backend, workspace: Path,
-                 max_rounds: int = 3, parallel: bool = True, pdf_maker=None):
+                 max_rounds: int = 3, parallel: bool = True):
         self.problem = problem
         self.max_rounds = max_rounds
         self.parallel = parallel
@@ -27,8 +27,7 @@ class TeamMAD:
         self.root.mkdir(parents=True, exist_ok=True)
         (self.root / "problem.md").write_text(f"# 연구 과제\n\n{problem}\n", encoding="utf-8")
 
-        self.library = (CentralLibrary(self.root, RESEARCHERS, "orchestrator", pdf_maker)
-                        if pdf_maker else CentralLibrary(self.root, RESEARCHERS, "orchestrator"))
+        self.library = CentralLibrary(self.root, RESEARCHERS, "orchestrator")
         self.researchers = {
             name: Researcher(name, spec, PersonalRoom(name, self.root), self.library, backend)
             for name, spec in DEFAULT_SPECIALTIES.items()
