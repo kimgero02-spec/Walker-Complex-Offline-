@@ -80,7 +80,7 @@ class Agent:
                 raise AccessDenied(f"{self.name}은(는) '{block.name}' 도구를 사용할 권한이 없습니다.")
             output = handler(**block.input)
             is_error = False
-        except (AccessDenied, TypeError, ValueError) as e:
+        except (AccessDenied, TypeError, ValueError) as e:  # ValueError 에는 PDF 생성 실패도 포함
             output, is_error = f"오류: {e}", True
         log.info("%s → %s%s", self.name, block.name, " (오류)" if is_error else "")
         return {"type": "tool_result", "tool_use_id": block.id, "content": output, "is_error": is_error}
@@ -112,7 +112,7 @@ class Researcher(Agent):
 
     def _submit(self, title: str, summary: str, body: str) -> str:
         r = self.library.submit(self.name, self.round, self.mission, title, summary, body)
-        return f"보고서 {r.report_id}이(가) 중앙 도서관에 등록되었습니다."
+        return f"보고서 {r.report_id}이(가) 중앙 도서관에 등록되었습니다. (PDF: {r.report_id}.pdf 자동 생성)"
 
     def work(self, round_no: int, mission: str) -> None:
         self.round, self.mission = round_no, mission

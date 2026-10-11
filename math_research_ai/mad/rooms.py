@@ -4,6 +4,7 @@
 - 개인 연구실: 주인 연구원만 읽고 쓸 수 있다.
 - 중앙 도서관: 모든 연구원과 오케스트레이터가 읽을 수 있다.
   보고서는 연구원만 제출할 수 있으며, 제출된 보고서는 수정할 수 없다(append-only).
+  모든 보고서는 .md 와 .pdf 가 함께 저장되어야 제출로 인정된다.
 """
 
 from __future__ import annotations
@@ -13,6 +14,9 @@ import threading
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Callable
+
+from .pdf import make_pdf
 
 
 class AccessDenied(PermissionError):
@@ -73,7 +77,9 @@ class Report:
 class CentralLibrary:
     """모든 연구원이 보고서를 제출하고 열람하는 공용 공간."""
 
-    def __init__(self, root: Path, researchers: list[str], orchestrator: str):
+    def __init__(self, root: Path, researchers: list[str], orchestrator: str,
+                 pdf_maker: Callable[[Path, Path], Path] = make_pdf):
+        self.pdf_maker = pdf_maker
         self.dir = root / "library"
         self.dir.mkdir(parents=True, exist_ok=True)
         self.researchers = set(researchers)
@@ -92,8 +98,15 @@ class CentralLibrary:
         with self._lock:
             rid = f"R{round_no:02d}-{who}-{sum(r.author == who for r in self._reports.values()) + 1}"
             report = Report(rid, who, round_no, mission, title, summary, body, status)
+            md = self.dir / f"{rid}.md"
+            md.write_text(report.to_markdown(), encoding="utf-8")
+            # PDF 가 만들어지지 않으면 제출 실패: 보고서는 등록되지 않는다.
+            try:
+                self.pdf_maker(md, md.with_suffix(".pdf"))
+            except Exception as e:
+                md.unlink(missing_ok=True)
+                raise ValueError(f"PDF 생성에 실패해 보고서를 제출하지 못했습니다: {e}") from e
             self._reports[rid] = report
-            (self.dir / f"{rid}.md").write_text(report.to_markdown(), encoding="utf-8")
             (self.dir / "index.json").write_text(
                 json.dumps([asdict(r) for r in self._reports.values()], ensure_ascii=False, indent=2),
                 encoding="utf-8",
