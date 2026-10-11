@@ -22,7 +22,7 @@ def direct_B0_model(G):
     def g(v): return v+n if v<n else v-n
     return 2*n, set(S), g
 
-def sw_height_tuples(nv, simps, g, kmax=8, maxtuples=3_000_000, verbose=True):
+def sw_height_tuples(nv, simps, g, kmax=8, maxtuples=4_000_000, verbose=True):
     eps=[0 if v<g(v) else 1 for v in range(nv)]
     # tuple 열거
     maxdim=max(bin(m).count('1') for m in simps)-1
