@@ -29,5 +29,6 @@
 
 ## 포메이션
 포메이션 정의는 `research/formations/` 에 저장한다 (사용법은 `formations/README.md`).
+- **I** (독립 연구원 3명, 기본형): `formations/I.md` (초안)
 - **T** (연구원·반례꾼·망상꾼, 구 이름 A): `formations/T.md`
 - **N** (삼인 논검): `formations/N.md` (초안)
