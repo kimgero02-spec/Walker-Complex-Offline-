@@ -110,3 +110,29 @@ def Dsigma(n,T,order,m):
 
 if __name__=="__main__":
     pass
+
+def types2(G):
+    """빠른 극대 타입 열거: 클리크 Z, N=공통이웃, Y⊆N, X=N∩cn(Y). 폐포·불교차 조건."""
+    V,idx,nb=nbmasks(G); n=len(V); full=(1<<n)-1
+    def cn(S):
+        r=full
+        for i in bits(S,n): r&=nb[i]
+        return r
+    cliques=[0]
+    for c in nx.enumerate_all_cliques(G):
+        cliques.append(sum(1<<idx[v] for v in c))
+    out=set()
+    for Z in cliques:
+        N=cn(Z) if Z else full
+        Nb=bits(N,n)
+        if len(Nb)>16: raise RuntimeError("공통이웃이 너무 큼")
+        for r in range(len(Nb)+1):
+            for Ys in itertools.combinations(Nb,r):
+                Y=sum(1<<i for i in Ys)
+                X=N&cn(Y) if Y else N
+                if X&Y: continue
+                if X and (N&cn(X))!=Y: continue
+                if not X and Y!=N: continue
+                if not (X|Z) or not (Y|Z): continue
+                out.add((X,Y,Z) if X<=Y else (Y,X,Z))
+    return V,idx,nb,out
