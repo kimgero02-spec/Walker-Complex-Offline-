@@ -8,3 +8,5 @@
 | 4 | Norin–Steiner 의 Lean 저장소(github.com/snorin239/LinearHadwiger) 접속 허용 또는 요지 전달 | 선형 Hadwiger(정리 2) 증명이 AI 생성이라, 형식 검증 여부를 알아야 선형 S1(τ≤C·h)을 [증명]으로 쓸 수 있음 | 있으면 좋음 | 정리 2 를 "미검증 AI 생성 증명"으로만 취급, 선형 S1 은 [증명, NS 의존] 표시 | researcher3 (R02) | 대기 |
 | 5 | Daneshpajouh–Meunier 2023 서베이 (그림 1 의 원 출처) | 사슬의 각 부등식 확인. 단 S3 의 τ 판은 Steiner 4–5쪽 본문이 이미 진술하므로 필요성 낮음 | 있으면 좋음 (낮음) | 논문 본문 진술로 진행 | researcher1 (R02) | 대기 |
 | 6 | Dirac(1952), Mader/Thomassen(Hajós t=4,5), Catlin(1979) 원문 | S4-τ 의 반례 범위 확정. 오케스트레이터 주: Hajós 추측은 t≤4 참, t=5·6 열림, t≥7 거짓(Catlin) [기억-미검증]. 연구원 문장 "t=5 는 Mader/Thomassen" 은 의심스러워 확인 필요 | 있으면 좋음 | [기억-미검증]로 두고 t≤4 만 사용 | researcher1 (R02) | 대기 |
+| 7 | Wagner 분해($K_5$-마이너-자유 = 평면·$V_8$·$\le3$-클리크합)와 "$K_4$-마이너-자유 ⇒ 2-트리 부분그래프" 문헌 쪽 (예: Diestel *Graph Theory* 7장) | 정리 1 의 사실 F [기억-미검증] 확인 | 있으면 좋음 | 사실 F 를 가정으로 표기, 연구원이 Dirac 만으로 증명 시도(R04) | researcher3 (R03) | 대기 |
+| 8 | Matoušek *Using the Borsuk–Ulam Theorem* §5.3, Simonyi–Tardos(2006) | "k-연결 ⇒ coind≥k+1", 지그재그 정리와의 연결 [기억-미검증] 확인 | 있으면 좋음 | [기억-미검증]로 두고 증명 가능한 부분만 사용 | researcher2 (R03) | 대기 |
