@@ -48,11 +48,12 @@ def betti_modp(faces, p):
         if b: out[d] = b
     return out
 
-n, adj = circulant(9, [1,2,3])
-F = neighborhood_complex(n, adj)
-for p in (2, 3, 5, 7):
-    print('p=%d H~(N(C9^3);F_p)' % p, betti_modp(F, p), flush=True)
-V, E, T = complex_parts(n, adj)
-ng, rels = pi1_presentation(V, E, T)
-alive, left = tietze(ng, rels)
-print('pi1(N(C9^3)) Tietze: gens', ng, 'alive', len(alive), 'rels left', len(left), flush=True)
+if __name__ == "__main__":
+    n, adj = circulant(9, [1,2,3])
+    F = neighborhood_complex(n, adj)
+    for p in (2, 3, 5, 7):
+        print('p=%d H~(N(C9^3);F_p)' % p, betti_modp(F, p), flush=True)
+    V, E, T = complex_parts(n, adj)
+    ng, rels = pi1_presentation(V, E, T)
+    alive, left = tietze(ng, rels)
+    print('pi1(N(C9^3)) Tietze: gens', ng, 'alive', len(alive), 'rels left', len(left), flush=True)
