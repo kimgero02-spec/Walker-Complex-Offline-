@@ -196,3 +196,13 @@ S1 (정리 3 경로가 막혔으므로 새 경로가 필요), S2, S4, S5. $\tau\
 - R04-r1 중간: 블로업 $G[K_m]$ 붕괴 정리. $\tau(P[K_m])=2m=\omega$ ($m\ge2$) 이므로 Petersen 블로업은 $\tau>\omega$ 시험대가 아님. 최종본 대기.
 - R04-r1 최종: 블로업 붕괴 정리(정리 3: $m\ge\min(n-\omega+1,\operatorname{zig}+\omega-1)$ ⇒ $\tau(G[K_m])=m\omega$), 삼각형 없는 $G$ 에서 $\tau(G[K_m])=2m$, **$K_{s,s}$-자유 ⇒ $\tau\le2s-1$**(높은 둘레 그래프는 $\tau\le3$), $\tau(C_n^2)=3$ ($n\ge9$, $C_{10}^2$·$C_{11}^2$ 에서 $\tau<\chi$), $\operatorname{zig}=\rho$(선형순서 인증서 최적값). **Petersen 블로업은 $\tau>\omega$ 시험대 탈락.** 오케스트레이터가 $P[K_2]$(60쌍, 임의 순서 3개)와 $C_n^2$ 자연 순서($n=7..12$)를 독립 재확인(`library/R04-orchestrator-verify.md`).
 - R04-r3(망상꾼, 평면 ⇒ $Q_3$) 최종본만 대기.
+
+---
+
+## 문주님 지시 기록 (R04 중): 업로드 논문은 검증하지 않는다
+- 문주님: "내가 준 논문 검증은 하지 말라. 이미 검증된 건데 뭐하러 거기에 시간을 쓰나."
+- 적용 대상: `inbox/` 의 두 논문 — Steiner, *Hadwiger's conjecture and topological bounds* (2312.17130), Norin–Steiner, *A Proof of the Linear Hadwiger Conjecture* (2610.05291).
+- 이후 규칙: 이 두 논문의 **정리·증명은 검증된 결과로 취급해 그대로 인용**한다. 증명 단계 재검증, 오탈자 점검, Lean 저장소 확인, "AI 생성이라 미검증"이라는 단서 붙이기를 하지 않는다. 연구 시간은 우리 문제(τ, S1~S5)의 새 결과에 쓴다.
+- 이전 라운드와의 관계: R04-researcher2 가 Steiner 정리 2 의 증명을 이미 검토했다(결함 없음). 그 결과는 참고로만 남기고 더 확장하지 않는다. STATUS 의 "선형 S1 은 Norin–Steiner 의 AI 생성 증명이라 독립 검증 전" 단서는 철회한다: 선형 S1 ($\tau\le\chi\le Ch$) 은 검증된 논문 결과의 직접 귀결로 [증명, Norin–Steiner 정리 2 인용] 로 표기한다.
+- REQUESTS 4(Lean 저장소)는 불필요해져 철회. 후속연구 지점 중 "Steiner 정리 2 증명 검증과 10–12쪽 읽기"(R03 종합 4번)는 삭제.
+- 연구원 프롬프트(R05 이후)에 "두 논문은 검증하지 말고 인용만 하라"를 넣는다. 이 지시와 충돌하는 CLAUDE.md 조항은 없다(CLAUDE.md 는 수정하지 않았다).
