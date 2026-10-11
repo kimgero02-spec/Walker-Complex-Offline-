@@ -22,12 +22,12 @@ def myc(k):
     for _ in range(k-2): G=nx.convert_node_labels_to_integers(nx.mycielskian(G))
     return G
 
-def analyze(name,G,chi_known=None,use_B=None,sw=True,hmax=40000,swmax=1500000):
+def analyze(name,G,chi_known=None,use_B=None,sw=True,hmax=40000,swmax=300000):
     n=G.number_of_nodes(); t=time.time()
     chi=chi_known if chi_known else chrom(G)
     om=clique_number(G)
     tgt=chi
-    h,ex=hadwiger_number(G,maxnodes=hmax) if n<=16 else (None,False)
+    h,ex=hadwiger_number(G,target=(None if n<=11 else chi),maxnodes=hmax) if n<=16 else (None,False)
     if use_B is None: use_B = n>11
     if use_B:
         _,S=B_simplices(G); k,hk,sc,allb=certified_conn(S); L=k+3   # conn(B0)=conn(B)+1 [기억-미검증]
