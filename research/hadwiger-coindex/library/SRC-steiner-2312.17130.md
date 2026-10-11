@@ -31,3 +31,9 @@ $\chi \ge \operatorname{zig} \ge \operatorname{Xind}(\operatorname{Hom}(K_2,G))+
 
 ## 문주님께 요청 해결 여부
 - REQUESTS #1 (Steiner 원문): 업로드로 **부분 해결** (1–7쪽 읽음). 8–12쪽 읽기 필요.
+
+## 추가 확인 (오케스트레이터, R02): S3 의 τ 판은 논문 본문이 직접 진술
+- 논문 4쪽: "zig(G) is the strongest of all the lower bounds in Figure 1" (그림 1 의 모든 하한 중 zig 가 가장 강하다).
+- 논문 5쪽: 그림 1 의 위상 하한 중 어느 하나라도 값이 $\ge t$ 이면 zig 도 $\ge t$ 이고, 따라서 정리 2 가 큰 홀수 클리크 마이너를 준다는 취지의 문장.
+- 우리 $\tau=\operatorname{coind}(B_0)+1$ 은 그림 1 의 한 칸이다. 따라서 **S3(τ≥t ⇒ 홀수 $K_{\lfloor t/2\rfloor+1}$ 마이너)은 그림 판독뿐 아니라 논문 본문 진술로도 뒷받침된다.** [문헌 확인: Steiner 4–5쪽, 오케스트레이터 직접 판독] 정리 2 의 증명(7쪽 이후)은 직접 읽지 않았다.
+- researcher1 의 요청 "Daneshpajouh–Meunier 서베이"는 이 본문 진술로 필요성이 크게 줄었다(원 사슬의 각 부등식 확인용으로만 남음).
