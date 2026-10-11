@@ -25,3 +25,14 @@
 
 ## 문주님께 요청 해결 여부
 - 이 논문은 문주님이 업로드하셨으므로 REQUESTS 에 새로 올릴 것은 없음. Lean 저장소는 접속이 막혀 있으므로, 필요하면 해당 저장소를 열어 달라고 요청할 수 있음 (`github.com` 허용 여부 확인 필요).
+
+## 읽은 범위 갱신 (오케스트레이터, 5–12쪽 추가)
+- **읽은 범위: 1–12쪽.** 13–41쪽 (Lemma 7·8 증명 본문, 정리 5 부트스트랩, 정리 2 연결, 부록 A 의 Pippenger 가중 정리 증명) 은 아직 읽지 않음.
+- **5쪽 (절 2 시작)**: 정리 4 목표: $h(G)<t$, $v(G)\le t(\log t)^{1/2-\varepsilon}$ 이면 $\chi(G)\le(4+\varepsilon)t$. 핵심 도구는 Reed–Seymour (1998) 분수 선형 Hadwiger: $\chi_f(G)\le 2\,h(G)$ (Theorem 6, 인용).
+- **5–6쪽**: 분수 색칠 LP (P)·(P′)·쌍대 (D) 정의. $\chi$ 와 $\chi_f$ 의 비는 Kneser 그래프에서 $\Theta(\log v)$ 까지 가므로 정수 반올림을 바로 쓸 수 없음 → "$\chi(G)\le\chi_f(G\cup D)+\gamma n$" 꼴의 보조 그래프 $D$ 필요 (Lemma 7).
+- **7쪽 (Lemma 7, Lemma 8 진술)**: Lemma 7: $\alpha(G)\le m$ 이면 그래프 $D$ 가 있어 $\chi(G)\le\chi_f(G\cup D)+\gamma n$, $\Delta(D)\le(600(m+2)/\gamma)^{20m+41}$. Lemma 8: $h(G)<t$, $\alpha(G)\le m$, $\Delta(D)\le d$ 이면 $\chi_f(G\cup D)\le 4t+(d+1)^{4m}$. 정리 4 는 이 둘에서 따라 나옴 (8쪽 증명, 산술 확인: $4+\tfrac{5\varepsilon}{6}$ 와 $\exp(8(\log t)^{1-\varepsilon/2})$ 의 합이 $(4+\varepsilon)t$ 이하) (**[계산 확인] 본문 식 전개와 일치**).
+- **7쪽 (핵심 아이디어, 본문 서술)**: $\chi_f(G\cup D)$ 상계를 $G$ 가 아니라 $G$ 의 **마이너들**에 Reed–Seymour 를 적용해 얻음 (수축된 짝짓기). 이것이 단순 곱 경계 $2t\cdot(e^{\log^{1/2}t}+1)$ 를 피하는 열쇠.
+- **8쪽 (Lemma 7 의 독립 집합 탐욕 분할)**: $\alpha(G')\le(\log t)^{1/2-\varepsilon/2}$ 인 부분그래프 $G'$ 로 줄임. 제거된 독립 집합 개수 $\le v(G)/(\log t)^{1/2-\varepsilon/2}$ 가 $o(t)$ 임을 사용.
+- **10–11쪽 (Theorem 9, 가중 Pippenger)**: $r$-균일 가중 초그래프에서 가중 차수 $\in[1-\mu,1]$, 가중 codegree $\le\mu$ 이면 거의 전체를 덮는 매칭 존재, 잔여 $\le\xi v(\mathcal H)$. 증명은 부록 A (미독).
+- **10–12쪽 (codegree 제어, 핵심 새 아이디어)**: 분수 색칠 쌍대 LP (D-CODEGREE) 에 $\sum_{I\supseteq\{u,v\}} x_I\le\mu$ 제약을 추가. 쌍대에서 $\sum_{uv} z_{uv}\le 1/\mu$ (정점별) 를 얻고, 큰 $z_{uv}$ 인 비간선만 모아 보조 그래프 $D$ 를 만들면 $\Delta(D)$ 가 제한됨. 이것이 Lemma 7 의 증명 구조 (**[증명] 본문 부등식 흐름 확인**).
+- **우리 과제 메모**: 이 논문은 $\chi$ 상계 도구로 $\chi_f$ 를 쓰고, $\tau$ 나 $\mathrm{coind}$ 와는 직접 관계가 없음. 정리 2 (선형 Hadwiger) 증명 골격 중 정리 4 의 **분수화 + 보조 간선 + 가중 매칭** 기법은 $\tau$ 상계를 찾을 때 참고할 가치가 있음 (단, $\tau$ 는 위상 불변량이라 직접 이전은 미검증).

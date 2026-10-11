@@ -37,3 +37,12 @@ $\chi \ge \operatorname{zig} \ge \operatorname{Xind}(\operatorname{Hom}(K_2,G))+
 - 논문 5쪽: 그림 1 의 위상 하한 중 어느 하나라도 값이 $\ge t$ 이면 zig 도 $\ge t$ 이고, 따라서 정리 2 가 큰 홀수 클리크 마이너를 준다는 취지의 문장.
 - 우리 $\tau=\operatorname{coind}(B_0)+1$ 은 그림 1 의 한 칸이다. 따라서 **S3(τ≥t ⇒ 홀수 $K_{\lfloor t/2\rfloor+1}$ 마이너)은 그림 판독뿐 아니라 논문 본문 진술로도 뒷받침된다.** [문헌 확인: Steiner 4–5쪽, 오케스트레이터 직접 판독] 정리 2 의 증명(7쪽 이후)은 직접 읽지 않았다.
 - researcher1 의 요청 "Daneshpajouh–Meunier 서베이"는 이 본문 진술로 필요성이 크게 줄었다(원 사슬의 각 부등식 확인용으로만 남음).
+
+## 읽은 범위 갱신 (오케스트레이터, 8–12쪽 추가)
+- **읽은 범위: 1–12쪽 전체** (참고문헌 [1]–[26] 포함).
+- **8쪽 (정리 3 증명 Case 2 마무리)**: $|M|=k-1$ 인 경우 $T'_1,\dots,T'_k$ 를 단일 정점 트리 포함해 구성하고, 모든 두 트리 사이에 단색 간선이 있음을 보여 홀수 $K_k$-확장을 얻음.
+- **8쪽 (정리 3 간결 증명)**: $\mathcal H$ 가 Kneser 표현, $\mathrm{cd}(\mathcal H)\ge t$, $G=\mathrm{KG}(\mathcal H)$. 극소 $U\subseteq V$ 를 잡아 $\mathcal H-U$ 가 2-색칠 가능, 그러면 $|U|=\mathrm{cd}(\mathcal H)\ge t$ (**[증명]**, 논문 본문 Claim 1).
+- **9쪽 (Claim 2)**: $n_1+n_2\ge t$ 이면 $K_{n_1}+K^*_{n_2,n_2}$ 는 $K_t$ 마이너를 가짐 (**[증명]**, 완전 짝짓기 축약). 이것으로 $\mathrm{cd}\ge t$ 에서 $K_t$ 마이너가 나옴 — **S1 의 Kneser-표현 경로**.
+- **9–11쪽 (정리 4, 홀수 Hadwiger for Schrijver)**: $S(n,k)$ ($n\ge 2k$) 가 홀수 $K_{n-2k+2}$ 확장을 가짐. 증명은 $(k-1)$-부분집합 족 $\mathcal A$ 의 순환 안정성과 색 $c$ 로 $n-2k$ 개의 경로 트리 $T_i$ 를 만들고, 추가 두 단일 정점 트리를 붙임. 그림 2 ($n=14$, $k=4$) 예시 제공. **[증명] (논문 본문, 직접 읽음)**.
+- **12쪽 (참고문헌)**: [3] Daneshpajouh–Meunier (arXiv 2307.00299), [4] Delcourt–Postle (arXiv 2108.01633), [9] Hadwiger 1943, [13] Lovász 1978, [14] Matoušek–Ziegler, [20] Robertson–Seymour–Thomas 1993 (K₆-free), [23] Simonyi–Tardos 2006 (*Combinatorica* 26, 587–626), [26] Wagner 1937 (*Math. Ann.* 114, 570–590). 제목 확인 자료로 쓸 수 있음.
+- 우리 과제 메모: 정리 3 증명은 $\tau$ 판이 아니라 $\mathrm{cd}$ 판. "$\mathrm{cd}\ge t\Rightarrow K_t$ 마이너" 는 Kneser 표현 아래에서만 성립하므로 $\tau$ 로 옮기려면 $\tau\le$ 어떤 지표 관계가 필요 (이전 메모 "$\mathrm{cd}\le\tau$" 와 방향이 맞는지 재확인 필요).
