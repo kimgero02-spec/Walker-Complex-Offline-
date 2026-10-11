@@ -9,7 +9,8 @@ import sys
 from pathlib import Path
 
 root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent
-topics = sorted(p.name for p in root.iterdir() if p.is_dir() and not p.name.startswith((".", "_")))
+# 연구 주제 폴더 = problem.md 가 있는 폴더. (formations/ 같은 공용 폴더는 제외)
+topics = sorted(p.name for p in root.iterdir() if p.is_dir() and (p / "problem.md").exists())
 TEXT = {".md", ".py", ".txt", ".json", ".csv", ".tex"}
 bad = 0
 for t in topics:
