@@ -21,7 +21,7 @@ $\chi \ge \operatorname{zig} \ge \operatorname{Xind}(\operatorname{Hom}(K_2,G))+
 
 ## 우리 과제와의 연결 (오케스트레이터 판단)
 1. **S3 (DK 하한과 τ 의 대소):** 정리 3 은 $\operatorname{cd}(\mathcal H)\ge t \Rightarrow K_t$ 마이너. $\tau$ 와 $\operatorname{cd}$ 의 관계(그림 1 에서 cd 는 coind(B₀)+1 아래에 있음)는 **$\operatorname{cd}\le\tau$** 임을 뜻한다. 따라서 Steiner 정리 3 은 τ 가 아니라 cd 에 대한 결과이고, τ 에 직접 옮겨지지 않는다. [계산 확인 불필요: 그림 1 의 화살표 방향으로부터. 단, 화살표 방향 해석은 한 번 더 검증 필요]
-2. **S1 반례 방향 (정리 2 의 함의):** 정리 2 에 따라 $\operatorname{zig}(G)\ge t$ 인 그래프는 $K_{\lfloor t/2\rfloor+1}$ 홀수 마이너를 가진다. 우리 τ 는 그림 1 에서 zig 보다 **아래**에 있으므로 ($\tau\le\operatorname{zig}$ 의 방향은 그림 1 에서 $\chi\ge\operatorname{zig}$ 와 같은 줄에 있지 않음; 정확한 위치는 8쪽 이후 확인 필요), 정리 2 로부터 τ 가 큰 그래프가 큰 마이너를 가진다는 결론은 **바로 나오지 않는다.** 반례를 찾을 때 zig 가 작은 그래프를 봐야 한다는 점만 확정. `STATUS.md` 의 "$\tau$ 의 마이너 단조성 불명" 과 같은 이유로 막힌다.
+2. **S3 는 τ 에 적용된다 (정정, 오케스트레이터 R02):** 그림 1 의 사슬은 $\chi\ge\operatorname{zig}\ge\operatorname{Xind}(\operatorname{Hom}(K_2,G))+2\ge\operatorname{ind}(B)+2\ge\operatorname{ind}(B_0)+1\ge\operatorname{ch\text{-}ind}_{\mathbb Z_2}(B_0)+1\ge\operatorname{coind}(B_0)+1=\tau(G)$ 이므로 $\tau\le\operatorname{zig}$. 따라서 $\tau(G)\ge t\Rightarrow\operatorname{zig}(G)\ge t\Rightarrow$ (정리 2) 홀수 $K_{\lfloor t/2\rfloor+1}$ 마이너. 즉 **S3 는 τ 에 대해 성립한다.** [문헌 확인: 그림 1(3쪽 이미지를 오케스트레이터가 직접 판독) + 정리 2; 사슬의 각 부등식은 Matoušek–Ziegler / Daneshpajou–Meunier 인용 의존]. 이 항목의 이전 판("바로 나오지 않는다")은 오케스트레이터의 방향 착오였으며 철회한다. 단, 정리 2 의 증명 자체(7쪽 이후)는 직접 읽지 않았다.
 3. **8번 "Kneser/Schrijver 에서 odd Hadwiger 성립"** 은 우리 문제의 "$\tau$ 가 tight 인 족"(STATUS 후속 4번) 후보에 대응. 단, 이는 cd 기준이고 τ 기준이 아님.
 4. 이 논문은 $\operatorname{coind}(B_0)$ 에 대해 **직접 결과를 주지 않는다.** 1–7쪽 기준 coind 를 다룬 정리는 없음. 남은 8–12쪽 확인 필요.
 
