@@ -46,7 +46,11 @@ def assemble(B1rot, B2rot, tubes, rev1, rev2):
             n = len(f)
             for k, v in enumerate(f):
                 prev = f[k - 1]  # 보행에서 v 직전 정점 → 모서리는 rot[v] 에서 prev 바로 다음
-                nb = [e[1 - side] for e in seq if e[side] == v]
+                m = len(seq); k0 = 0
+                for kk in range(m):
+                    if seq[kk - 1][side] != seq[kk][side]: k0 = kk; break
+                sq = seq[k0:] + seq[:k0]
+                nb = [e[1 - side] for e in sq if e[side] == v]
                 if rev: nb = nb[::-1]
                 ins.setdefault((v, prev), []).extend(nb)
     for (v, prev), nb in ins.items():
