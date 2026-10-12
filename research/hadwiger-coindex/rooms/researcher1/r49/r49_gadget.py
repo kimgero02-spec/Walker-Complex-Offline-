@@ -1,6 +1,7 @@
 # R48 gadget: components, essential half G0, and a connected variant (one sheet-internal edge added)
 import networkx as nx, itertools
-exec(open('../../../master/verify_R48_gadget.py').read().split('order=')[0])
+import os; _TOPIC=os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))  # hadwiger-coindex/
+exec(open(os.path.join(_TOPIC,'master','verify_R48_gadget.py')).read().split('order=')[0])
 print("components:",[len(c) for c in nx.connected_components(G)])
 G0=G.subgraph(nx.node_connected_component(G,'v1')).copy()
 print("G0 n,m",G0.number_of_nodes(),G0.number_of_edges(),"contains K6 on v1,v2,v3,p,q,r:",
