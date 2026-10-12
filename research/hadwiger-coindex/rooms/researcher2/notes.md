@@ -10,3 +10,8 @@
 - n1_zig.py: SAT 로 zig<=t 판정(교대 완전이분 패턴 금지). n1_rho.py: 극대 완전이분쌍 + 런 수 (독립 점검). n1_hom.py/n1_poset.py: Hom(K2,G) / B0 의 Z2-poset map -> Q_k (SAT). n1_arclab.py: 호 라벨 보조정리 (SAT). n1_cegar.py: 라벨-순서 CEGAR. n1_homZ.py: 정수 호몰로지(SNF), n1_pi1.py: 단순연결 점검.
 - 결과: zig(C_8^2)=3 (순서 0,1,2,3,6,4,7,5), tau(C_8^2)=3. tau(C_11^3)=5 (omega=4<tau=5<chi>=6): B0 3-연결(정수 호몰로지 0, pi1=1) + 순서 상한 5.
 - B0 의 face poset -> Q_3 은 coC7 에서 UNSAT (tau=3 인데) : B0 poset 지수는 부적절, Hom 이 맞다.
+
+# R48 (색칠 쪽, 리스트 틀)
+- r48/cegar.py: L(v)={5,6}∪M(v) 에서 나쁜 M 을 CEGAR 로 탐색. r48/gadget.py: 간선 xy 사전색칠 가젯 탐색. r48/fb.py: 숲+이분 분할 SAT.
+- 결과: 정이십면체, bipyr5/7, capAP4/5/6 모두 나쁜 M 없음. 정이십면체·K2∨P4 는 (5,6),(5,1),(1,2) 사전색칠 가젯 불가.
+- 핵심 환원: 숲+이분(FB) 분할 ⇒ 모든 M 에서 L-색칠. 삼각분할에서 FB ⇔ 어떤 4-색칠의 Kempe 쌍 하나가 연결 (트리-코트리 쌍대).
