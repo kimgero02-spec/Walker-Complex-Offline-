@@ -20,15 +20,17 @@ def tri_from_flips(n,steps,rng):
     return G
 def cyc_all(G,c):
     return all(not nx.is_forest(G.subgraph([v for v in G if c[v] in p])) for p in itertools.combinations(range(4),2))
-rng=random.Random(1)
-best=None
-for n in range(15,23):
-    for trial in range(60):
-        G=tri_from_flips(n,60,rng)
-        for c in colorings(G):
-            if cyc_all(G,c): best=(n,G,c); break
-        if best: break
-    if best: break
-n,G,c=best
-print(n,sorted(G.edges()),c)
-nx.write_edgelist(G,'small_allcyc.edgelist',data=False)
+if __name__=="__main__":
+  rng=random.Random(1)
+  best=None
+  for n in range(15,23):
+      for trial in range(60):
+          G=tri_from_flips(n,60,rng)
+          for c in colorings(G):
+              if cyc_all(G,c): best=(n,G,c); break
+          if best: break
+      if best: break
+  n,G,c=best
+  print(n,sorted(G.edges()),c)
+  nx.write_edgelist(G,'small_allcyc.edgelist',data=False)
+  
