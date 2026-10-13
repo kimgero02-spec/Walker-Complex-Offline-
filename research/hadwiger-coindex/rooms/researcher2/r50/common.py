@@ -28,6 +28,7 @@ def comp_ok(C, mode):
         for s in C[u]:
             L=1; prev=u; cur=s
             while cur!=w:
+                if cur==u: return False   # dumbbell, not theta
                 nxt=[t for t in C[cur] if t!=prev][0]; prev,cur=cur,nxt; L+=1
             lens.append(L)
         lens.sort(); return lens[0]==2 and lens[1]==2 and lens[2]%2==0

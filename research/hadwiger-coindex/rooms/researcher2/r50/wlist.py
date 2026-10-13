@@ -35,6 +35,7 @@ def block(pre):
     return None,it
 # representatives up to S4 on {1..4} and swap 5<->6
 reps={'SSS':(1,2,3),'SST':(1,2,5),'STS':(1,5,2),'TSS':(5,1,2),'STT':(1,5,6),'TST':(5,1,6),'TTS':(5,6,1)}
-for name,(a,b,c) in reps.items():
-    M,it=block({'x':a,'y':b,'z':c})
+if __name__=="__main__":
+ for name,(a,b,c) in reps.items():
+    M,it=block({"x":a,"y":b,"z":c})
     print(name,(a,b,c),'BLOCKABLE' if M else 'always extends',M if M else '','iters',it)

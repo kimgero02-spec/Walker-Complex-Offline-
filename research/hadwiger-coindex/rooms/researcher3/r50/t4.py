@@ -1,0 +1,15 @@
+from lib import *
+import sympy as sp
+A=nx.Graph(); A.add_edges_from(itertools.combinations('pqrs',2))
+for new,face in (("P","qrs"),("Q","prs"),("R","pqs")): A.add_edges_from((new,f) for f in face)
+G0=A.copy(); U=['v1','v2','v3','v4']; G0.add_edges_from(itertools.combinations(U,2))
+for v in U[:3]: G0.add_edges_from((v,a) for a in 'pqr')
+G0.add_edges_from(('v4',a) for a in 'PQR')
+print("G0 n,m",G0.number_of_nodes(),G0.number_of_edges(),"cross deg max",max(sum(1 for u in G0[v] if (u in U)!=(v in U)) for v in G0))
+P,x=chrom_poly(G0); print("P_G0 =",sp.factor(P))
+rr=[r for r in sp.Poly(P,x).nroots() if abs(sp.im(r))<1e-9]; print("real roots",sorted(float(sp.re(r)) for r in rr))
+# E13 (R49-r1)
+B=nx.Graph(); B.add_edges_from(itertools.combinations('abcs',2))
+for new,face in (('x','abc'),('y','abx'),('z','aby'),('w','abz'),('u','abw')): B.add_edges_from((new,f) for f in face)
+Y=['Y1','Y2','Y3','Y4']; B.add_edges_from(itertools.combinations(Y,2)); B.add_edges_from([('s','Y1'),('x','Y2'),('z','Y3'),('u','Y4')])
+P,x=chrom_poly(B); print("P_E13 =",sp.factor(P)); rr=[r for r in sp.Poly(P,x).nroots() if abs(sp.im(r))<1e-9]; print("real roots",sorted(float(sp.re(r)) for r in rr))
