@@ -14,3 +14,4 @@
 | 10 | Kratochvíl–Tuza–Voigt 의 평면 그래프 리스트 색칠 논문 (제목·내용 기억-미검증) 원문 또는 결론 요약 | R49-r1: 문제 Q (리스트 $[5]\setminus\{f(v)\}$) 를 바로 판정할 수 있을 것 → $(1,d)$ 칸에서 χ=6 실현 여부 결정 | 있으면 좋음 | 연구원이 직접 증명·반례 시도 | 연구원1 (R49) | 대기 |
 | 11 | R49 추측 K 반례 ($G^*$, 46 정점) 가 문헌에 이미 있는지 ("induced forest + bipartite partition" of planar triangulations) | 새 결과인지 확인 | 있으면 좋음 | 팀 결과로 기록 (재검증 완료) | 연구원2 (R49) | 대기 |
 | 12 | 멀리 떨어진 면 (precolored/far-apart faces) 이 있는 평면 그래프의 5-리스트 색칠 논문 (Postle–Thomas 류) | R49-r3 예측 11 (면 덮개수 φ 와 리스트 색칠) 의 정확한 진술 | 있으면 좋음 | 기억 수준 진술로 [기억-미검증] 표기 | 망상꾼 (R49) | 대기 |
+| 13 | Borodin 1-평면 그래프 6-색칠 증명 개요; Pach–Tóth k-평면 간선 상계 (2-평면 5n−10); gap-평면·부채 평면 문헌; 기하 두께 (Dillencourt–Eppstein–Hirschberg, $\bar\theta(K_8)=2,\bar\theta(K_9)=3$) | R51 셀로판 교차 차수 표의 인용 확인, $\mathcal X(1,\infty)$ = 1-평면 여부 | 있으면 좋음 | [기억-미검증] 유지 | 연구원1·망상꾼 (R51) | 대기 |
