@@ -59,7 +59,7 @@ $$\chi(G)=\min_{\pi\in\Pi(U_r)}\ \max\Bigl(\chi_\pi(P_r),\ \max_{c\text{: }r\tex
 $$\chi_\pi(G_\ell)=\max\bigl(\chi_\pi(P_\ell),\ \max_c\chi_{\pi|_{S_{\ell c}}}(G_c)\bigr)$$
 이다. 여기서 $U_\ell$ 은 $G_\ell$ 의 포트 집합으로 쓰기에 충분하다. $G_c$ 의 점이 바깥과 만나는 곳은 $S_{\ell c}\subseteq U_\ell$ 이기 때문이다. 귀납 가정 $\chi_{\cdot}(G_c)=\mu_{c\to\ell}$ 을 넣고, $S_{\ell p}\subseteq U_\ell$ 로 포트를 축소하면 정의식이 나온다. 뿌리에서는 $G_r=G$ 이고 포트를 공집합으로 축소하면 $\chi(G)$ 가 된다. $\square$
 
-**따름 C1 (정리 1 의 회수)** `[증명]`. 모든 조각이 한 집합 $S$ 에서만 만나면, 변 없는 그래프 $(S,\varnothing)$ 를 가운데 조각으로 두는 별 $H$ 로 쓸 수 있다. 잎의 메시지는 $\chi_\sigma(P_k)$ 이고, 가운데 조각의 프로필은 모든 $\pi$ 에서 블록 수 $\le\max$ 이므로 무시된다. 그래서 $\min_\pi\max_k\chi_\pi(P_k)$ 가 된다.
+**따름 C1 (정리 1 의 회수)** `[증명]`. 모든 조각이 $S$ 를 품고 서로 $S$ 에서만 만나면, 변 없는 그래프 $(S,\varnothing)$ 를 가운데 조각으로 두는 별 $H$ 로 쓸 수 있다 ((ND) 성립). 잎의 메시지는 $\chi_\sigma(P_k)$ 이다. 가운데 조각의 프로필 값 $|\pi|$ (블록 수) 는 $S\subseteq V(P_k)$ 라서 $\chi_\pi(P_k)\ge|\pi|$ 이므로 최대에 영향을 주지 않는다. 그래서 $\min_\pi\max_k\chi_\pi(P_k)$ 가 된다.
 
 **수준별 판정 (q 고정)** `[증명: 정리 C 를 다시 씀]`. $F_k(q)=\{\pi\in\Pi(U_k):\chi_\pi(P_k)\le q\}$ 로 둔다. 잎에서 부모로 "허용 집합" $A_{\ell\to p}=\{\pi|_{S_{\ell p}}:\pi\in F_\ell(q),\ \pi|_{S_{\ell c}}\in A_{c\to\ell}\ \forall c\}$ 를 보낸다. $\chi(G)\le q$ 일 필요충분조건은 뿌리에서 이 집합이 비지 않는 것이다. 이것은 분할 격자 위의 나무형 제약 만족 문제이고, $H$ 가 나무이므로 아크 일관성만으로 정확하다.
 
