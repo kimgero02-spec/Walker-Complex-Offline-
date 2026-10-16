@@ -29,3 +29,33 @@ gl2=[(0,0,1,0,1),(1,2,2,0,1),(2,2,0,2,1),(0,4,3,0,1),(3,2,4,0,1),(4,2,0,6,1)]
 per_component(from_polygons(L,gl2),"non-interlaced straight (planar ribbon)")
 from r02 import strip
 per_component(strip(4,1),"prism k=4")
+
+# 봉합 사각형 환원 (정리 U+): b>=2 이면 서로 다른 경계 성분을 잇는 호 e 의 끝점 x1,x2 에서
+# W-변 f1 (x1 에 닿음), f2 (x2 에 닿음) 을 사각형 조각으로 이어 b 를 1 줄인다. 모든 선택을 시도.
+def boundary_info(pieces):
+    cnt={}
+    for _,C in pieces:
+        for x in zip(C,C[1:]+C[:1]): cnt[frozenset(x)]=cnt.get(frozenset(x),0)+1
+    bd=nx.Graph([tuple(k) for k,v in cnt.items() if v==1])
+    comp={v:i for i,c in enumerate(nx.connected_components(bd)) for v in c}
+    return bd,comp
+def reductions(pieces):
+    r=analyze(pieces); bd,comp=boundary_info(pieces); out=[]
+    for (i,j,p,e) in r['arcs']:
+        x1,x2=p[0],p[-1]
+        if comp[x1]==comp[x2]: continue
+        for y1 in bd[x1]:
+            for y2 in bd[x2]:
+                for (a,b,c,d) in [(x1,y1,y2,x2),(x1,y1,x2,y2)]:
+                    C=[a,b,c,d]
+                    if len(set(C))<4: continue
+                    new=pieces+[(list(zip(C,C[1:]+C[:1])),C)]
+                    out.append(new)
+    return out
+def planar_via_reduction(pieces,depth=0):
+    r=analyze(pieces)
+    if r['b']==1: return r['Ibip']
+    return any(planar_via_reduction(nw,depth+1) for nw in reductions(pieces))
+for nm,pc in [("two twisted, interlaced",from_polygons(L,gl3)),("prism k=4",strip(4,1)),("prism k=3",strip(3,1)),
+              ("non-interlaced straight (b=3)",from_polygons(L,gl2))]:
+    r=analyze(pc); print(nm,"b=",r['b'],"환원 판정:",planar_via_reduction(pc),"실제 K planar:",r['Kplanar'])
