@@ -14,10 +14,11 @@ def power_cycle(m, r):
         for d in range(1, r + 1): G.add_edge(i, (i + d) % m)
     return G
 
-for c, ms in ((3, [7, 8, 9, 10, 11]), (4, [12, 13, 14])):
-    for m in ms:
-        s = m % c
-        sign = (-1) ** ((c - 1) * s)   # a c-cycle has sign (-1)^(c-1); shift^s
-        G = power_cycle(m, c - 1)
-        print(f"c={c} C_{m}^{c-1}: shift={s} sign={'+' if sign > 0 else '-'} chi={chi(G)} L={L(G)} predicted L={c if sign > 0 else c + 1}")
-        sys.stdout.flush()
+if __name__ == "__main__":
+    for c, ms in ((3, [7, 8, 9, 10, 11]), (4, [12, 13, 14])):
+        for m in ms:
+          s = m % c
+          sign = (-1) ** ((c - 1) * s)   # a c-cycle has sign (-1)^(c-1); shift^s
+          G = power_cycle(m, c - 1)
+          print(f"c={c} C_{m}^{c-1}: shift={s} sign={'+' if sign > 0 else '-'} chi={chi(G)} L={L(G)} predicted L={c if sign > 0 else c + 1}")
+          sys.stdout.flush()
