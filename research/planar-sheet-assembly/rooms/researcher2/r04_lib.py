@@ -1,9 +1,9 @@
 # R04 researcher2: 평면 E6 시도용 도구
 import itertools, networkx as nx
 
-def col_ok(P, triples, k=4):
+def col_ok(P, triples, k=4, order=None):
     """P 의 k-색칠 중 모든 triple 이 2색 이하인 것이 있으면 하나 반환, 없으면 None."""
-    nodes = sorted(P.nodes(), key=lambda v: -P.degree(v))
+    nodes = order if order else sorted(P.nodes(), key=lambda v: -P.degree(v))
     tri_of = {v: [] for v in nodes}
     for t in triples:
         for v in t: tri_of[v].append(t)
