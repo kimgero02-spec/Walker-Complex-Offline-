@@ -46,9 +46,8 @@ def reductions(pieces):
         if comp[x1]==comp[x2]: continue
         for y1 in bd[x1]:
             for y2 in bd[x2]:
-                for (a,b,c,d) in [(x1,y1,y2,x2),(x1,y1,x2,y2)]:
-                    C=[a,b,c,d]
-                    if len(set(C))<4: continue
+                for C in [[x1,y1,('z',len(out)),y2,x2,('w',len(out))],[x1,y1,('z',len(out)),x2,y2,('w',len(out))]]:
+                    # 새 변은 새 정점으로 세분 (다중변 방지)
                     new=pieces+[(list(zip(C,C[1:]+C[:1])),C)]
                     out.append(new)
     return out
