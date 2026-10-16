@@ -47,7 +47,7 @@ def report(name, L, T):
           f'모든4색에서T단색={mono} | solve 흐름={R.LOG} 출력적정무지개={ok} | 독립판정 5색무지개={ex is not None}')
     return c
 
-print('== (a)(b) G7 ==')
+print('== (a)(b) G7 ==  (주의: LOG 는 후위순서 — 가장 깊은 재귀가 먼저 기록됨)')
 print('차수:', dict(G7.degree()))
 _, emb = nx.check_planarity(G7)
 for v in ('p', 'q', 'r'):
@@ -95,4 +95,4 @@ def antiprism_poles(k):
     return G
 A5 = antiprism_poles(5)
 report('C5 반프리즘+극, T={N,a0,..}', A5, ('N', ('b', 0), ('b', 2)))
-report('C5 반프리즘+극, T=(a0,a2,b3)', A5, (('a', 0), ('a', 2), ('b', 3)))
+report('C5 반프리즘+극, T=(a0,a2,b4)', A5, (('a', 0), ('a', 2), ('b', 4)))
