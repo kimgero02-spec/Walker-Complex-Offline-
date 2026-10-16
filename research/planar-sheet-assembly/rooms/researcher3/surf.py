@@ -356,3 +356,60 @@ def report(name, Mn, verbose=True):
     if verbose:
         print(name, {k: v for k, v in out.items() if not k.startswith("_")})
     return out
+
+# ---------- classes of W-paths (b=1) ----------
+def edge_piece_map(Mn):
+    """frozenset edge -> list of pieces containing it"""
+    d = {}
+    for k in Mn.P:
+        for u, v in Mn.rim_edges(k):
+            d.setdefault(frozenset((u, v)), set()).add(k)
+        for u, v in Mn.inner.get(k, []):
+            d.setdefault(frozenset((u, v)), set()).add(k)
+    return d
+
+def crossing_vector(Mn, cyc, epm):
+    L = len(cyc)
+    pcs = [sorted(epm[frozenset((cyc[t], cyc[(t + 1) % L]))], key=str)[0] for t in range(L)]
+    vec = np.zeros(len(Mn.arcs), dtype=np.uint8)
+    for t in range(L):
+        a, b = pcs[t - 1], pcs[t]
+        if a != b:
+            f = Mn.arc_at(a, cyc[t]); assert f is not None and Mn.arc_at(b, cyc[t]) == f
+            vec[f] ^= 1
+    return vec
+
+def class_type(Mn, cyc, loops, Q, epm):
+    vec = crossing_vector(Mn, cyc, epm)
+    coords = np.array([vec[e] for e in loops], dtype=int)
+    return tuple(int(x) for x in (Q.astype(int) @ coords) % 2)
+
+def wpath_types(Mn, maxlen=8):
+    loops, Q, N, T = Mn.bouquet()
+    W, M = Mn.dual_M(); Wset = set(W); L = len(W); pos = {v: t for t, v in enumerate(W)}
+    epm = edge_piece_map(Mn)
+    G = Mn.G
+    types = {}
+    for s in W:
+        # DFS paths from s with interior off W
+        stack = [(s, [s])]
+        while stack:
+            x, path = stack.pop()
+            for y in G[x]:
+                if y in path:
+                    continue
+                if y in Wset:
+                    if len(path) == 1 and frozenset((s, y)) in {frozenset((W[t], W[(t+1) % L])) for t in range(L)}:
+                        continue
+                    if pos[y] <= pos[s]:
+                        continue
+                    p = path + [y]
+                    t = pos[y]; back = []
+                    while W[t] != s:
+                        t = (t + 1) % L; back.append(W[t])
+                    cyc = p + back[:-1]
+                    ty = class_type(Mn, cyc, loops, Q, epm)
+                    types.setdefault(ty, p)
+                elif len(path) < maxlen:
+                    stack.append((y, path + [y]))
+    return types, N, loops, Q
