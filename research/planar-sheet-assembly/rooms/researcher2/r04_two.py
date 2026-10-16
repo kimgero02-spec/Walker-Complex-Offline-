@@ -18,6 +18,8 @@ def rand_planar(n, dens):
         if not nx.check_planarity(P)[0]: P.remove_edge(u,v)
     return P
 best=None
+if __name__=="__main__":
+  pass
 for it in range(3000):
     n = random.randint(7,int(sys.argv[2]))
     P = rand_planar(n, random.uniform(0.5,1.0))
