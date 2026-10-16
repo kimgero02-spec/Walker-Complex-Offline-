@@ -5,6 +5,7 @@ Bounds: chi >= h(B0)+1 , chi >= h(B)+2 (since ind >= h)."""
 import itertools, networkx as nx
 
 def simplices_B0(G, dmax):
+    G = nx.convert_node_labels_to_integers(G)
     V = sorted(G.nodes()); idx = {v: i for i, v in enumerate(V)}
     adj = {v: set(G[v]) for v in V}
     out = []  # (frozenset A, frozenset B)
@@ -19,6 +20,7 @@ def simplices_B0(G, dmax):
     return out
 
 def simplices_B(G, dmax):
+    G = nx.convert_node_labels_to_integers(G)
     V = set(G.nodes()); adj = {v: set(G[v]) for v in V}
     def CN(S):
         return set(V) if not S else set.intersection(*[adj[a] for a in S])
@@ -115,6 +117,7 @@ def colorable(G, k):
     return bt(0)
 
 def report(name, G, dmax=5):
+    G = nx.convert_node_labels_to_integers(G)
     b0 = h_index(simplices_B0(G, dmax), dmax) + 1
     b = h_index(simplices_B(G, dmax), dmax) + 2
     print(f"{name:40s} n={G.number_of_nodes():2d} chi={chi(G)} L0=h(B0)+1={b0} L=h(B)+2={b}")
