@@ -124,7 +124,7 @@ $$V(\mathfrak M):=V_0\sqcup V_1,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup
 <p><b>보조명제 2.4 (끝점의 성질).</b> $\{w_v,w_{v'}\}\in E_{11}$이면 $v\ne v'$, $\{v,v'\}\in E$, $|C(v)|\ge2$, $|C(v')|\ge2$이다. 따라서 $w_v,w_{v'}\in V_1$이다.</p>
 <p><b>증명.</b> 정의 2.3에 의해 $\{w_v,w_{v'}\}\in E_{11}$이면 $v\ne v'$이고 $\mu(\{v,v'\})\ge2$이다. $\mu(\{v,v'\})\ge2$이면 $\{v,v'\}\in E(P_k)$인 $k$가 적어도 두 개 있다. (D2)에 의해 $\{v,v'\}\in E$이다. $\{v,v'\}\in E(P_k)$이면 $v,v'\in V(P_k)$이므로 $(v,k)\in C(v)$, $(v',k)\in C(v')$이다. 서로 다른 두 $k$에 대해 이것이 성립하므로 $|C(v)|\ge2$, $|C(v')|\ge2$이다. 정의 2.3에 의해 $w_v,w_{v'}\in V_1$이다. $\square$</p>
 <p><b>증명.</b> $\mu(\{v,v'\})\ge2$이면 $\{v,v'\}\in E(P_k)$인 $k\in\{1,\dots,n\}$가 적어도 두 개 있다. (D2)에 의해 $\{v,v'\}\in E$이다. 또 $\{v,v'\}\in E(P_k)$이면 $v,v'\in V(P_k)$이므로 $(v,k)\in C(v)$, $(v',k)\in C(v')$이다. 두 $k$가 있으므로 $|C(v)|\ge2$, $|C(v')|\ge2$이다. $\square$</p>
-<p>$U\mathfrak M:=(V_0\sqcup V_1,\ E_{00}\sqcup E_{01})$를 $\mathfrak M$의 <b>접합 그래프</b>라 한다. 이것은 $\mathfrak M$의 부분그래프이다.</p>
+<p>$\mathfrak M^{-1}:=(V_0\sqcup V_1,\ E_{00}\sqcup E_{01})$를 $\mathfrak M$의 <b>Compression</b>라 한다. 이것은 $\mathfrak M$의 부분그래프이다.</p>
 
 <h3>명제 2.5 (매뉴얼 그래프의 기본 성질)</h3>
 <p>$\mathfrak M=\mathfrak M$에 대해 $N(w):=\{x\in V_0:\ \{x,w\}\in E_{01}\}$ ($w\in V_1$)로 두면 다음이 성립한다.</p>
@@ -142,12 +142,12 @@ $$V(\mathfrak M):=V_0\sqcup V_1,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup
 <h2>제3장 조립과 마이너</h2>
 
 <h3>정의 3.1 (조립)</h3>
-<p>$\mathfrak M=\mathfrak M$에 대해 사상 $\rho:V(\mathfrak M)\to V$를 $\rho(x):=\varphi(x)$ ($x\in V_0$), $\rho(w_v):=v$ ($w_v\in V_1$)로 정의한다. 그래프 $G(\mathfrak M):=(V,\ \{\{\rho(a),\rho(b)\}:\ \{a,b\}\in E(\mathfrak M),\ \rho(a)\ne\rho(b)\})$를 $\mathfrak M$의 <b>조립</b>이라 한다.</p>
-<p>$\rho(a)\ne\rho(b)$를 요구하므로 $G(\mathfrak M)$의 변은 두 점으로 이루어진 집합이다. 따라서 $G(\mathfrak M)$은 그래프이다.</p>
+<p>$\mathfrak M=\mathfrak M$에 대해 사상 $\rho:V(\mathfrak M)\to V$를 $\rho(x):=\varphi(x)$ ($x\in V_0$), $\rho(w_v):=v$ ($w_v\in V_1$)로 정의한다. 그래프 $A(\mathfrak M):=(V,\ \{\{\rho(a),\rho(b)\}:\ \{a,b\}\in E(\mathfrak M),\ \rho(a)\ne\rho(b)\})$를 $\mathfrak M$의 <b>조립</b>이라 한다.</p>
+<p>$\rho(a)\ne\rho(b)$를 요구하므로 $A(\mathfrak M)$의 변은 두 점으로 이루어진 집합이다. 따라서 $A(\mathfrak M)$은 그래프이다.</p>
 
 <h3>정리 3.2 (조립은 $G$이다)</h3>
-<p>$G(\mathfrak M)=G$이다.</p>
-<p><b>증명.</b> $G(\mathfrak M)$의 변 집합을 $F$로 쓴다. $F\subseteq E$와 $E\subseteq F$를 보인다.</p>
+<p>$A(\mathfrak M)=G$이다.</p>
+<p><b>증명.</b> $A(\mathfrak M)$의 변 집합을 $F$로 쓴다. $F\subseteq E$와 $E\subseteq F$를 보인다.</p>
 <p>($F\subseteq E$) $\{a,b\}\in E(\mathfrak M)$이고 $\rho(a)\ne\rho(b)$라 하자. 세 경우를 본다.</p>
 <ul>
 <li>$\{a,b\}\in E_{00}$이면 보조명제 2.2 (3)에 의해 $\{\varphi(a),\varphi(b)\}=\{\rho(a),\rho(b)\}\in E$이다.</li>
@@ -155,7 +155,7 @@ $$V(\mathfrak M):=V_0\sqcup V_1,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup
 <li>$\{a,b\}\in E_{11}$이면 $a=w_v$, $b=w_{v'}$이고 정의 2.3에 의해 $\mu(\{v,v'\})\ge2$이다. 보조명제 2.4에 의해 $\{v,v'\}=\{\rho(a),\rho(b)\}\in E$이다.</li>
 </ul>
 <p>($E\subseteq F$) $\{u,v\}\in E$라 하자. (D2)에 의해 $\{u,v\}\in E(P_k)$인 $k$가 있다. 그러면 $(u,k),(v,k)\in V_0$이고 $\{(u,k),(v,k)\}\in E_{00}$이다. $\rho((u,k))=u\ne v=\rho((v,k))$이므로 $\{u,v\}\in F$이다.</p>
-<p>따라서 $F=E$이고 $G(\mathfrak M)=G$이다. $\square$</p>
+<p>따라서 $F=E$이고 $A(\mathfrak M)=G$이다. $\square$</p>
 
 <h3>정의 3.3 (점 삭제, 간선 삭제, 간선 수축, 마이너)</h3>
 <p>그래프 $X=(V_X,E_X)$에 대해 다음을 정의한다.</p>
@@ -185,10 +185,10 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 </ol>
 <p>$|T'|=m-1$이고 $X'[T']$가 연결이므로 $P(m-1)$에 의해 $X'/T'\preceq X'$이다. 정의 3.3에 의해 $X'=X/e\preceq X$이다. 추이성에 의해 $X/T=X'/T'\preceq X$이다. $\square$</p>
 
-<h3>정리 3.5 ($G$는 접합 그래프의 마이너이다)</h3>
-<p>$G\preceq U\mathfrak M$이다. 또 $U\mathfrak M\preceq\mathfrak M$이므로 추이성에 의해 $G\preceq\mathfrak M$이다. $U\mathfrak M\preceq\mathfrak M$은 $\mathfrak M$에서 변 집합 $E_{11}$의 변들을 삭제하면 $U\mathfrak M$이 되므로 (점 집합은 같다) 성립한다.</p>
+<h3>정리 3.5 ($G$는 Compression의 마이너이다)</h3>
+<p>$G\preceq \mathfrak M^{-1}$이다. 또 $\mathfrak M^{-1}\preceq\mathfrak M$이므로 추이성에 의해 $G\preceq\mathfrak M$이다. $\mathfrak M^{-1}\preceq\mathfrak M$은 $\mathfrak M$에서 변 집합 $E_{11}$의 변들을 삭제하면 $\mathfrak M^{-1}$이 되므로 (점 집합은 같다) 성립한다.</p>
 
-<p><b>증명.</b> $X:=U\mathfrak M=(V_0\sqcup V_1,\ E_{00}\sqcup E_{01})$로 둔다. $\mathcal V:=\{v\in V:|C(v)|\ge2\}$로 둔다. 각 $v\in\mathcal V$에 대해 $T_v:=C(v)\cup\{w_v\}$로 둔다. 다음을 확인한다.</p>
+<p><b>증명.</b> $X:=\mathfrak M^{-1}=(V_0\sqcup V_1,\ E_{00}\sqcup E_{01})$로 둔다. $\mathcal V:=\{v\in V:|C(v)|\ge2\}$로 둔다. 각 $v\in\mathcal V$에 대해 $T_v:=C(v)\cup\{w_v\}$로 둔다. 다음을 확인한다.</p>
 <ul>
 <li>$X[T_v]$는 연결이다. 정의 2.3과 명제 2.5 (4)에 의해 $N(w_v)=C(v)$이므로 $w_v$는 $C(v)$의 모든 점과 $E_{01}$의 변으로 이어져 있다.</li>
 <li>$v\ne v'\in\mathcal V$이면 $T_v\cap T_{v'}=\varnothing$이다. $C(v)\cap C(v')=\varnothing$ (보조명제 2.2 (2)), $w_v\ne w_{v'}$ (정의 2.3), $w_v\notin C(v')$ (왜냐하면 $V_1\cap V_0=\varnothing$)이다.</li>
@@ -244,18 +244,18 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 
 <h2>제6장 평면성과 마이너</h2>
 
-<h3>정리 6.1 (접합 그래프가 평면이면 $G$는 평면이다)</h3>
-<p>$\mathcal D$가 $G$의 평면분해이고 $U\mathfrak M$가 평면 그래프이면 $G$는 평면 그래프이다.</p>
-<p><b>증명.</b> 정리 3.5에 의해 $G\preceq U\mathfrak M$이다. (II)에 의해 $G$는 평면 그래프이다. $\square$</p>
+<h3>정리 6.1 (Compression가 평면이면 $G$는 평면이다)</h3>
+<p>$\mathcal D$가 $G$의 평면분해이고 $\mathfrak M^{-1}$가 평면 그래프이면 $G$는 평면 그래프이다.</p>
+<p><b>증명.</b> 정리 3.5에 의해 $G\preceq \mathfrak M^{-1}$이다. (II)에 의해 $G$는 평면 그래프이다. $\square$</p>
 
 <h3>예 6.2 (역은 성립하지 않는다)</h3>
-<p>예 1.3의 분해 $\mathcal D=(P_1,P_2)$를 생각하자. $G=K_4$는 평면 그래프이다 ((III)). 그러나 $U\mathfrak M$는 평면 그래프가 아니다. 증명은 다음과 같다.</p>
+<p>예 1.3의 분해 $\mathcal D=(P_1,P_2)$를 생각하자. $G=K_4$는 평면 그래프이다 ((III)). 그러나 $\mathfrak M^{-1}$는 평면 그래프가 아니다. 증명은 다음과 같다.</p>
 <p>예 1.3에서 $V(P_1)=V(P_2)=V=\{0,1,2,3\}$이므로 명제 4.2에 의해 $V_1=\{w_0,w_1,w_2,w_3\}$, $C(v)=\{(v,1),(v,2)\}$이다. $E_{00}$의 변은 $\{(u,k),(v,k)\}$ ($\{u,v\}\in E(P_k)$)이다. 다음 여섯 점을 정한다.</p>
 <ul>
 <li>$A_1:=(1,1)$, $A_2:=(2,2)$, $A_3:=(3,2)$.</li>
 <li>$B_1:=(0,2)$, $B_2:=(1,2)$, $B_3:=(3,1)$.</li>
 </ul>
-<p>다음 아홉 경로 $R_1,\dots,R_9$를 정한다. 각 경로의 내부 점은 $\{A_1,A_2,A_3,B_1,B_2,B_3\}$에 속하지 않는다. 각 변이 $U\mathfrak M$의 변임을 괄호에 적는다.</p>
+<p>다음 아홉 경로 $R_1,\dots,R_9$를 정한다. 각 경로의 내부 점은 $\{A_1,A_2,A_3,B_1,B_2,B_3\}$에 속하지 않는다. 각 변이 $\mathfrak M^{-1}$의 변임을 괄호에 적는다.</p>
 <table>
 <tr><th>경로</th><th>점열</th><th>각 변의 근거</th></tr>
 <tr><td>$R_1$: $A_1$–$B_1$</td><td>$(1,1),\ (0,1),\ w_0,\ (0,2)$</td><td>$\{(1,1),(0,1)\}\in E_{00}$ (는 $\{1,0\}\in E(P_1)$), $\{(0,1),w_0\}\in E_{01}$, $\{w_0,(0,2)\}\in E_{01}$</td></tr>
@@ -268,10 +268,10 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <tr><td>$R_8$: $A_3$–$B_2$</td><td>$(3,2),\ (1,2)$</td><td>$\{(3,2),(1,2)\}\in E_{00}$ (는 $\{3,1\}\in E(P_2)$)</td></tr>
 <tr><td>$R_9$: $A_3$–$B_3$</td><td>$(3,2),\ w_3,\ (3,1)$</td><td>$\{(3,2),w_3\}\in E_{01}$, $\{w_3,(3,1)\}\in E_{01}$</td></tr>
 </table>
-<p>$H$를 아홉 경로 $R_1,\dots,R_9$의 합집합으로 정의한다. 내부 점은 $(0,1)$, $w_0$, $w_1$, $w_2$, $(2,1)$, $w_3$이다. 이들은 서로 다르고 여섯 분기점과도 다르므로 아홉 경로는 내부 점을 공유하지 않는다. 각 경로의 변은 위 표에서 $U\mathfrak M$의 변이므로 $H\subseteq U\mathfrak M$이다.</p>
-<p><b>$H$에서 $K_{3,3}$ 얻기.</b> 각 $i$에 대해 경로 $R_i$의 내부 점 집합을 $I_i$라 하자. $|I_i|$는 $R_1,R_6,R_2,R_9$에 대해 $2,2,1,1$이고, 나머지 다섯 경로에 대해 $0$이다 (표 참조). 아래 방식으로 내부 점을 하나씩 제거한다. 한 내부 점 $x$를 제거할 때는 $x$와 인접한 점 $y$에 대해 변 $\{x,y\}$를 수축한다. 이렇게 하면 $x$는 $y$에 합쳐지고, $x$를 지나던 경로는 한 변 짧아진다. 이 조작은 정의 3.3의 변 수축이다. 내부 점 $(0,1)$, $w_0$ (경로 $R_1$), $w_1$ ($R_2$), $w_2$, $(2,1)$ ($R_6$), $w_3$ ($R_9$)은 각각 한 번의 수축으로 없어진다. 내부 점은 모두 여섯 개이고, 경로 $R_1$, $R_6$은 내부 점을 두 개씩 가진다. 수축 후 각 경로는 변 하나가 되고, 그 변의 양 끝은 $A_i$와 $B_j$이다. 그러면 남는 점은 $A_1,A_2,A_3,B_1,B_2,B_3$이고, 변은 $A_iB_j$ ($1\le i,j\le3$) 아홉 개이다. 이것은 $K_{3,3}$이다. 따라서 $K_{3,3}\preceq H\subseteq U\mathfrak M$이다 (부분그래프는 마이너이고 추이성을 쓴다).</p>
-<p><b>결론.</b> $U\mathfrak M$가 평면 그래프라 가정하자. $K_{3,3}\preceq U\mathfrak M$이므로 (II)에 의해 $K_{3,3}$은 평면 그래프이다. 그러나 $K_{3,3}$은 $|V|=6$, $|E|=9$이고 길이 3인 사이클을 갖지 않는다. 실제로 $K_{3,3}$의 두 점집합 $\{a_1,a_2,a_3\}$, $\{b_1,b_2,b_3\}$의 모든 변은 한 집합의 점과 다른 집합의 점을 잇는다. 길이 3인 사이클은 홀수 길이이므로 두 집합을 번갈아 지나는 것이 불가능하다. 따라서 $K_{3,3}$의 모든 사이클은 짝수 길이이고 길이 3인 사이클은 없다. 인용 (I)에 의해 $K_{3,3}$이 평면 그래프라면 $9\le2\cdot6-4=8$이어야 하므로 모순이다. 따라서 $U\mathfrak M$은 평면 그래프가 아니다. $\square$</p>
-<p>이 예에서 $G=K_4$는 평면이지만 접합 그래프는 평면이 아니다. 따라서 정리 6.1의 역은 성립하지 않는다.</p>
+<p>$H$를 아홉 경로 $R_1,\dots,R_9$의 합집합으로 정의한다. 내부 점은 $(0,1)$, $w_0$, $w_1$, $w_2$, $(2,1)$, $w_3$이다. 이들은 서로 다르고 여섯 분기점과도 다르므로 아홉 경로는 내부 점을 공유하지 않는다. 각 경로의 변은 위 표에서 $\mathfrak M^{-1}$의 변이므로 $H\subseteq \mathfrak M^{-1}$이다.</p>
+<p><b>$H$에서 $K_{3,3}$ 얻기.</b> 각 $i$에 대해 경로 $R_i$의 내부 점 집합을 $I_i$라 하자. $|I_i|$는 $R_1,R_6,R_2,R_9$에 대해 $2,2,1,1$이고, 나머지 다섯 경로에 대해 $0$이다 (표 참조). 아래 방식으로 내부 점을 하나씩 제거한다. 한 내부 점 $x$를 제거할 때는 $x$와 인접한 점 $y$에 대해 변 $\{x,y\}$를 수축한다. 이렇게 하면 $x$는 $y$에 합쳐지고, $x$를 지나던 경로는 한 변 짧아진다. 이 조작은 정의 3.3의 변 수축이다. 내부 점 $(0,1)$, $w_0$ (경로 $R_1$), $w_1$ ($R_2$), $w_2$, $(2,1)$ ($R_6$), $w_3$ ($R_9$)은 각각 한 번의 수축으로 없어진다. 내부 점은 모두 여섯 개이고, 경로 $R_1$, $R_6$은 내부 점을 두 개씩 가진다. 수축 후 각 경로는 변 하나가 되고, 그 변의 양 끝은 $A_i$와 $B_j$이다. 그러면 남는 점은 $A_1,A_2,A_3,B_1,B_2,B_3$이고, 변은 $A_iB_j$ ($1\le i,j\le3$) 아홉 개이다. 이것은 $K_{3,3}$이다. 따라서 $K_{3,3}\preceq H\subseteq \mathfrak M^{-1}$이다 (부분그래프는 마이너이고 추이성을 쓴다).</p>
+<p><b>결론.</b> $\mathfrak M^{-1}$가 평면 그래프라 가정하자. $K_{3,3}\preceq \mathfrak M^{-1}$이므로 (II)에 의해 $K_{3,3}$은 평면 그래프이다. 그러나 $K_{3,3}$은 $|V|=6$, $|E|=9$이고 길이 3인 사이클을 갖지 않는다. 실제로 $K_{3,3}$의 두 점집합 $\{a_1,a_2,a_3\}$, $\{b_1,b_2,b_3\}$의 모든 변은 한 집합의 점과 다른 집합의 점을 잇는다. 길이 3인 사이클은 홀수 길이이므로 두 집합을 번갈아 지나는 것이 불가능하다. 따라서 $K_{3,3}$의 모든 사이클은 짝수 길이이고 길이 3인 사이클은 없다. 인용 (I)에 의해 $K_{3,3}$이 평면 그래프라면 $9\le2\cdot6-4=8$이어야 하므로 모순이다. 따라서 $\mathfrak M^{-1}$은 평면 그래프가 아니다. $\square$</p>
+<p>이 예에서 $G=K_4$는 평면이지만 Compression는 평면이 아니다. 따라서 정리 6.1의 역은 성립하지 않는다.</p>
 
 <h2>제7장 색칠수는 마이너에 대해 단조가 아니다</h2>
 
@@ -315,8 +315,8 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <p>따라서 $G$가 같아도 $\mathfrak M$은 다르다. $E_{11}$은 $G$의 함수가 아니다.</p>
 
 <h3>명제 8.5 (매뉴얼 그래프에서 조립으로 가는 사상)</h3>
-<p>$\mathfrak M$을 점집합 $V(\mathfrak M)$과 변집합 $E(\mathfrak M)$을 갖는 그래프로 보자. 정의 3.1의 $\rho:V(\mathfrak M)\to V$는 $\mathbf{RG}$의 사상 $\rho:\mathfrak M\to G(\mathfrak M)$이다.</p>
-<p><b>증명.</b> $\{a,b\}\in E(\mathfrak M)$이고 $\rho(a)\ne\rho(b)$라 하자. 정의 3.1에 의해 $\{\rho(a),\rho(b)\}$는 $G(\mathfrak M)$의 변이다. 따라서 $\rho$는 사상이다 ($\rho(a)=\rho(b)$인 경우는 정의상 허용된다). $\square$</p>
+<p>$\mathfrak M$을 점집합 $V(\mathfrak M)$과 변집합 $E(\mathfrak M)$을 갖는 그래프로 보자. 정의 3.1의 $\rho:V(\mathfrak M)\to V$는 $\mathbf{RG}$의 사상 $\rho:\mathfrak M\to A(\mathfrak M)$이다.</p>
+<p><b>증명.</b> $\{a,b\}\in E(\mathfrak M)$이고 $\rho(a)\ne\rho(b)$라 하자. 정의 3.1에 의해 $\{\rho(a),\rho(b)\}$는 $A(\mathfrak M)$의 변이다. 따라서 $\rho$는 사상이다 ($\rho(a)=\rho(b)$인 경우는 정의상 허용된다). $\square$</p>
 
 <h2>부록: 기호 목록</h2>
 <table>
@@ -325,8 +325,8 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <tr><td>$\mathcal D=(P_1,\dots,P_n)$, $P_k=(V(P_k),E(P_k))$</td><td>평면분해, 정의 1.1</td></tr>
 <tr><td>$V_0$, $E_{00}$, $\varphi$, $C(v)$</td><td>복사점, 정의 2.1</td></tr>
 <tr><td>$V_1$, $E_{01}$, $\mu$, $E_{11}$</td><td>흰 점, 포트 변, 조각 중복도, 파생 흰 변, 정의 2.3</td></tr>
-<tr><td>$\mathfrak M$, $U\mathfrak M$</td><td>매뉴얼 그래프, 접합 그래프, 정의 2.3</td></tr>
-<tr><td>$\rho$, $G(\mathfrak M)$</td><td>조립, 정의 3.1</td></tr>
+<tr><td>$\mathfrak M$, $\mathfrak M^{-1}$</td><td>매뉴얼 그래프, Compression, 정의 2.3</td></tr>
+<tr><td>$\rho$, $A(\mathfrak M)$</td><td>조립, 정의 3.1</td></tr>
 <tr><td>$X/T$, $\preceq$</td><td>연결 집합 수축과 마이너, 정의 3.3</td></tr>
 <tr><td>$\chi(G)$</td><td>색칠수, 정의 7.1</td></tr>
 <tr><td>$\mathbf{RG}$</td><td>반사 그래프의 범주, 정의 8.1</td></tr>
