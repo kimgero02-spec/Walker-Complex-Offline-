@@ -220,7 +220,7 @@ $T=\{a,b\}$이고 $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>
 
 <h3>보조명제 3.4 (연결 집합의 수축)</h3>
 <p>모든 그래프 $X=(V_X,E_X)$와 모든 $\varnothing\ne T\subseteq V_X$에 대해, $X[T]:=(T,\{f\in E_X:\ f\subseteq T\})$가 연결이면 $X/T\preceq X$이다. 여기서 수축점은 $V_X$ 밖의 기호 $z$이다.</p>
-<p><b>증명.</b> 다음 기존 정리를 쓴다. <b>마이너 모형 정리</b> (Diestel, <i>Graph Theory</i>, 2판 §1.7과 §8.2 [기억-미검증]): 그래프 $H$가 $X$의 마이너인 것은, $X$의 서로소인 부분집합들 $B_h\subseteq V_X$ ($h\in V_H$)가 있어 (i) 각 $X[B_h]$가 연결이고, (ii) $\{h,h'\}\in E_H$이면 $B_h$와 $B_{h'}$ 사이에 $X$의 변이 있는 것과 동치이다.</p>
+<p><b>증명.</b> 다음 기존 정리를 쓴다. <b>마이너 모형 정리</b> (Diestel, <i>Graph Theory</i>, 5판(2017) §1.7; 이 책의 branch set 표기는 §12.3의 Lemma 12.3.3에서 "$G=IH$ with branch sets $U_h$"로 쓰인다. §1.7의 정확한 명제 번호는 아직 확인하지 못했다 [기억-미검증]): 그래프 $H$가 $X$의 마이너인 것은, $X$의 서로소인 부분집합들 $B_h\subseteq V_X$ ($h\in V_H$)가 있어 (i) 각 $X[B_h]$가 연결이고, (ii) $\{h,h'\}\in E_H$이면 $B_h$와 $B_{h'}$ 사이에 $X$의 변이 있는 것과 동치이다.</p>
 <p>$H:=X/T$에 대해 이 정리를 적용한다. $B_z:=T$, $x\in V_X\setminus T$에 대해 $B_x:=\{x\}$로 둔다. 이들은 서로소이다. $X[T]$는 연결이고 $X[\{x\}]$는 자명하게 연결이므로 (i)이 성립한다. $X/T$의 변은 $\{\rho_T a,\rho_T b\}$ ($\{a,b\}\in E_X$, $\rho_T a\ne\rho_T b$)의 꼴이고, $a\in B_{\rho_T a}$, $b\in B_{\rho_T b}$이며 $\{a,b\}$는 $X$의 변이므로 (ii)가 성립한다. 따라서 마이너 모형 정리에 의해 $X/T\preceq X$이다. $\square$</p>
 
 <h3>보조명제 3.5 (연속 수축)</h3>
