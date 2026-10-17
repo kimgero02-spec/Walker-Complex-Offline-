@@ -1,0 +1,1 @@
+{"name": "KG(6,2)", "n": 15, "m": 45, "chi": 4, "omega": 3, "h": 4, "h_exact": true, "L": 4, "U": 4, "sw": null, "useB": true, "sc": true, "hk": 1, "betti2": {"2": 19}, "secs": 3.4}

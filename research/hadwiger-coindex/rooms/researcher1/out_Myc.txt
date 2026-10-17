@@ -1,0 +1,2 @@
+{"name": "Grotzsch=M4", "n": 11, "m": 20, "chi": 4, "omega": 2, "h": 6, "h_exact": true, "L": 4, "U": 4, "sw": [3, 5, 132, 6304], "useB": false, "sc": true, "hk": 2, "betti2": {"3": 1}, "secs": 5.0}
+{"name": "M5", "n": 23, "m": 71, "chi": 5, "omega": 2, "h": null, "h_exact": false, "L": 5, "U": 5, "sw": null, "useB": true, "sc": true, "hk": 2, "betti2": {"3": 1}, "secs": 73.6}
