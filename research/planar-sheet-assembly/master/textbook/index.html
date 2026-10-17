@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <p>$G=(V,E)$를 그래프라 하자. 그래프들의 순서쌍 $(P_1,\dots,P_n)$ ($n\in\mathbb N$, $P_k=(V(P_k),E(P_k))$)이 $G$의 <b>평면분해</b>라는 것은 다음 두 조건이 성립하는 것이다.</p>
 <ul>
 <li>(D1) 각 $k\in[n]$에 대해 $P_k$는 평면 그래프이다.</li>
-<li>(D2) 등식 $G=P_1+\cdots+P_n$이 성립한다. 여기서 두 그래프의 합은 $(V(P_1),E(P_1))+(V(P_2),E(P_2)):=(V(P_1)\cup V(P_2),\ E(P_1)\cup E(P_2))$이고, 세 개 이상의 합은 차례로 정의한다. 즉 $V=V(P_1)\cup\cdots\cup V_n$이고 $E=E(P_1)\cup\cdots\cup E_n$이다.</li>
+<li>(D2) 등식 $G=P_1+\cdots+P_n$이 성립한다. 여기서 두 그래프의 합은 $(V(P_1),E(P_1))+(V(P_2),E(P_2)):=(V(P_1)\cup V(P_2),\ E(P_1)\cup E(P_2))$이고, 세 개 이상의 합은 차례로 정의한다. 즉 $V=V(P_1)\cup\cdots\cup V(P_n)$이고 $E=E(P_1)\cup\cdots\cup E(P_n)$이다.</li>
 </ul>
 <p>등식 (D2)에서 $V(P_k)\subseteq V$, $E(P_k)\subseteq E$가 따른다. 여기서 $V(P_k)$는 조각 $P_k$의 점집합, $E(P_k)$는 조각 $P_k$의 변집합이다. 또 $P_k$의 점과 변은 $G$의 점과 변이므로 $E(P_k)\subseteq\binom{V(P_k)}2$이다. 평면분해를 이렇게 등식으로 지칭하는 것이 이 책의 정의이다. 따라서 평면분해는 "$G=P_1+\cdots+P_n$을 만족하는 평면 그래프들의 순서쌍"이다.</p>
 <p>각 $P_k$를 평면분해의 <b>조각</b>이라 한다. 두 조각은 점이나 변을 공유할 수 있다. 즉 $k\ne l$에 대해 $V(P_k)\cap V(P_l)\ne\varnothing$이거나 $E(P_k)\cap E(P_l)\ne\varnothing$일 수 있다. 같은 그래프가 두 번 나와도 순서쌍에서는 서로 다른 두 조각이다.</p>
@@ -124,7 +124,6 @@ $$V(\mathfrak M):=V_0\sqcup V_1,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup
 <p>이 합집합들이 서로소인 이유는 다음과 같다. $V_0\cap V_1=\varnothing$이다. $E_{00}$의 원소는 $V_0$의 두 점으로, $E_{01}$의 원소는 $V_0$의 점과 $V_1$의 점으로, $E_{11}$의 원소는 $V_1$의 두 점으로 이루어진다. 따라서 세 집합의 원소는 같을 수 없다.</p>
 <p><b>보조명제 2.4 (끝점의 성질).</b> $\{w_v,w_{v'}\}\in E_{11}$이면 $v\ne v'$, $\{v,v'\}\in E$, $|C(v)|\ge2$, $|C(v')|\ge2$이다. 따라서 $w_v,w_{v'}\in V_1$이다.</p>
 <p><b>증명.</b> 정의 2.3에 의해 $\{w_v,w_{v'}\}\in E_{11}$이면 $v\ne v'$이고 $\mu(\{v,v'\})\ge2$이다. $\mu(\{v,v'\})\ge2$이면 $\{v,v'\}\in E(P_k)$인 $k$가 적어도 두 개 있다. (D2)에 의해 $\{v,v'\}\in E$이다. $\{v,v'\}\in E(P_k)$이면 $v,v'\in V(P_k)$이므로 $(v,k)\in C(v)$, $(v',k)\in C(v')$이다. 서로 다른 두 $k$에 대해 이것이 성립하므로 $|C(v)|\ge2$, $|C(v')|\ge2$이다. 정의 2.3에 의해 $w_v,w_{v'}\in V_1$이다. $\square$</p>
-<p><b>증명.</b> $\mu(\{v,v'\})\ge2$이면 $\{v,v'\}\in E(P_k)$인 $k\in[n]$가 적어도 두 개 있다. (D2)에 의해 $\{v,v'\}\in E$이다. 또 $\{v,v'\}\in E(P_k)$이면 $v,v'\in V(P_k)$이므로 $(v,k)\in C(v)$, $(v',k)\in C(v')$이다. 두 $k$가 있으므로 $|C(v)|\ge2$, $|C(v')|\ge2$이다. $\square$</p>
 <p>$\mathfrak M^{-1}:=(V_0\sqcup V_1,\ E_{00}\sqcup E_{01})$를 $\mathfrak M$의 <b>Compression</b>라 한다. 이것은 $\mathfrak M$의 부분그래프이다.</p>
 
 <h3>명제 2.5 (매뉴얼 그래프의 기본 성질)</h3>
@@ -170,33 +169,71 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <p>그래프 $H$가 $X$의 <b>마이너</b>라는 것은 $X$에 점 삭제, 변 삭제, 변 수축을 유한 번 (순서대로) 적용하여 얻은 그래프가 $H$와 동형인 것이다. 이것을 $H\preceq X$로 쓴다. 정의에 의해 다음이 성립한다.</p>
 <ul>
 <li>$X\preceq X$ (0번 적용).</li>
-<li>추이성: $H\preceq X$, $X\preceq Y$이면 $H\preceq Y$ (두 적용열을 이어 붙인다).</li>
+<li>추이성: $H\preceq X$, $X\preceq Y$이면 $H\preceq Y$이다. 실제로 $X\preceq Y$의 적용열 결과를 $R$이라 하고 $\sigma:X\to R$을 동형이라 하자. $H\preceq X$의 적용열을 $\sigma$를 따라 옮기면 (점과 변을 $\sigma$로 옮기고 수축점은 $R$ 쪽의 새 기호로 바꾼다) $H$와 동형인 $R$ 위의 적용열 결과를 얻는다. 점 삭제, 변 삭제, 수축은 동형 사상으로 보존되기 때문이다. 그러므로 두 적용열을 이어 붙여 $H\preceq Y$를 얻는다.</li>
 <li>동형 불변: $H\cong H'$이고 $H\preceq X$이면 $H'\preceq X$ (동형 사상으로 옮긴다).</li>
 </ul>
 
 <h3>보조명제 3.4 (연결 집합의 수축)</h3>
-<p>모든 그래프 $X=(V_X,E_X)$와 모든 $\varnothing\ne T\subseteq V_X$에 대해, $X[T]:=(T,\{f\in E_X:\ f\subseteq T\})$가 연결이면 $X/T\preceq X$이다.</p>
-<p><b>증명.</b> 점 $|T|$에 대한 귀납법으로 증명한다. 명제 $P(m)$은 "$|T|=m$인 모든 그래프 $X$와 모든 연결 집합 $T$에 대해 $X/T\preceq X$이다"이다.</p>
-<p>$m=1$이면 $T=\{t\}$이고 $\rho_T$는 $t$를 $z$로 보내는 단사 (점 이름 바꿈)이므로 $X/T\cong X$이다. 따라서 $X/T\preceq X$이다.</p>
-<p>$m\ge2$이고 $P(m-1)$이 성립한다고 가정한다. $X[T]$는 연결이고 점이 두 개 이상이므로, 어떤 변 $e=\{a,b\}\in E_X$가 $a,b\in T$를 만족한다. $X':=X/e$로 두고 $z_e$를 $X/e$의 수축점으로 쓴다. $T':=(T\setminus\{a,b\})\sqcup\{z_e\}\subseteq V_{X'}$로 둔다. 다음을 보인다.</p>
+<p>모든 그래프 $X=(V_X,E_X)$와 모든 $\varnothing\ne T\subseteq V_X$에 대해, $X[T]:=(T,\{f\in E_X:\ f\subseteq T\})$가 연결이면 $X/T\preceq X$이다. 여기서 수축점 $z$는 $V_X$ 밖의 기호이다.</p>
+<p><b>증명.</b> $|T|=m$에 대한 귀납법으로 다음 명제 $P(m)$을 보인다. $P(m)$: 모든 그래프 $X$, 모든 $z\notin V_X$, 그리고 $|T|=m$이고 $X[T]$가 연결인 모든 $T\subseteq V_X$에 대해 $X/T\preceq X$이다.</p>
+<p>먼저 두 가지 사실을 준비한다. $e=\{a,b\}\in E_X$이고 $a,b\in T$라 하자. $z_e\notin V_X\cup\{z\}$를 새 기호로 두고 $X':=X/e$ (수축점 $z_e$), $\rho_e:=\rho_{\{a,b\}}:V_X\to V_{X'}$, $T':=(T\setminus\{a,b\})\sqcup\{z_e\}$로 둔다. $|T'|=|T|-1$이다.</p>
 <ol>
-<li>$\rho_{T'}\circ\rho_e=\rho_T$ (단 $\rho_e:=\rho_{\{a,b\}}$). $x\in T$이면 $\rho_e(x)\in T'$ (왜냐하면 $x\in\{a,b\}$이면 $\rho_e(x)=z_e$, 아니면 $\rho_e(x)=x\in T\setminus\{a,b\}$)이므로 $\rho_{T'}(\rho_e(x))=z$이다. $x\notin T$이면 $x\notin\{a,b\}$이므로 $\rho_e(x)=x\notin T'$이고 $\rho_{T'}(\rho_e(x))=x$이다. 두 경우 모두 $\rho_T(x)$와 같다.</li>
-<li>$X'[T']$는 연결이다. $\rho_e$는 $X[T]$의 점 집합을 $T'$ 위로 전사적으로 보낸다. $X[T]$의 임의의 두 점은 $X[T]$의 경로로 이어지고, 그 경로의 각 변은 $\rho_e$에 의해 $X'[T']$의 변 또는 한 점이 되므로 $X'[T']$에서 이어진다. 따라서 $X'[T']$는 연결이다.</li>
-<li>$X'/T'\cong X/T$ (점 이름을 $z_e$와 $z$의 대응으로 바꾸면 점 집합과 변 집합이 일치한다). 점 집합: 두 그래프의 점 집합은 모두 $(V_X\setminus T)\sqcup\{z\}$이다 (수축점 $z_e$와 $z$를 같은 기호로 본다). 변 집합: $X'/T'$의 변은 $\{\rho_{T'}(p),\rho_{T'}(q)\}$ ($\{p,q\}\in E_{X'}$, $\rho_{T'}(p)\ne\rho_{T'}(q)$)이고, $E_{X'}=\{\{\rho_e(a),\rho_e(b)\}:\{a,b\}\in E_X,\ \rho_e(a)\ne\rho_e(b)\}$이다. 따라서 $X'/T'$의 변 집합은 $\{\{\rho_{T'}\rho_e(a),\rho_{T'}\rho_e(b)\}:\ \{a,b\}\in E_X,\ \rho_e(a)\ne\rho_e(b),\ \rho_{T'}\rho_e(a)\ne\rho_{T'}\rho_e(b)\}$이다. 이것을 1에 의해 $\rho_T$로 고치면 $\{\{\rho_T(a),\rho_T(b)\}:\{a,b\}\in E_X,\ \rho_T(a)\ne\rho_T(b)\}$가 된다. 두 번째 조건에서 $\rho_e(a)\ne\rho_e(b)$는 $\{a,b\}\ne e$이거나 $\{a,b\}=e$의 경우를 제외하는데, $\{a,b\}=e$이면 $\rho_T(a)=\rho_T(b)=z$이므로 $X/T$에서도 제외된다. 따라서 두 변 집합은 같다.</li>
+<li>(i) $\rho_e(T)=T'$이고, 모든 $x\in V_X$에 대해 $\rho_{T'}(\rho_e(x))=\rho_T(x)$이다. 여기서 $\rho_{T'}$는 $X'$에서 수축점 $z$로 정의한 사상이다. 실제로 $x\in\{a,b\}$이면 $\rho_e(x)=z_e\in T'$이므로 두 값은 모두 $z$이다. $x\in T\setminus\{a,b\}$이면 $\rho_e(x)=x\in T'$이므로 두 값은 모두 $z$이다. $x\notin T$이면 $x\notin\{a,b\}$이고 $x\ne z_e$이므로 $\rho_e(x)=x\notin T'$이고, 두 값은 모두 $x$이다.</li>
+<li>(ii) $X'[T']$는 연결이다. 실제로 $T'$의 두 점은 $\rho_e(\tilde x)$, $\rho_e(\tilde y)$ ($\tilde x,\tilde y\in T$)의 꼴이다. $X[T]$의 경로 $\tilde x=p_0,p_1,\dots,p_s=\tilde y$ ($p_i\in T$)를 잡고 $q_i:=\rho_e(p_i)\in T'$로 두면, $q_{i-1}\ne q_i$인 각 $i$에 대해 $\{p_{i-1},p_i\}\in E_X$이고 $\rho_e(p_{i-1})\ne\rho_e(p_i)$이므로 $\{q_{i-1},q_i\}\in E_{X'}$, 따라서 $\{q_{i-1},q_i\}\in E_{X'[T']}$이다. $q_{i-1}=q_i$인 $i$는 생략하면 $\tilde x$와 $\tilde y$의 상 사이에 $X'[T']$의 걷기가 있다.</li>
 </ol>
-<p>$|T'|=m-1$이고 $X'[T']$가 연결이므로 $P(m-1)$에 의해 $X'/T'\preceq X'$이다. 정의 3.3에 의해 $X'=X/e\preceq X$이다. 추이성에 의해 $X/T=X'/T'\preceq X$이다. $\square$</p>
+<p>$m=1$이면 $T=\{t\}$이다. $\rho_T$는 $t$만 $z$로 보내는 전단사이고, $\{a,b\}\in E_X$이면 $a\ne b$이므로 $\rho_T(a)\ne\rho_T(b)$이다. 따라서 $\rho_T$는 $X$와 $X/T$ 사이의 동형 사상이고 $X/T\cong X$이다. $X\preceq X$와 (T3)에 의해 $X/T\preceq X$이다.</p>
+<p>$m\ge2$이고 $P(m-1)$이 성립한다고 하자. $X[T]$는 연결이고 $|T|\ge2$이므로 $T$의 서로 다른 두 점 사이의 $X[T]$ 경로의 첫 변 $e=\{a,b\}$는 $a,b\in T$를 만족한다. 위 준비에서 $|T'|=m-1$이고 (ii)에 의해 $X'[T']$는 연결이다. $z\notin V_{X'}$이므로 $P(m-1)$을 $(X',z,T')$에 적용하면 $X'/T'\preceq X'$이다.</p>
+<p>다음으로 $X'/T'=X/T$가 등호로 성립함을 보인다 (수축점은 둘 다 $z$이다). 점 집합: $V_{X'}\setminus T'=(V_X\setminus\{a,b\})\sqcup\{z_e\}\setminus\bigl((T\setminus\{a,b\})\sqcup\{z_e\}\bigr)=V_X\setminus T$이므로 두 점 집합은 $(V_X\setminus T)\sqcup\{z\}$로 같다. 변 집합: $E_{X'}=\{\{\rho_e p,\rho_e q\}:\{p,q\}\in E_X,\ \rho_e p\ne\rho_e q\}$이다. $X'/T'$의 변은 $\{\rho_{T'}s,\rho_{T'}t\}$ ($\{s,t\}\in E_{X'}$, $\rho_{T'}s\ne\rho_{T'}t$)이다. $s=\rho_e p$, $t=\rho_e q$로 쓰면 (i)에 의해 $\rho_{T'}s=\rho_T p$, $\rho_{T'}t=\rho_T q$이다. 따라서 $X'/T'$의 변 집합은 $\{\{\rho_T p,\rho_T q\}:\{p,q\}\in E_X,\ \rho_e p\ne\rho_e q,\ \rho_T p\ne\rho_T q\}$이다. 그런데 $\rho_T p\ne\rho_T q$이면 $\rho_e p\ne\rho_e q$이다. 실제로 $\rho_e p=\rho_e q$이면 (i)에 의해 $\rho_T p=\rho_{T'}\rho_e p=\rho_{T'}\rho_e q=\rho_T q$이다. 그러므로 조건 $\rho_e p\ne\rho_e q$는 중복이고, 변 집합은 $\{\{\rho_T p,\rho_T q\}:\{p,q\}\in E_X,\ \rho_T p\ne\rho_T q\}$, 즉 $E_{X/T}$와 같다.</p>
+<p>따라서 $X/T=X'/T'\preceq X'$이다. $X'=X/e$는 $X$에 변 수축 한 번을 적용한 것이므로 $X'\preceq X$이다. 추이성에 의해 $X/T\preceq X$이고 $P(m)$이 성립한다. $\square$</p>
 
+<h3>보조명제 3.5 (연속 수축)</h3>
+<p>$X=(V_X,E_X)$를 그래프, $T_1,\dots,T_r\subseteq V_X$를 서로소인 비공집합으로서 각 $X[T_k]$가 연결이게 하자. $z_1,\dots,z_r$은 서로 다르고 $V_X$ 밖의 기호이다. $X_0:=X$, $X_i:=X_{i-1}/T_i$ (수축점 $z_i$; $1\le i\le r$)로 두고, 각 $0\le i\le r$에 대해 $\pi_i:V_X\to V(X_i)$를 $\pi_i(p):=z_k$ ($p\in T_k$, $k\le i$), $\pi_i(p):=p$ (그 밖의 $p$)로 정의한다. $T_k$들이 서로소이므로 $\pi_i$는 잘 정의된다. 그러면 다음이 성립한다.</p>
+<ol>
+<li>(a) $V(X_r)=(V_X\setminus(T_1\cup\cdots\cup T_r))\sqcup\{z_1,\dots,z_r\}$.</li>
+<li>(b) $E(X_r)=\{\{\pi_r p,\pi_r q\}:\{p,q\}\in E_X,\ \pi_r p\ne\pi_r q\}$.</li>
+<li>(c) $X_r\preceq X$.</li>
+</ol>
+<p><b>증명.</b> $0\le i\le r$에 대한 귀납법으로 다음 S(i)를 보인다. S(i)는 다음 네 가지이다. (a$_i$) $V(X_i)=(V_X\setminus(T_1\cup\cdots\cup T_i))\sqcup\{z_1,\dots,z_i\}$. (b$_i$) $E(X_i)=\{\{\pi_i p,\pi_i q\}:\{p,q\}\in E_X,\ \pi_i p\ne\pi_i q\}$. (c$_i$) $X_i\preceq X$. (d$_i$) $j>i$이면 $T_j\subseteq V(X_i)$이고 $X_i[T_j]=X[T_j]$이다.</p>
+<p>$i=0$이면 $\pi_0$는 항등이고 (a$_0$), (b$_0$), (c$_0$) ($X\preceq X$), (d$_0$)는 자명하다.</p>
+<p>$i\ge1$이고 S($i-1$)이 성립한다고 하자. (d$_{i-1}$)을 $j=i$에 적용하면 $X_{i-1}[T_i]=X[T_i]$가 연결이므로 보조명제 3.4에 의해 $X_i=X_{i-1}/T_i\preceq X_{i-1}$이고, (c$_{i-1}$)과 (T1)에 의해 (c$_i$)가 성립한다. $\rho:=\rho_{T_i}:V(X_{i-1})\to V(X_i)$로 둔다.</p>
+<p>먼저 $\rho\circ\pi_{i-1}=\pi_i$이다. $p\in T_k$, $k<i$이면 $\pi_{i-1}(p)=z_k\notin T_i$이므로 $\rho(z_k)=z_k=\pi_i(p)$이다. $p\in T_i$이면 $\rho(p)=z_i=\pi_i(p)$이다. $p\notin T_1\cup\cdots\cup T_i$이면 $\rho(p)=p=\pi_i(p)$이다.</p>
+<p>(a$_i$): (a$_{i-1}$)와 $T_i\subseteq V_X\setminus(T_1\cup\cdots\cup T_{i-1})$에서 $V(X_i)=(V(X_{i-1})\setminus T_i)\sqcup\{z_i\}$ 를 계산하면 된다.</p>
+<p>(b$_i$): $\subseteq$. $\{\rho s,\rho t\}\in E(X_i)$ ($\{s,t\}\in E(X_{i-1})$, $\rho s\ne\rho t$)라 하자. (b$_{i-1}$)에 의해 $\{s,t\}=\{\pi_{i-1}p,\pi_{i-1}q\}$ ($\{p,q\}\in E_X$, $\pi_{i-1}p\ne\pi_{i-1}q$)로 쓰면, $\rho\pi_{i-1}=\pi_i$에 의해 $\{\rho s,\rho t\}=\{\pi_ip,\pi_iq\}$이고 $\pi_ip\ne\pi_iq$이다. $\supseteq$. $\{p,q\}\in E_X$이고 $\pi_ip\ne\pi_iq$라 하자. $\pi_{i-1}p\ne\pi_{i-1}q$이다. 실제로 같다면 $\pi_ip=\rho\pi_{i-1}p=\rho\pi_{i-1}q=\pi_iq$가 되어 모순이다. 따라서 (b$_{i-1}$)에 의해 $\{\pi_{i-1}p,\pi_{i-1}q\}\in E(X_{i-1})$이고, $\rho$를 적용하면 $\{\pi_ip,\pi_iq\}\in E(X_i)$이다.</p>
+<p>(d$_i$): $j>i$라 하자. (a$_i$)에 의해 $T_j\subseteq V(X_i)$이다. $p\in T_j$이면 $p\notin T_1\cup\cdots\cup T_i$이므로 $\pi_i(p)=p$이다. $\pi_i$는 $V_X$에서 $V(X_i)$로 가는 사상이고 $\pi_i(a)\in T_j\subseteq V_X$이면 $\pi_i(a)=a$이므로 $a\in T_j$이다. 따라서 $X_i$에서 $T_j$ 안의 변 $\{\pi_ia,\pi_ib\}$ ($a,b\in T_j$, $\pi_ia\ne\pi_ib$)는 $\{a,b\}\in E_X$이고 $\{a,b\}\subseteq T_j$인 변이다. 역으로 $\{a,b\}\in E(X[T_j])$이면 $\pi_ia=a\ne b=\pi_ib$이므로 (b$_i$)에 의해 $\{a,b\}\in E(X_i)$이고 $\{a,b\}\subseteq T_j$이다. 그러므로 $X_i[T_j]=X[T_j]$이다.</p>
+<p>귀납이 끝나므로 (c$_r$)이 $X_r\preceq X$이고, (a$_r$), (b$_r$)이 (a), (b)이다. $\square$</p>
 <h3>정리 3.5 ($G$는 Compression의 마이너이다)</h3>
-<p>$G\preceq \mathfrak M^{-1}$이다. 또 $\mathfrak M^{-1}\preceq\mathfrak M$이므로 추이성에 의해 $G\preceq\mathfrak M$이다. $\mathfrak M^{-1}\preceq\mathfrak M$은 $\mathfrak M$에서 변 집합 $E_{11}$의 변들을 삭제하면 $\mathfrak M^{-1}$이 되므로 (점 집합은 같다) 성립한다.</p>
+<p>$G\preceq \mathfrak M^{-1}$이고 $G\preceq\mathfrak M$이다. 여기서 $\mathfrak M$과 $\mathfrak M^{-1}$은 각각 그래프 $(V(\mathfrak M),E(\mathfrak M))$, $(V(\mathfrak M^{-1}),E(\mathfrak M^{-1}))$로 본다.</p>
 
-<p><b>증명.</b> $X:=\mathfrak M^{-1}=(V_0\sqcup V_1,\ E_{00}\sqcup E_{01})$로 둔다. $\mathcal V:=\{v\in V:|C(v)|\ge2\}$로 둔다. 각 $v\in\mathcal V$에 대해 $T_v:=C(v)\cup\{w_v\}$로 둔다. 다음을 확인한다.</p>
+<p><b>증명.</b> 먼저 $\mathfrak M$과 $\mathfrak M^{-1}$이 그래프임을 확인한다. $E_{00}\subseteq\binom{V_0}2$는 보조명제 2.2 (1)이다. $E_{01}$의 원소는 $V_0$의 점과 $V_1$의 점으로 이루어지고 $V_0\cap V_1=\varnothing$이므로 두 점이 서로 다르다. $E_{11}$의 원소는 $w_v\ne w_{v'}$인 쌍이다. 따라서 $E(\mathfrak M)\subseteq\binom{V(\mathfrak M)}2$이고 $E(\mathfrak M^{-1})\subseteq\binom{V(\mathfrak M^{-1})}2$이다. 또 $V(\mathfrak M^{-1})=V(\mathfrak M)$이고 $E(\mathfrak M^{-1})=E(\mathfrak M)\setminus E_{11}$이다.</p>
+
+<p>$X:=\mathfrak M^{-1}$로 둔다. $\mathcal V:=\{v\in V:\ |C(v)|\ge2\}=\{v_1,\dots,v_r\}$로 둔다 ($r=0$도 허용한다). 정의 2.3에 의해 $V_1=\{w_v:\ v\in\mathcal V\}$이다. 각 $v\in\mathcal V$에 대해 $T_v:=C(v)\sqcup\{w_v\}$로 두고 $T_k:=T_{v_k}$로 쓴다. $C(v)\subseteq V_0$이고 $w_v\in V_1$이므로 합집합은 서로소이다.</p>
 <ul>
-<li>$X[T_v]$는 연결이다. 정의 2.3과 명제 2.5 (4)에 의해 $N(w_v)=C(v)$이므로 $w_v$는 $C(v)$의 모든 점과 $E_{01}$의 변으로 이어져 있다.</li>
-<li>$v\ne v'\in\mathcal V$이면 $T_v\cap T_{v'}=\varnothing$이다. $C(v)\cap C(v')=\varnothing$ (보조명제 2.2 (2)), $w_v\ne w_{v'}$ (정의 2.3), $w_v\notin C(v')$ (왜냐하면 $V_1\cap V_0=\varnothing$)이다.</li>
+<li>(T-a) $T_v\ne\varnothing$이고 $X[T_v]$는 연결이다. 정의 2.3에 의해 모든 $x\in C(v)$에 대해 $\{x,w_v\}\in E_{01}\subseteq E(X)$이다. 따라서 $C(v)$의 임의의 두 점은 $w_v$를 거쳐 $X[T_v]$ 안에서 이어진다.</li>
+<li>(T-b) $v\ne v'$이면 $T_v\cap T_{v'}=\varnothing$이다. 실제로 $C(v)\cap C(v')=\varnothing$ (보조명제 2.2 (2)), $w_v\ne w_{v'}$ (정의 2.3), $w_v\notin C(v')$, $w_{v'}\notin C(v)$ (이 두 가지는 $V_0\cap V_1=\varnothing$에서 나온다).</li>
 </ul>
-<p>$\mathcal V=\{v_1,\dots,v_r\}$로 나열하고 $X_0:=X$, $X_i:=X_{i-1}/T_{v_i}$ ($1\le i\le r$)로 둔다. 다음을 $i$에 대한 귀납으로 보인다: 각 $i$에 대해 $X_i\preceq X$이고, 모든 $j\ge i+1$에 대해 $T_{v_j}$는 $X_i$의 점 집합의 부분집합이며 $X_i[T_{v_j}]$는 연결이다.</p>
-<p>$i=0$에서는 $T_{v_j}\subseteq V(X)$이고 $X[T_{v_j}]$는 연결이므로 성립한다. $i-1$에서 성립한다고 하자. $T_{v_i}$는 $X_{i-1}[T_{v_i}]$에서 연결이므로 보조명제 3.4에 의해 $X_i=X_{i-1}/T_{v_i}\preceq X_{i-1}\preceq X$이다. 또 $j\ge i+1$에 대해 $T_{v_j}$는 $T_{v_i}$와 서로소이므로 $\rho_{T_{v_i}}$는 $T_{v_j}$의 점을 바꾸지 않는다. 따라서 $T_{v_j}\subseteq V(X_i)$이고 $X_i[T_{v_j}]=X_{i-1}[T_{v_j}]$는 연결이다.</p>
-<p>그러므로 $X_r\preceq X$이다. $X_r$의 점 집합은 $\mathcal V$의 원소마다 $T_v$ 전체가 한 점 $z_v$가 된 것과, 나머지 점 $x\in V_0\setminus\bigcup_{v\in\mathcal V}C(v)$ (이 $x$는 $|C(\varphi(x))|=1$인 점이다)로 이루어진다. 여기서 $z_v$를 $v$와, $x$를 $\varphi(x)$와 동일시하면 $X_r$의 점 집합은 $V$와 일대일이다. 이 동일시 아래 $X_r$의 변 집합은 $\{\{\rho(a),\rho(b)\}:\ \{a,b\}\in E_{00}\cup E_{01},\ \rho(a)\ne\rho(b)\}$와 같다. $E_{01}$의 변은 $\rho$에 의해 한 점으로 줄어드므로 제외되고, 따라서 변 집합은 $\{\{\rho(a),\rho(b)\}:\{a,b\}\in E_{00},\ \rho(a)\ne\rho(b)\}$이다. 정리 3.2의 증명 ($F\subseteq E$와 $E\subseteq F$)에 의해 이것은 $E$와 같다. 따라서 $X_r\cong G$이고, 동형 불변성에 의해 $G\preceq X$이다. $\square$</p>
+
+<p>$X$, $T_1,\dots,T_r$은 보조명제 3.5의 전제를 만족한다. $z_k$는 $V_X$ 밖의 서로 다른 기호로 고정하고 $z_{v_k}$라고도 쓴다. 보조명제 3.5에 의해 $X_r\preceq X$이고, $\pi:=\pi_r$로 두면 다음이 성립한다.</p>
+<ul>
+<li>$V(X_r)=(V_X\setminus\bigcup_{v\in\mathcal V}T_v)\sqcup\{z_v:\ v\in\mathcal V\}$.</li>
+<li>$E(X_r)=\{\{\pi p,\pi q\}:\{p,q\}\in E(X),\ \pi p\ne\pi q\}$.</li>
+</ul>
+<p>첫째 식의 첫 항을 계산한다. $V_X\setminus\bigcup_{v\in\mathcal V}T_v=(V_0\setminus\bigcup_{v\in\mathcal V}C(v))\sqcup(V_1\setminus\{w_v:v\in\mathcal V\})=V_0\setminus\bigcup_{v\in\mathcal V}C(v)$이다. 보조명제 2.2 (2)에 의해 $V_0=\bigsqcup_{u\in V}C(u)$이고 각 $C(u)$는 비어 있지 않으므로, $u\notin\mathcal V$이면 $|C(u)|=1$이다. 그러므로 $V_0\setminus\bigcup_{v\in\mathcal V}C(v)=\bigsqcup_{u\in V\setminus\mathcal V}C(u)$이고, $C(u)=\{(u,k_u)\}$로 두면 다음을 얻는다.</p>
+<p>$$V(X_r)=\{(u,k_u):\ u\in V\setminus\mathcal V\}\sqcup\{z_v:\ v\in\mathcal V\}.$$</p>
+
+<p>이제 $\iota:V\to V(X_r)$를 $\iota(u):=(u,k_u)$ ($u\notin\mathcal V$), $\iota(v):=z_v$ ($v\in\mathcal V$)로 정의한다. 위 식에 의해 $\iota$는 전단사이다.</p>
+<ul>
+<li>(I1) 모든 $x\in V_0$에 대해 $\pi(x)=\iota(\varphi(x))$이다. 실제로 $x\in C(u)$라 하자. $u\in\mathcal V$이면 $x\in T_u$이므로 $\pi(x)=z_u=\iota(u)$이다. $u\notin\mathcal V$이면 $x=(u,k_u)$이고 $\pi(x)=x=\iota(u)$이다.</li>
+<li>(I2) 모든 $v\in\mathcal V$에 대해 $\pi(w_v)=z_v=\iota(v)$이다.</li>
+</ul>
+<p>$E(X)=E_{00}\sqcup E_{01}$이므로 $E(X_r)$을 두 부분으로 나누어 계산한다. $\{a,b\}\in E_{01}$이면 $\{a,b\}=\{x,w_v\}$ ($v\in\mathcal V$, $x\in C(v)$)이고, $\pi(x)=z_v=\pi(w_v)$이므로 이 변은 $E(X_r)$을 만드는 조건 $\pi a\ne\pi b$를 만족하지 않는다. $\{a,b\}\in E_{00}$이면 $a=(u,k)$, $b=(u',k)$, $\{u,u'\}\in E(P_k)$이고 (I1)에 의해 $\pi a=\iota(u)$, $\pi b=\iota(u')$이다. 따라서</p>
+<p>$$E(X_r)=\{\{\iota u,\iota u'\}:\ \exists k\ (\{u,u'\}\in E(P_k)),\ \iota u\ne\iota u'\}.$$</p>
+<p>$\iota$는 단사이므로 $\iota u\ne\iota u'$는 $u\ne u'$와 같다. (D2)에 의해 $E=\bigcup_kE(P_k)$이므로 다음을 얻는다.</p>
+<p>$$E(X_r)=\{\{\iota u,\iota u'\}:\ \{u,u'\}\in E\}.$$</p>
+<p>이 식의 두 포함을 확인한다. $\subseteq$: $\{u,u'\}\in E(P_k)\subseteq E$이다. $\supseteq$: $\{u,u'\}\in E$이면 (D2)에 의해 $\{u,u'\}\in E(P_k)$인 $k$가 있고, $u,u'\in V(P_k)$이므로 $(u,k),(u',k)\in V_0$이고 $\{(u,k),(u',k)\}\in E_{00}$이다. (I1)에 의해 이 변의 상은 $\{\iota u,\iota u'\}$이다.</p>
+<p>따라서 $\iota$는 $G$에서 $X_r$로의 동형 사상이다. 즉 $\{u,u'\}\in E\iff\{\iota u,\iota u'\}\in E(X_r)$이다. ($\Leftarrow$는 $\iota$의 단사성에서 나온다.) (T3)와 $X_r\preceq X$에 의해 $G\preceq X=\mathfrak M^{-1}$이다.</p>
+
+<p>마지막으로 $\mathfrak M^{-1}\preceq\mathfrak M$이다. $E_{11}=\{e_1,\dots,e_s\}$ ($s\ge0$)라 하면 $\mathfrak M$에서 $e_1,\dots,e_s$를 차례로 삭제한 결과는 점 집합 $V(\mathfrak M)$과 변 집합 $E(\mathfrak M)\setminus E_{11}=E(\mathfrak M^{-1})$을 가진 그래프, 즉 $\mathfrak M^{-1}$이다. 따라서 $\mathfrak M^{-1}\preceq\mathfrak M$이고, (T1)에 의해 $G\preceq\mathfrak M$이다. $\square$</p>
+
 
 <h2>제4장 자명 분해와 두 조각 분해</h2>
 
