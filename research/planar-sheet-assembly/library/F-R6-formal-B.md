@@ -22,7 +22,7 @@
 ## 0. 기호와 공통 규약
 
 - $V_\bullet$ 검정 점, $V_\circ$ 흰 점. 검정–흰 간선은 "포트 관계" $x\in\alpha(w)$ 로 쓴다. 곧 $\alpha(w):=\{x\in V_\bullet : xw\in E_{\bullet\circ}\}$ 다 (F-R1 의 $\alpha$ 와 같다).
-- 류 $p,q$ 는 류 (§2) 의 원소를 가리킨다. 색인 $\alpha$ 는 포트 함수 에만 쓴다 (F-R2-researcher1 은 $\alpha$ 를 류의 이름으로도 써서 충돌한다, 형식 검토 F13).
+- 류 $p,q$ 는 류 (§2) 의 원소를 가리킨다. 기호 $\alpha$ 는 포트 함수에만 쓴다 (F-R2-researcher1 은 $\alpha$ 를 류의 이름으로도 써서 충돌한다, 형식 검토 F13).
 - 규약 S (단순): 두 설명서 모두 단순 그래프다. 곧 $E_{\bullet\bullet}\subseteq\binom{V_\bullet}{2}$ 등 [증명: 표기 규약].
 - 규약 C (조각): 조각 $P_k$ 는 $(V_\bullet,E_{\bullet\bullet})$ 의 연결성분이다. F-R1 정규화 보조정리 (b) 와 같다 [증명: 정규화 보조정리 (b) 인용]. 문제 진술의 "조각 $P_1,\dots,P_n$" 과 개수가 다를 수 있다 (형식 검토 F10).
 
