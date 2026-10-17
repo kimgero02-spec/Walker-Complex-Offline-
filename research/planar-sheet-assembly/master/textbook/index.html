@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
-<style>.dangling{color:#b00020;font-weight:bold;}</style>
 </head>
 <body>
 
@@ -29,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
 <ol>
 <li>모든 정의는 대상의 집합을 명시한다. 예: "$v\in V$", "$k\in K$", "$P_k=(V_k,E_k)$, $V_k\subseteq V$".</li>
 <li>모든 명제는 증명을 갖는다. 증명은 정의만으로 한 단계씩 진행한다.</li>
-<li>인용한 고전 결과는 [인용]으로 표시한다. <span class="dangling">※ 표시는 삭제된 1·2장을 가리키는 참조이다. 해당 정의와 인용 결과가 교재 안에 없으므로, 복원 여부가 결정될 때까지 이 참조는 미정의이다.</span></li>
+<li>인용한 고전 결과는 [인용]으로 표시한다. 이 책에서 인용하는 결과는 다음 두 개이다.<br>(I) 오일러 부등식: $G=(V,E)$가 평면 그래프이고 $|V|\ge3$이면 $|E|\le3|V|-6$이다. $G$가 길이 3인 사이클을 갖지 않으면 $|E|\le2|V|-4$이다.<br>(II) 평면 그래프의 부분그래프와 간선 수축 (마이너 연산으로 얻은 그래프)은 평면 그래프이다.</li>
+<li>"평면 그래프", "마이너" 등 표준 용어는 정의 없이 쓴다.</li>
 <li>이 책은 아직 증명되지 않은 추측을 싣지 않는다. 다루지 않는 것은 마지막 장에 목록으로 적는다.</li>
 </ol>
 
@@ -154,8 +154,8 @@ $$V(\mathfrak M)=V_0\sqcup V_1,\qquad E(\mathfrak M)=E_{00}\sqcup E_{01}\sqcup E
 
 <h3>정리 3.3 ($G$는 접합 그래프의 마이너이다)</h3>
 <p>$G\preceq U\mathfrak M(\mathcal D)$이다. 따라서 $G\preceq\mathfrak M(\mathcal D)$이다.</p>
-<p><b>증명.</b> 각 $v$에 대해 $|C(v)|\ge2$이면 $T_v:=C(v)\cup\{w_v\}\subseteq V(U\mathfrak M)$로 둔다. 이때 $U\mathfrak M[T_v]$는 연결이다. 실제로 $w_v$는 $C(v)$의 모든 점과 $E_{01}$의 변으로 이어져 있다. 서로 다른 $v,v'$에 대해 $T_v\cap T_{v'}=\varnothing$이다. <span class="dangling">보조정리 2.5※</span>를 $T_v$들에 차례로 적용한다. 각 적용 후에도 남은 $T_{v'}$의 상은 연결 상태를 유지하므로 (<span class="dangling">보조정리 2.5※</span>의 증명과 같은 이유), 모든 $T_v$를 수축할 수 있다. 결과 그래프의 점집합은 $\pi$와 같은 원소 개수를 가지며, 각 블록 $C(v)$가 한 점이 된다. 이 그래프의 변은 $E_{00}\sqcup E_{01}$의 상 중 두 끝점이 다른 것이다. $E_{01}$의 변은 모두 한 블록 안에 들어가므로 사라진다. 따라서 결과 그래프는 $(\pi,\{\{\rho(a),\rho(b)\}:\{a,b\}\in E_{00},\ \rho(a)\ne\rho(b)\})$이다. 이것은 $G(\mathfrak M)$의 변 집합에서 $E_{11}$의 기여를 뺀 것이고, 정리 3.2의 증명 (2)에 의해 $E_{11}$의 기여는 $E_{00}$의 기여와 같다. 따라서 결과 그래프의 변 집합은 $G(\mathfrak M)$의 변 집합과 같다. 정리 3.2에 의해 $G(\mathfrak M)\cong G$이다. 그러므로 $G\preceq U\mathfrak M$이다. $\square$</p>
-<p>마지막 문장은 $U\mathfrak M\subseteq\mathfrak M$과 <span class="dangling">보조정리 2.4※</span>에서 나온다.</p>
+<p><b>증명.</b> 각 $v$에 대해 $|C(v)|\ge2$이면 $T_v:=C(v)\cup\{w_v\}\subseteq V(U\mathfrak M)$로 둔다. 이때 $U\mathfrak M[T_v]$는 연결이다. 실제로 $w_v$는 $C(v)$의 모든 점과 $E_{01}$의 변으로 이어져 있다. 서로 다른 $v,v'$에 대해 $T_v\cap T_{v'}=\varnothing$이다. 한 $T_v$를 수축해도 다른 $T_{v'}$는 수축되지 않은 점들로만 이루어져 있으므로, 그 상은 같은 점과 같은 변을 가진 연결 부분그래프이다. 따라서 모든 $T_v$를 차례로 수축할 수 있다. 결과 그래프의 점집합은 $\pi$와 같은 원소 개수를 가지며, 각 블록 $C(v)$가 한 점이 된다. 이 그래프의 변은 $E_{00}\sqcup E_{01}$의 상 중 두 끝점이 다른 것이다. $E_{01}$의 변은 모두 한 블록 안에 들어가므로 사라진다. 따라서 결과 그래프는 $(\pi,\{\{\rho(a),\rho(b)\}:\{a,b\}\in E_{00},\ \rho(a)\ne\rho(b)\})$이다. 이것은 $G(\mathfrak M)$의 변 집합에서 $E_{11}$의 기여를 뺀 것이고, 정리 3.2의 증명 (2)에 의해 $E_{11}$의 기여는 $E_{00}$의 기여와 같다. 따라서 결과 그래프의 변 집합은 $G(\mathfrak M)$의 변 집합과 같다. 정리 3.2에 의해 $G(\mathfrak M)\cong G$이다. 그러므로 $G\preceq U\mathfrak M$이다. $\square$</p>
+<p>마지막 문장은 $U\mathfrak M\subseteq\mathfrak M$에서 나온다. $\mathfrak M$에서 $w_v$ 점과 $E_{11}$의 변을 삭제하면 $U\mathfrak M$이 되므로 $U\mathfrak M\preceq\mathfrak M$이다.</p>
 
 <h2>제4장 자명 분해와 두 조각 분해</h2>
 
@@ -205,10 +205,10 @@ $$V(\mathfrak M)=V_0\sqcup V_1,\qquad E(\mathfrak M)=E_{00}\sqcup E_{01}\sqcup E
 
 <h3>정리 6.1 (접합 그래프가 평면이면 $G$는 평면이다)</h3>
 <p>$\mathcal D$가 $G$의 평면분해이고 $U\mathfrak M(\mathcal D)$가 평면 그래프이면 $G$는 평면 그래프이다.</p>
-<p><b>증명.</b> 정리 3.3에 의해 $G\preceq U\mathfrak M(\mathcal D)$이다. <span class="dangling">인용 2.6※</span>에 의해 $U\mathfrak M(\mathcal D)$가 평면이면 그 마이너인 $G$도 평면이다. $\square$</p>
+<p><b>증명.</b> 정리 3.3에 의해 $G\preceq U\mathfrak M(\mathcal D)$이다. (II)에 의해 $U\mathfrak M(\mathcal D)$가 평면이면 그 마이너인 $G$도 평면이다. $\square$</p>
 
 <h3>예 6.2 (역은 성립하지 않는다)</h3>
-<p>예 1.3의 $K_4$와 평면분해 $\mathcal D=\{P_1,P_2\}$를 생각하자 ($K=\{1,2\}$). $K_4$는 평면 그래프이다 (<span class="dangling">구 예 1.4※</span>). 아래에서 접합 그래프 $U\mathfrak M(\mathcal D)$가 평면이 아님을 보인다. 따라서 정리 6.1의 역은 성립하지 않는다.</p>
+<p>예 1.3의 $K_4$와 평면분해 $\mathcal D=\{P_1,P_2\}$를 생각하자 ($K=\{1,2\}$). $K_4$는 평면 그래프이다. 실제로 $\phi(0)=(0,0)$, $\phi(1)=(1,0)$, $\phi(2)=(0,1)$, $\phi(3)=(-1,-1)$로 두고 각 변을 직선 선분으로 그리면 교차가 없다. 점 $(0,0)$은 삼각형 $\phi(1)\phi(2)\phi(3)$의 내부에 있다 ($(0,0)=\tfrac13(\phi(1)+\phi(2)+\phi(3))$). 아래에서 접합 그래프 $U\mathfrak M(\mathcal D)$가 평면이 아님을 보인다. 따라서 정리 6.1의 역은 성립하지 않는다.</p>
 <p>예 1.3에서 $V_1=V_2=V=\{0,1,2,3\}$이므로 $|C(v)|=2$가 모든 $v$에 대해 성립한다. 명제 4.2에 의해 $V_1=\{w_0,w_1,w_2,w_3\}$이고 $E_{01}=\{\{(v,k),w_v\}:\ v\in V,\ k\in K\}$이다. 또 $E_{00}=\{\{(u,k),(v,k)\}:\ \{u,v\}\in E_k\}$이다. 특히 $E_1=\{01,13,32,20\}$, $E_2=\{03,31,12,20\}$이다 (두 수의 순서쌍은 비순서쌍을 뜻한다).</p>
 <p><b>부분그래프 $H$.</b> 다음 여섯 점을 정한다.</p>
 <ul>
@@ -229,8 +229,8 @@ $$V(\mathfrak M)=V_0\sqcup V_1,\qquad E(\mathfrak M)=E_{00}\sqcup E_{01}\sqcup E
 <tr><td>$P^{(9)}$: $A_3B_3$</td><td>$(3,2),\ w_3,\ (3,1)$</td><td>$\{(3,2),w_3\}\in E_{01}$, $\{w_3,(3,1)\}\in E_{01}$</td></tr>
 </table>
 <p>$H$는 이 아홉 경로의 합집합이다. 각 경로의 내부 점은 $(0,1),\ w_0,\ w_1,\ w_2,\ (2,1),\ w_3$이고, 이들은 서로 다르며 여섯 분기점과도 다르다. 따라서 아홉 경로는 내부점을 공유하지 않는다. $H$는 $U\mathfrak M(\mathcal D)$의 부분그래프이다.</p>
-<p><b>$H$에서 $K_{3,3}$ 얻기.</b> 각 경로의 내부점을 하나씩 간선 수축하면 (<span class="dangling">정의 2.2※</span>) 분기점 여섯 개와 아홉 변 $A_iB_j$ ($1\le i,j\le3$)로 이루어진 그래프가 얻어진다. 이것은 $K_{3,3}$이다. 따라서 $K_{3,3}\preceq H\subseteq U\mathfrak M(\mathcal D)$이다 (<span class="dangling">보조정리 2.4※</span>와 정의 2.3).</p>
-<p><b>결론.</b> $U\mathfrak M(\mathcal D)$가 평면이라 가정하면 <span class="dangling">인용 2.6※</span>에 의해 $K_{3,3}$도 평면이다. 그러나 <span class="dangling">계산 1.6※</span>에 의해 $K_{3,3}$은 평면이 아니다. 따라서 $U\mathfrak M(\mathcal D)$는 평면이 아니다. $\square$</p>
+<p><b>$H$에서 $K_{3,3}$ 얻기.</b> 각 경로의 내부점을 하나씩 간선 수축하면 분기점 여섯 개와 아홉 변 $A_iB_j$ ($1\le i,j\le3$)로 이루어진 그래프가 얻어진다. 이것은 $K_{3,3}$이다. 따라서 $K_{3,3}\preceq H\subseteq U\mathfrak M(\mathcal D)$이다 (부분그래프는 마이너이다. 점과 변의 삭제로 얻는다. 그리고 정의 2.3).</p>
+<p><b>결론.</b> $U\mathfrak M(\mathcal D)$가 평면이라 가정하면 (II)에 의해 $K_{3,3}$도 평면이다. 그러나 $K_{3,3}$은 $|V|=6$, $|E|=9$이고 길이 3인 사이클을 갖지 않으므로, (I)의 $9\le2\cdot6-4=8$에 의해 평면이 아니다. 따라서 $U\mathfrak M(\mathcal D)$는 평면이 아니다. $\square$</p>
 
 <h2>제7장 색칠수는 마이너에 대해 단조가 아니다</h2>
 
