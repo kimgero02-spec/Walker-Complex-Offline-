@@ -220,24 +220,13 @@ $T=\{a,b\}$이고 $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>
 
 <h3>보조명제 3.4 (연결 집합의 수축)</h3>
 <p>모든 그래프 $X=(V_X,E_X)$와 모든 $\varnothing\ne T\subseteq V_X$에 대해, $X[T]:=(T,\{f\in E_X:\ f\subseteq T\})$가 연결이면 $X/T\preceq X$이다. 여기서 수축점은 $V_X$ 밖의 기호 $z$이다.</p>
-<p><b>증명.</b> 이것은 그래프 이론의 표준 사실이다. 여기서는 마이너의 다음 표준 특징짓기를 인용한다. 그래프 $H$가 $X$의 마이너인 것은, $X$의 서로소인 부분집합들 $B_h\subseteq V_X$ ($h\in V_H$)가 있어 다음 두 조건을 만족하는 것과 같다. (i) 각 $X[B_h]$는 연결이다. (ii) $\{h,h'\}\in E_H$이면 $B_h$와 $B_{h'}$ 사이에 $X$의 변이 있다. 이 특징짓기는 마이너 모형(minor model)에 관한 것이다 (Diestel, <i>Graph Theory</i>, 2판 §1.7 "Contraction and minors"와 §8.2 "Minors"; 본문 내용은 아직 대조하지 않았다 [기억-미검증]).</p>
-<p>이제 $H:=X/T$에 대해 이 조건을 확인한다. 수축점 $z$에 대해 $B_z:=T$, $x\in V_X\setminus T$에 대해 $B_x:=\{x\}$로 둔다. 이들은 서로소이다. $X[T]$는 연결이고 한 점짜리 $X[\{x\}]$도 연결이므로 (i)이 성립한다. $X/T$의 변은 $\{\rho_T a,\rho_T b\}$ ($\{a,b\}\in E_X$, $\rho_T a\ne\rho_T b$)의 꼴이다. 이때 $a\in B_{\rho_T a}$, $b\in B_{\rho_T b}$이고 $\{a,b\}$는 $X$의 변이므로 (ii)가 성립한다. 따라서 $X/T\preceq X$이다. $\square$</p>
+<p><b>증명.</b> 다음 기존 정리를 쓴다. <b>마이너 모형 정리</b> (Diestel, <i>Graph Theory</i>, 2판 §1.7과 §8.2 [기억-미검증]): 그래프 $H$가 $X$의 마이너인 것은, $X$의 서로소인 부분집합들 $B_h\subseteq V_X$ ($h\in V_H$)가 있어 (i) 각 $X[B_h]$가 연결이고, (ii) $\{h,h'\}\in E_H$이면 $B_h$와 $B_{h'}$ 사이에 $X$의 변이 있는 것과 동치이다.</p>
+<p>$H:=X/T$에 대해 이 정리를 적용한다. $B_z:=T$, $x\in V_X\setminus T$에 대해 $B_x:=\{x\}$로 둔다. 이들은 서로소이다. $X[T]$는 연결이고 $X[\{x\}]$는 자명하게 연결이므로 (i)이 성립한다. $X/T$의 변은 $\{\rho_T a,\rho_T b\}$ ($\{a,b\}\in E_X$, $\rho_T a\ne\rho_T b$)의 꼴이고, $a\in B_{\rho_T a}$, $b\in B_{\rho_T b}$이며 $\{a,b\}$는 $X$의 변이므로 (ii)가 성립한다. 따라서 마이너 모형 정리에 의해 $X/T\preceq X$이다. $\square$</p>
 
 <h3>보조명제 3.5 (연속 수축)</h3>
-<p>$X=(V_X,E_X)$를 그래프, $T_1,\dots,T_r\subseteq V_X$를 서로소인 비공집합으로서 각 $X[T_k]$가 연결이게 하자. $z_1,\dots,z_r$은 서로 다르고 $V_X$ 밖의 기호이다. $X_0:=X$, $X_i:=X_{i-1}/T_i$ ($1\le i\le r$)로 두고, 각 $0\le i\le r$에 대해 $\pi_i:V_X\to V(X_i)$를 다음과 같이 정의한다. $\pi_i(p):=z_k$ ($p\in T_k$, $k\le i$), $\pi_i(p):=p$ (그 밖의 $p$). $T_k$들이 서로소이므로 $\pi_i$는 잘 정의된다. 그러면 다음이 성립한다.</p>
-<ol>
-<li>(a) $V(X_r)=(V_X\setminus(T_1\cup\cdots\cup T_r))\sqcup\{z_1,\dots,z_r\}$.</li>
-<li>(b) $E(X_r)=\{\{\pi_r p,\pi_r q\}:\{p,q\}\in E_X,\ \pi_r p\ne\pi_r q\}$.</li>
-<li>(c) $X_r\preceq X$.</li>
-</ol>
-<p><b>증명.</b> $0\le i\le r$에 대한 귀납법으로 다음 S($i$)를 보인다. (a$_i$) $V(X_i)=(V_X\setminus(T_1\cup\cdots\cup T_i))\sqcup\{z_1,\dots,z_i\}$. (b$_i$) $E(X_i)=\{\{\pi_i p,\pi_i q\}:\{p,q\}\in E_X,\ \pi_i p\ne\pi_i q\}$. (c$_i$) $X_i\preceq X$. (d$_i$) $j>i$이면 $T_j\subseteq V(X_i)$이고 $X_i[T_j]=X[T_j]$이다.</p>
-<p>$i=0$이면 $\pi_0$는 항등이고, (a$_0$), (b$_0$), (c$_0$) ($X\preceq X$, (T0)), (d$_0$)는 자명하다.</p>
-<p>$i\ge1$이고 S($i-1$)이 성립한다고 하자. (d$_{i-1}$)을 $j=i$에 적용하면 $X_{i-1}[T_i]=X[T_i]$가 연결이므로 보조명제 3.4에 의해 $X_i=X_{i-1}/T_i\preceq X_{i-1}$이다. (c$_{i-1}$)과 (T1)에 의해 (c$_i$)가 성립한다. 이하 $\rho_{T_i}:V(X_{i-1})\to V(X_i)$ (수축점 $z_i$)로 둔다.</p>
-<p>먼저 $\rho_{T_i}\circ\pi_{i-1}=\pi_i$이다 (두 사상 모두 $V_X$에서 $V(X_i)$로 가는 사상이다). $p\in T_k$, $k<i$이면 $\pi_{i-1}(p)=z_k$이고, $z_k\notin T_i$이므로 $\rho_{T_i}(z_k)=z_k=\pi_i(p)$이다. $p\in T_i$이면 $\pi_{i-1}(p)=p$이고 $\rho_{T_i}(p)=z_i=\pi_i(p)$이다. $p\notin T_1\cup\cdots\cup T_i$이면 $\pi_{i-1}(p)=p$이고 $\rho_{T_i}(p)=p=\pi_i(p)$이다.</p>
-<p>(a$_i$): (a$_{i-1}$)에 의해 $V(X_{i-1})=(V_X\setminus(T_1\cup\cdots\cup T_{i-1}))\sqcup\{z_1,\dots,z_{i-1}\}$이다. $T_i\subseteq V_X\setminus(T_1\cup\cdots\cup T_{i-1})$이므로 $V(X_{i-1})\setminus T_i=(V_X\setminus(T_1\cup\cdots\cup T_i))\sqcup\{z_1,\dots,z_{i-1}\}$이다. 여기에 수축점 $z_i$를 더하면 (a$_i$)를 얻는다.</p>
-<p>(b$_i$) $\subseteq$: $\{\rho_{T_i}s,\rho_{T_i}t\}\in E(X_i)$ ($\{s,t\}\in E(X_{i-1})$, $\rho_{T_i}s\ne\rho_{T_i}t$)라 하자. (b$_{i-1}$)에 의해 $\{s,t\}=\{\pi_{i-1}p,\pi_{i-1}q\}$ ($\{p,q\}\in E_X$, $\pi_{i-1}p\ne\pi_{i-1}q$)로 쓸 수 있다. $\rho_{T_i}\pi_{i-1}=\pi_i$에 의해 $\{\rho_{T_i}s,\rho_{T_i}t\}=\{\pi_ip,\pi_iq\}$이고 $\pi_ip\ne\pi_iq$이다. $\supseteq$: $\{p,q\}\in E_X$이고 $\pi_ip\ne\pi_iq$라 하자. 먼저 $\pi_{i-1}p\ne\pi_{i-1}q$이다. 실제로 같다면 $\pi_ip=\rho_{T_i}\pi_{i-1}p=\rho_{T_i}\pi_{i-1}q=\pi_iq$가 되어 모순이다. 따라서 (b$_{i-1}$)에 의해 $\{\pi_{i-1}p,\pi_{i-1}q\}\in E(X_{i-1})$이고, $\rho_{T_i}$를 적용하면 $\{\pi_ip,\pi_iq\}\in E(X_i)$이다.</p>
-<p>(d$_i$): $j>i$라 하자. (a$_i$)에 의해 $T_j\subseteq V(X_i)$이다. 점 $a\in V_X$에 대해 $\pi_i(a)$는 $a\in T_k$ ($k\le i$)이면 $z_k\notin V_X$이고, 그 밖에서는 $a$이다. 따라서 $\pi_i(a)\in V_X$이면 $\pi_i(a)=a$이고 $a\notin T_1\cup\cdots\cup T_i$이다. $p\in T_j$이면 $p\notin T_1\cup\cdots\cup T_i$이므로 $\pi_i(p)=p$이다. $X_i[T_j]$의 변 $\{\pi_ia,\pi_ib\}$ ($a,b\in V_X$, $\pi_ia,\pi_ib\in T_j$)에 대해 $\pi_ia=a$, $\pi_ib=b$이므로 $\{a,b\}\in E_X$이고 $\{a,b\}\subseteq T_j$이다. 역으로 $\{a,b\}\in E(X[T_j])$이면 $a,b\in T_j$이므로 $\pi_ia=a\ne b=\pi_ib$이고, (b$_i$)에 의해 $\{a,b\}\in E(X_i)$이다. 그러므로 $X_i[T_j]=X[T_j]$이다.</p>
-<p>귀납이 끝나므로 (c$_r$)이 (c)이고, (a$_r$), (b$_r$)이 (a), (b)이다. $\square$</p>
+<p>$X=(V_X,E_X)$를 그래프, $T_1,\dots,T_r\subseteq V_X$를 서로소인 비공집합으로서 각 $X[T_k]$가 연결이게 하자. $z_1,\dots,z_r$은 서로 다르고 $V_X$ 밖의 기호이다. $X_0:=X$, $X_i:=X_{i-1}/T_i$ (수축점 $z_i$; $1\le i\le r$)로 둔다. 각 $0\le i\le r$에 대해 $\pi_i:V_X\to V(X_i)$를 $\pi_i(p):=z_k$ ($p\in T_k$, $k\le i$), $\pi_i(p):=p$ (그 밖의 $p$)로 둔다. 이때 $X_r\preceq X$이고, 다음이 성립한다. (a) $V(X_r)=(V_X\setminus(T_1\cup\cdots\cup T_r))\sqcup\{z_1,\dots,z_r\}$. (b) $E(X_r)=\{\{\pi_r p,\pi_r q\}:\{p,q\}\in E_X,\ \pi_r p\ne\pi_r q\}$.</p>
+<p><b>증명.</b> $r$에 대한 귀납법을 쓴다. 먼저 다음을 관찰한다. $T_i$들이 서로소이므로 $\pi_{i-1}$은 $T_i$의 점을 바꾸지 않고, $X_{i-1}$에서 $T_i$의 두 점을 잇는 변은 $X_i$에서도 그대로 남는다. 따라서 $T_i\subseteq V(X_{i-1})$이고 $X_{i-1}[T_i]=X[T_i]$이므로 $X_{i-1}[T_i]$는 연결이다. 보조명제 3.4에 의해 $X_i=X_{i-1}/T_i\preceq X_{i-1}$이고, 귀납 가정 $X_{i-1}\preceq X$와 (T1)에 의해 $X_i\preceq X$이다. 특히 $r$에서 $X_r\preceq X$이다.</p>
+<p>점집합은 정의 3.3에서 바로 나온다. 수축 $X_i=X_{i-1}/T_i$에서 $V(X_{i-1})\setminus T_i$는 $V_X\setminus(T_1\cup\cdots\cup T_i)$와 $z_1,\dots,z_{i-1}$의 서로소 합집합이고, 여기에 수축점 $z_i$가 더해진다. 변집합은 귀납으로 다음과 같이 얻어진다. $\pi_i=\rho_{T_i}\circ\pi_{i-1}$이고, 정의 3.3의 변 집합 공식을 $X_{i-1}$에서 $X_i$로 적용하면 $E(X_i)=\{\{\pi_i p,\pi_i q\}:\{p,q\}\in E_X,\ \pi_i p\ne\pi_i q\}$를 얻는다. 여기서 $\pi_i p\ne\pi_i q$이면 $\pi_{i-1}p\ne\pi_{i-1}q$이므로 귀납 가정을 쓸 수 있다. $\square$</p>
 
 <h3>정리 3.6 ($G$는 압축 그래프의 마이너이다)</h3>
 <p>$G\preceq \mathfrak M^\circ$이고 $G\preceq\mathfrak M$이다. 여기서 $\mathfrak M$과 $\mathfrak M^\circ$는 각각 그래프 $(V(\mathfrak M),E(\mathfrak M))$, $(V(\mathfrak M^\circ),E(\mathfrak M^\circ))$로 본다.</p>
@@ -424,7 +413,6 @@ $$E(X_r)=\{\{\tau u,\tau u'\}:\ \{u,u'\}\in E\}.$$
 <tr><td>$\mathcal V$, $T_v$, $T_k$, $\tau$</td><td>$|F(v)|\ge2$인 점 모임, $F(v)\sqcup\{w_v\}$, $T_k:=T_{v_k}$, 정리 3.6의 점 전단사 (명제 8.3의 $\iota_k$와 다른 기호)</td></tr>
 <tr><td>$\pi_i$, $z_k$, $X_i$</td><td>보조명제 3.5의 누적 수축 사상, 수축점, 누적 수축 그래프</td></tr>
 <tr><td>$\sigma$, $\sigma_i$, $Y_i$, $Z_i$</td><td>정의 3.3 (T1) 증명의 열 $Y_0,\dots,Y_w$, $Z_0,\dots,Z_u$와 그 사이의 동형 $\sigma_i$</td></tr>
-<tr><td>$S(i)$</td><td>보조명제 3.5 증명의 귀납 명제</td></tr>
 <tr><td>$\chi(G)$</td><td>색칠수, 정의 7.1</td></tr>
 <tr><td>$\mathbf{RG}$</td><td>반사 그래프의 범주, 정의 8.1</td></tr>
 <tr><td>$\mathcal O$, $\mathcal A$, $\mathcal S$</td><td>도식의 대상 집합, 사상 족, 도식, 정의 8.2</td></tr>
