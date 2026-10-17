@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <h2>기호</h2>
 <ul>
 <li>$\mathbb N=\{1,2,3,\dots\}$.</li>
-<li>$n\in\mathbb N$에 대해 $[n]:=\{1,\dots,n\}$. 평면분해의 인덱스 집합은 항상 $[n]$이다.</li>
+<li>$n\in\mathbb N$에 대해 $[n]:=\{1,\dots,n\}$. 평면분해의 인덱스 집합은 항상 $[n]$이다. 또 $[0]:=\varnothing$으로 약속한다.</li>
 <li>유한 집합 $X$에 대해 $\binom X2:=\{\{x,y\}:\ x,y\in X,\ x\ne y\}$. 즉 $X$의 서로 다른 두 원소로 이루어진 비순서쌍 전체의 집합이다.</li>
 <li>집합 $X$의 원소 개수는 $|X|$로 쓴다. $\varnothing$은 공집합이다.</li>
 <li>$\sqcup$는 서로소 합집합을 뜻한다. 즉 $A\sqcup B$라고 쓰면 $A\cap B=\varnothing$이 성립한다.</li>
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <p>(P3) $e_j\ne e_k$라 하자. 두 변 $e_j$, $e_k$는 두 끝점을 함께 가질 수 없다. 실제로 두 끝점을 함께 가지면 두 집합 $e_j$, $e_k$가 같아진다. 따라서 $|e_j\cap e_k|\le1$이고, 다음 두 경우 중 하나이다.</p>
 <ul>
 <li>경우 A: $e_j\cap e_k=\varnothing$. 그러면 $k,k+1\not\equiv j,j+1$이다. (G4)에 의해 $p_k,p_{k+1}\in H^+_{ab}$ ($a=p_j$, $b=p_{j+1}$)이다. (G3)에 의해 $[p_k,p_{k+1}]\subseteq H^+_{ab}$이므로 $[p_k,p_{k+1}]\cap L_{ab}=\varnothing$이다. $\gamma_{e_j}([0,1])\subseteq L_{ab}$이므로 두 곡선의 상은 서로소이고, $\psi(\varnothing)=\varnothing$이다.</li>
-<li>경우 B: $e_j\cap e_k=\{c_s\}$. 다른 끝점을 $c_p$, $c_q$로 두면 $c_s,c_p,c_q$는 서로 다르다. $P:=\psi(c_s)$, $A:=\psi(c_p)$, $B:=\psi(c_q)$는 (G1)에 의해 단위원 위의 서로 다른 세 점이다. 두 곡선의 상은 선분 $[P,A]$, $[P,B]$이다. $x\in[P,A]\cap[P,B]$이고 $x\ne P$라 하자. $x=P+t(A-P)=P+t'(B-P)$ ($t,t'\in(0,1]$)이므로 $A=P+(x-P)/t$, $B=P+(x-P)/t'$이다. 따라서 $P,A,B$는 모두 직선 $\{P+s(x-P):s\in\mathbb R\}$ 위에 있다. 이것은 (G2)에 모순이다. 그러므로 $[P,A]\cap[P,B]\subseteq\{P\}=\psi(e_j\cap e_k)$이다.</li>
+<li>경우 B: $e_j\cap e_k=\{c_s\}$. 다른 끝점을 $c_p$, $c_q$로 두면 $c_s,c_p,c_q$는 서로 다르다. $O:=\psi(c_s)$, $A:=\psi(c_p)$, $B:=\psi(c_q)$는 (G1)에 의해 단위원 위의 서로 다른 세 점이다. 두 곡선의 상은 선분 $[O,A]$, $[O,B]$이다. $x\in[O,A]\cap[O,B]$이고 $x\ne O$라 하자. $x=O+t(A-O)=O+t'(B-O)$ ($t,t'\in(0,1]$)이므로 $A=O+(x-O)/t$, $B=O+(x-O)/t'$이다. 따라서 $O,A,B$는 모두 직선 $\{O+s(x-O):s\in\mathbb R\}$ 위에 있다. 이것은 (G2)에 모순이다. 그러므로 $[O,A]\cap[O,B]\subseteq\{O\}=\psi(e_j\cap e_k)$이다.</li>
 </ul>
 <p>두 경우가 모든 경우를 덮으므로 (P1)–(P3)이 성립하고 $C_m$은 평면 그래프이다. $\square$</p>
 
@@ -217,7 +217,7 @@ $T=\{a,b\}$이고 $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>
 <li>(T3) $H\preceq X$이고 $H\cong H'$이면 $H'\preceq X$이다 (열의 마지막 항 $X_u\cong H\cong H'$).</li>
 </ul>
 
-<p>보조명제 3.4는 연결 집합의 수축을 마이너로 실현한다. 정의 3.3의 마이너는 연산 열로 정의되며, 그 열에 쓰이는 수축은 변 수축 $X/\{a,b\}$뿐이다. 임의의 $T$에 대한 $X/T$는 점 개수가 $|V_X|-|T|+1$이므로, $|T|\ge3$이면 변 수축 한 번의 결과 (점 개수 $|V_X|-1$)가 아니다. (반면 $|T|=2$이고 $X[T]$가 연결이면 $T$는 변이므로 $X/T$는 변 수축 한 번이다.) 그래서 $|T|\ge3$인 $X/T\preceq X$는 자명하지 않다. 보조명제 3.4는 $X[T]$가 연결이면 이것이 성립함을 보인다.</p>
+<p>보조명제 3.4는 연결 집합의 수축을 마이너로 실현한다. 정의 3.3의 마이너는 연산 열로 정의되며, 그 열에 쓰이는 수축은 변 수축 $X/\{a,b\}$뿐이다. 임의의 $T$에 대한 $X/T$는 점 개수가 $|V_X|-|T|+1$이므로, $|T|\ge3$이면 변 수축 한 번의 결과 (점 개수 $|V_X|-1$)가 아니다. (반면 $|T|=2$이고 $T=\{a,b\}$가 변 $\{a,b\}\in E_X$이면 $X/T$는 변 수축 $X/\{a,b\}$와 같다.) 그래서 $|T|\ge3$인 $X/T\preceq X$는 자명하지 않다. 보조명제 3.4는 $X[T]$가 연결이면 이것이 성립함을 보인다.</p>
 
 <h3>보조명제 3.4 (연결 집합의 수축)</h3>
 <p>모든 그래프 $X=(V_X,E_X)$와 모든 $\varnothing\ne T\subseteq V_X$에 대해, $X[T]:=(T,\{f\in E_X:\ f\subseteq T\})$가 연결이면 $X/T\preceq X$이다. 여기서 수축점은 $V_X$ 밖의 기호 $z$이다.</p>
@@ -227,22 +227,22 @@ $T=\{a,b\}$이고 $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>
 <p><b>보조명제 3.4의 증명.</b> 위 사실을 $H:=X/T$에 적용한다. $B_z:=T$, $x\in V_X\setminus T$에 대해 $B_x:=\{x\}$로 둔다. 이들은 서로소이다. $X[T]$는 연결이고 $X[\{x\}]$는 자명하게 연결이므로 (i)이 성립한다. $X/T$의 변은 $\{\rho_T a,\rho_T b\}$ ($\{a,b\}\in E_X$, $\rho_T a\ne\rho_T b$)의 꼴이고, $a\in B_{\rho_T a}$, $b\in B_{\rho_T b}$이며 $\{a,b\}$는 $X$의 변이므로 (ii)가 성립한다. 따라서 위 사실에 의해 $X/T\preceq X$이다. $\square$</p>
 
 <h3>보조명제 3.5 (연속 수축)</h3>
-<p>$X=(V_X,E_X)$를 그래프, $T_1,\dots,T_r\subseteq V_X$를 서로소인 비공집합으로서 각 $X[T_k]$가 연결이게 하자. $z_1,\dots,z_r$은 서로 다르고 $V_X$ 밖의 기호이다. $X_0:=X$, $X_i:=X_{i-1}/T_i$ (수축점 $z_i$; $1\le i\le r$)로 둔다. 각 $0\le i\le r$에 대해 $\pi_i:V_X\to V(X_i)$를 $\pi_i(p):=z_k$ ($p\in T_k$, $k\le i$), $\pi_i(p):=p$ (그 밖의 $p$)로 둔다. 이때 $X_r\preceq X$이고, 다음이 성립한다. (a) $V(X_r)=(V_X\setminus(T_1\cup\cdots\cup T_r))\sqcup\{z_1,\dots,z_r\}$. (b) $E(X_r)=\{\{\pi_r p,\pi_r q\}:\{p,q\}\in E_X,\ \pi_r p\ne\pi_r q\}$.</p>
-<p><b>증명.</b> $r$에 대한 귀납법을 쓴다. 먼저 다음을 관찰한다. $T_i$들이 서로소이므로 $\pi_{i-1}$은 $T_i$의 점을 바꾸지 않고, $X_{i-1}$에서 $T_i$의 두 점을 잇는 변은 $X_i$에서도 그대로 남는다. 따라서 $T_i\subseteq V(X_{i-1})$이고 $X_{i-1}[T_i]=X[T_i]$이므로 $X_{i-1}[T_i]$는 연결이다. 보조명제 3.4에 의해 $X_i=X_{i-1}/T_i\preceq X_{i-1}$이고, 귀납 가정 $X_{i-1}\preceq X$와 (T1)에 의해 $X_i\preceq X$이다. 특히 $r$에서 $X_r\preceq X$이다.</p>
-<p>점집합은 정의 3.3에서 바로 나온다. 수축 $X_i=X_{i-1}/T_i$에서 $V(X_{i-1})\setminus T_i$는 $V_X\setminus(T_1\cup\cdots\cup T_i)$와 $z_1,\dots,z_{i-1}$의 서로소 합집합이고, 여기에 수축점 $z_i$가 더해진다. 변집합은 다음과 같이 귀납으로 얻는다. 먼저 $\rho:=\rho_{T_i}$ (정의역은 $V(X_{i-1})$)라 하면 $\pi_i=\rho\circ\pi_{i-1}$이다. 실제로 $p\in V_X$에 대해 세 경우를 본다. (가) $p\in T_k$ ($k\le i-1$)이면 $\pi_{i-1}p=z_k$이고, $z_k\notin V_X$이고 $T_i\subseteq V_X$이므로 $z_k\notin T_i$이다. 따라서 $\rho z_k=z_k$, 즉 $\rho\pi_{i-1}p=z_k=\pi_ip$이다. (나) $p\in T_i$이면 $p\notin T_1\cup\cdots\cup T_{i-1}$이므로 $\pi_{i-1}p=p$이고 $\rho p=z_i=\pi_ip$이다. (다) $p\notin T_1\cup\cdots\cup T_i$이면 $\pi_{i-1}p=p$, $\rho p=p=\pi_ip$이다.
+<p>$X=(V_X,E_X)$를 그래프, $T_1,\dots,T_r\subseteq V_X$를 서로소인 비공집합으로서 각 $X[T_k]$가 연결이게 하자. $z_1,\dots,z_r$은 서로 다르고 $V_X$ 밖의 기호이다. $X_0:=X$, $X_i:=X_{i-1}/T_i$ (수축점 $z_i$; $1\le i\le r$)로 둔다. 각 $0\le i\le r$에 대해 $\nu_i:V_X\to V(X_i)$를 $\nu_i(p):=z_k$ ($p\in T_k$, $k\le i$), $\nu_i(p):=p$ (그 밖의 $p$)로 둔다. 이때 $X_r\preceq X$이고, 다음이 성립한다. (a) $V(X_r)=(V_X\setminus(T_1\cup\cdots\cup T_r))\sqcup\{z_1,\dots,z_r\}$. (b) $E(X_r)=\{\{\nu_r p,\nu_r q\}:\{p,q\}\in E_X,\ \nu_r p\ne\nu_r q\}$.</p>
+<p><b>증명.</b> $r$에 대한 귀납법을 쓴다. 먼저 다음을 관찰한다. $T_i$들이 서로소이므로 $\nu_{i-1}$은 $T_i$의 점을 바꾸지 않고, $X_{i-1}$에서 $T_i$의 두 점을 잇는 변은 $X_i$에서도 그대로 남는다. 따라서 $T_i\subseteq V(X_{i-1})$이고 $X_{i-1}[T_i]=X[T_i]$이므로 $X_{i-1}[T_i]$는 연결이다. 보조명제 3.4에 의해 $X_i=X_{i-1}/T_i\preceq X_{i-1}$이고, 귀납 가정 $X_{i-1}\preceq X$와 (T1)에 의해 $X_i\preceq X$이다. 특히 $r$에서 $X_r\preceq X$이다.</p>
+<p>점집합은 정의 3.3에서 바로 나온다. 수축 $X_i=X_{i-1}/T_i$에서 $V(X_{i-1})\setminus T_i$는 $V_X\setminus(T_1\cup\cdots\cup T_i)$와 $z_1,\dots,z_{i-1}$의 서로소 합집합이고, 여기에 수축점 $z_i$가 더해진다. 변집합은 다음과 같이 귀납으로 얻는다. 먼저 $\nu_i=\rho_{T_i}\circ\nu_{i-1}$이다 (정의역은 $V(X_{i-1})$). 실제로 $p\in V_X$에 대해 세 경우를 본다. (가) $p\in T_k$ ($k\le i-1$)이면 $\nu_{i-1}p=z_k$이고, $z_k\notin V_X$이고 $T_i\subseteq V_X$이므로 $z_k\notin T_i$이다. 따라서 $\rho_{T_i} z_k=z_k$, 즉 $\rho_{T_i}\nu_{i-1}p=z_k=\nu_ip$이다. (나) $p\in T_i$이면 $p\notin T_1\cup\cdots\cup T_{i-1}$이므로 $\nu_{i-1}p=p$이고 $\rho_{T_i} p=z_i=\nu_ip$이다. (다) $p\notin T_1\cup\cdots\cup T_i$이면 $\nu_{i-1}p=p$, $\rho_{T_i} p=p=\nu_ip$이다.
 
 이제 $0\le i\le r$에 대해 다음을 귀납으로 보인다.
-$$(\ast_i)\qquad E(X_i)=\{\{\pi_i p,\pi_i q\}:\ \{p,q\}\in E_X,\ \pi_i p\ne\pi_i q\}.$$
+$$(\ast_i)\qquad E(X_i)=\{\{\nu_i p,\nu_i q\}:\ \{p,q\}\in E_X,\ \nu_i p\ne\nu_i q\}.$$
 
-기저 $i=0$: $\pi_0=\mathrm{id}$, $X_0=X$이므로 $(\ast_0)$의 우변은 $E_X$ 자체이다 (변은 두 점의 집합이므로 $p\ne q$는 자동이다). 따라서 $(\ast_0)$이 성립한다.
+기저 $i=0$: $\nu_0=\mathrm{id}$, $X_0=X$이므로 $(\ast_0)$의 우변은 $E_X$ 자체이다 (변은 두 점의 집합이므로 $p\ne q$는 자동이다). 따라서 $(\ast_0)$이 성립한다.
 
-귀납 단계: $1\le i\le r$이고 $(\ast_{i-1})$이 성립한다고 하자. 정의 3.3에 의해 $E(X_i)=\{\{\rho s,\rho t\}:\ \{s,t\}\in E(X_{i-1}),\ \rho s\ne\rho t\}$이다.
+귀납 단계: $1\le i\le r$이고 $(\ast_{i-1})$이 성립한다고 하자. 정의 3.3에 의해 $E(X_i)=\{\{\rho_{T_i} s,\rho_{T_i} t\}:\ \{s,t\}\in E(X_{i-1}),\ \rho_{T_i} s\ne\rho_{T_i} t\}$이다.
 
-($\subseteq$) $e\in E(X_i)$라 하자. 위 식에 의해 $\{s,t\}\in E(X_{i-1})$, $\rho s\ne\rho t$, $e=\{\rho s,\rho t\}$가 있다. $(\ast_{i-1})$에 의해 $\{p,q\}\in E_X$, $\pi_{i-1}p\ne\pi_{i-1}q$, $\{s,t\}=\{\pi_{i-1}p,\pi_{i-1}q\}$가 있다. 여기서 $\pi_{i-1}p\ne\pi_{i-1}q$여야 하는 이유는 다음과 같다. 만약 $\pi_{i-1}p=\pi_{i-1}q$이면 $\{s,t\}$가 한 원소짜리 집합이 되어, $s\ne t$인 변 $\{s,t\}$와 모순된다 (또는 $\rho s=\rho\pi_{i-1}p=\rho\pi_{i-1}q=\rho t$가 되어 $\rho s\ne\rho t$와 모순된다). 따라서 $\pi_{i-1}p\ne\pi_{i-1}q$이다. 이제 $\pi_i=\rho\circ\pi_{i-1}$을 쓰면 $\{\rho s,\rho t\}=\{\rho\pi_{i-1}p,\rho\pi_{i-1}q\}=\{\pi_ip,\pi_iq\}$이고, $\rho s\ne\rho t$이므로 $\pi_ip\ne\pi_iq$이다. 따라서 $e=\{\pi_ip,\pi_iq\}$이고 $\{p,q\}\in E_X$, $\pi_ip\ne\pi_iq$이므로 $e$는 $(\ast_i)$의 우변에 속한다.
+($\subseteq$) $e\in E(X_i)$라 하자. 위 식에 의해 $\{s,t\}\in E(X_{i-1})$, $\rho_{T_i} s\ne\rho_{T_i} t$, $e=\{\rho_{T_i} s,\rho_{T_i} t\}$가 있다. $(\ast_{i-1})$에 의해 $\{p,q\}\in E_X$, $\nu_{i-1}p\ne\nu_{i-1}q$, $\{s,t\}=\{\nu_{i-1}p,\nu_{i-1}q\}$가 있다. 여기서 $\nu_{i-1}p\ne\nu_{i-1}q$여야 하는 이유는 다음과 같다. 만약 $\nu_{i-1}p=\nu_{i-1}q$이면 $\{s,t\}$가 한 원소짜리 집합이 되어, $s\ne t$인 변 $\{s,t\}$와 모순된다 (또는 $\rho_{T_i} s=\rho_{T_i}\nu_{i-1}p=\rho_{T_i}\nu_{i-1}q=\rho_{T_i} t$가 되어 $\rho_{T_i} s\ne\rho_{T_i} t$와 모순된다). 따라서 $\nu_{i-1}p\ne\nu_{i-1}q$이다. 이제 $\nu_i=\rho_{T_i}\circ\nu_{i-1}$을 쓰면 $\{\rho_{T_i} s,\rho_{T_i} t\}=\{\rho_{T_i}\nu_{i-1}p,\rho_{T_i}\nu_{i-1}q\}=\{\nu_ip,\nu_iq\}$이고, $\rho_{T_i} s\ne\rho_{T_i} t$이므로 $\nu_ip\ne\nu_iq$이다. 따라서 $e=\{\nu_ip,\nu_iq\}$이고 $\{p,q\}\in E_X$, $\nu_ip\ne\nu_iq$이므로 $e$는 $(\ast_i)$의 우변에 속한다.
 
-($\supseteq$) $\{p,q\}\in E_X$, $\pi_ip\ne\pi_iq$라 하자. 먼저 $\pi_{i-1}p\ne\pi_{i-1}q$이다. 실제로 $\pi_{i-1}p=\pi_{i-1}q$이면 $\pi_ip=\rho\pi_{i-1}p=\rho\pi_{i-1}q=\pi_iq$가 되어 가정에 모순된다. 그러므로 $(\ast_{i-1})$의 우변 조건이 성립하고, $(\ast_{i-1})$에 의해 $\{\pi_{i-1}p,\pi_{i-1}q\}\in E(X_{i-1})$이다. 이제 $s:=\pi_{i-1}p$, $t:=\pi_{i-1}q$로 두면 $\{s,t\}\in E(X_{i-1})$이고 $\rho s=\pi_ip\ne\pi_iq=\rho t$이다. 정의 3.3에 의해 $\{\rho s,\rho t\}=\{\pi_ip,\pi_iq\}\in E(X_i)$이다.
+($\supseteq$) $\{p,q\}\in E_X$, $\nu_ip\ne\nu_iq$라 하자. 먼저 $\nu_{i-1}p\ne\nu_{i-1}q$이다. 실제로 $\nu_{i-1}p=\nu_{i-1}q$이면 $\nu_ip=\rho_{T_i}\nu_{i-1}p=\rho_{T_i}\nu_{i-1}q=\nu_iq$가 되어 가정에 모순된다. 그러므로 $(\ast_{i-1})$의 우변 조건이 성립하고, $(\ast_{i-1})$에 의해 $\{\nu_{i-1}p,\nu_{i-1}q\}\in E(X_{i-1})$이다. 이제 $s:=\nu_{i-1}p$, $t:=\nu_{i-1}q$로 두면 $\{s,t\}\in E(X_{i-1})$이고 $\rho_{T_i} s=\nu_ip\ne\nu_iq=\rho_{T_i} t$이다. 정의 3.3에 의해 $\{\rho_{T_i} s,\rho_{T_i} t\}=\{\nu_ip,\nu_iq\}\in E(X_i)$이다.
 
-두 포함이 모두 성립하므로 $(\ast_i)$가 성립한다. 귀납이 끝나고 $i=r$의 경우가 (b) $E(X_r)=\{\{\pi_rp,\pi_rq\}:\{p,q\}\in E_X,\ \pi_rp\ne\pi_rq\}$이다. $\square$</p>
+두 포함이 모두 성립하므로 $(\ast_i)$가 성립한다. 귀납이 끝나고 $i=r$의 경우가 (b) $E(X_r)=\{\{\nu_rp,\nu_rq\}:\{p,q\}\in E_X,\ \nu_rp\ne\nu_rq\}$이다. $\square$</p>
 
 <h3>정리 3.6 ($G$는 압축 그래프의 마이너이다)</h3>
 <p>$G\preceq \mathfrak M^\circ$이고 $G\preceq\mathfrak M$이다. 여기서 $\mathfrak M$과 $\mathfrak M^\circ$는 각각 그래프 $(V(\mathfrak M),E(\mathfrak M))$, $(V(\mathfrak M^\circ),E(\mathfrak M^\circ))$로 본다.</p>
@@ -253,20 +253,20 @@ $$(\ast_i)\qquad E(X_i)=\{\{\pi_i p,\pi_i q\}:\ \{p,q\}\in E_X,\ \pi_i p\ne\pi_i
 <li>(b) $v\ne v'$이면 $T_v\cap T_{v'}=\varnothing$이다. 실제로 $F(v)\cap F(v')=\varnothing$ (보조명제 2.2 (2)), $w_v\ne w_{v'}$ (정의 2.3), $w_v\notin F(v')$, $w_{v'}\notin F(v)$ (이 두 가지는 $V_0\cap V_1=\varnothing$에서 나온다)이다.</li>
 </ul>
 
-<p>$X$와 $T_1,\dots,T_r$은 보조명제 3.5의 전제를 만족한다. $z_k$는 $V_X$ 밖의 서로 다른 기호로 고정하고, $z_{v_k}$라고도 쓴다. 보조명제 3.5에 의해 $X_r\preceq X$이고, $\pi:=\pi_r$로 두면 다음이 성립한다.</p>
+<p>$X$와 $T_1,\dots,T_r$은 보조명제 3.5의 전제를 만족한다. $z_k$는 $V_X$ 밖의 서로 다른 기호로 고정하고, $z_{v_k}$라고도 쓴다. 보조명제 3.5에 의해 $X_r\preceq X$이고, $\pi:=\nu_r$로 두면 다음이 성립한다.</p>
 <ul>
 <li>$V(X_r)=(V(X)\setminus\bigcup_{v\in\mathcal V}T_v)\sqcup\{z_v:\ v\in\mathcal V\}$.</li>
-<li>$E(X_r)=\{\{\pi p,\pi q\}:\{p,q\}\in E(X),\ \pi p\ne\pi q\}$.</li>
+<li>$E(X_r)=\{\{\nu p,\nu q\}:\{p,q\}\in E(X),\ \nu p\ne\nu q\}$.</li>
 </ul>
 <p>첫째 식의 첫 항을 계산한다. $V(X)=V_0\sqcup V_1$이고 $V_1=\{w_v:v\in\mathcal V\}$이므로 $V(X)\setminus\bigcup_{v\in\mathcal V}T_v=V_0\setminus\bigcup_{v\in\mathcal V}F(v)$이다. 보조명제 2.2 (2)에 의해 $V_0=\bigsqcup_{u\in V}F(u)$이고 각 $F(u)$는 비어 있지 않으므로, $u\notin\mathcal V$이면 $|F(u)|=1$이다. 따라서 $V_0\setminus\bigcup_{v\in\mathcal V}F(v)=\bigsqcup_{u\in V\setminus\mathcal V}F(u)$이고, $F(u)=\{(u,k_u)\}$로 두면 다음을 얻는다.</p>
 $$V(X_r)=\{(u,k_u):\ u\in V\setminus\mathcal V\}\sqcup\{z_v:\ v\in\mathcal V\}.$$
 
 <p>$\tau:V\to V(X_r)$를 $\tau(u):=(u,k_u)$ ($u\notin\mathcal V$), $\tau(v):=z_v$ ($v\in\mathcal V$)로 정의한다. 위 식에 의해 $\tau$는 전단사이다.</p>
 <ul>
-<li>(I1) 모든 $x\in V_0$에 대해 $\pi(x)=\tau(\varphi(x))$이다. 실제로 $x\in F(u)$라 하자. $u\in\mathcal V$이면 $x\in T_u$이므로 $\pi(x)=z_u=\tau(u)$이다. $u\notin\mathcal V$이면 $x=(u,k_u)$이고 $\pi(x)=x=\tau(u)$이다.</li>
-<li>(I2) 모든 $v\in\mathcal V$에 대해 $\pi(w_v)=z_v=\tau(v)$이다.</li>
+<li>(I1) 모든 $x\in V_0$에 대해 $\nu(x)=\tau(\varphi(x))$이다. 실제로 $x\in F(u)$라 하자. $u\in\mathcal V$이면 $x\in T_u$이므로 $\nu(x)=z_u=\tau(u)$이다. $u\notin\mathcal V$이면 $x=(u,k_u)$이고 $\nu(x)=x=\tau(u)$이다.</li>
+<li>(I2) 모든 $v\in\mathcal V$에 대해 $\nu(w_v)=z_v=\tau(v)$이다.</li>
 </ul>
-<p>$E(X)=E_{00}\sqcup E_{01}$이므로 $E(X_r)$을 두 부분으로 나누어 계산한다. $\{a,b\}\in E_{01}$이면 $\{a,b\}=\{x,w_v\}$ ($v\in\mathcal V$, $x\in F(v)$)이고, $\pi(x)=z_v=\pi(w_v)$이므로 이 변은 $\pi a\ne\pi b$를 만족하지 않는다. 따라서 $E(X_r)$의 변은 $E_{00}$의 변에서만 온다. $\{a,b\}\in E_{00}$이면 $a=(u,k)$, $b=(u',k)$, $\{u,u'\}\in E(P_k)$이고, (I1)에 의해 $\pi a=\tau(u)$, $\pi b=\tau(u')$이다. 따라서</p>
+<p>$E(X)=E_{00}\sqcup E_{01}$이므로 $E(X_r)$을 두 부분으로 나누어 계산한다. $\{a,b\}\in E_{01}$이면 $\{a,b\}=\{x,w_v\}$ ($v\in\mathcal V$, $x\in F(v)$)이고, $\nu(x)=z_v=\nu(w_v)$이므로 이 변은 $\nu a\ne\nu b$를 만족하지 않는다. 따라서 $E(X_r)$의 변은 $E_{00}$의 변에서만 온다. $\{a,b\}\in E_{00}$이면 $a=(u,k)$, $b=(u',k)$, $\{u,u'\}\in E(P_k)$이고, (I1)에 의해 $\nu a=\tau(u)$, $\nu b=\tau(u')$이다. 따라서</p>
 <p>$$E(X_r)=\{\{\tau u,\tau u'\}:\ \exists k\ (\{u,u'\}\in E(P_k)),\ \tau u\ne\tau u'\}.$$</p>
 <p>$\tau$는 단사이므로 $\tau u\ne\tau u'$는 $u\ne u'$와 같다. (D2)에 의해 $E=\bigcup_kE(P_k)$이므로 다음을 얻는다.</p>
 $$E(X_r)=\{\{\tau u,\tau u'\}:\ \{u,u'\}\in E\}.$$
@@ -283,7 +283,7 @@ $$E(X_r)=\{\{\tau u,\tau u'\}:\ \{u,u'\}\in E\}.$$
 
 <h3>명제 4.2 (두 조각 분해)</h3>
 <p>$V$를 유한 집합이라 하고, $E(P_1),E(P_2)\subseteq\binom V2$, $E:=E(P_1)\cup E(P_2)$라 하자. $P_1:=(V,E(P_1))$, $P_2:=(V,E(P_2))$가 평면 그래프이면 $G:=(V,E)$의 평면분해 $(P_1,P_2)$ ($n=2$)가 존재하고, 다음이 성립한다. 모든 $v\in V$에 대해 $F(v)=\{(v,1),(v,2)\}$이다. 또 $\mu(\{v,v'\})$는 $\{v,v'\}$가 $E(P_1)$과 $E(P_2)$에 속하는 개수이다.</p>
-<p><b>증명.</b> (D1)은 가정이고 (D2)는 $E=E(P_1)\cup E(P_2)$와 $V(P_1)=V(P_2)=V$에서 나온다. 따라서 $(P_1,P_2)$는 평면분해이다. $V(P_1)=V(P_2)=V$이므로 모든 $v$에 대해 $(v,1),(v,2)\in V_0$이고, $F(v)=\{(v,1),(v,2)\}$이다. 나머지는 정의 2.1과 2.3에서 나온다. $\square$</p>
+<p><b>증명.</b> (D1)은 가정이고 (D2)는 $E=E(P_1)\cup E(P_2)$와 $V(P_1)=V(P_2)=V$에서 나온다. 따라서 $(P_1,P_2)$는 평면분해이다. $V(P_1)=V(P_2)=V$이므로 모든 $v$에 대해 $(v,1),(v,2)\in V_0$이고, $F(v)=\{(v,1),(v,2)\}$이다. $V_0=\{(v,k):v\in V(P_k),\ k\in\{1,2\}\}=\{(v,1),(v,2):v\in V\}$이고, $E_{00}=\{\{(u,k),(v,k)\}:\ k\in\{1,2\},\ \{u,v\}\in E(P_k)\}$이다 (정의 2.1). 따라서 $F(v)=\{(v,1),(v,2)\}$이다. $\square$</p>
 
 <h2>제5장 비자명성 조건 (N)</h2>
 
@@ -311,8 +311,8 @@ $$E(X_r)=\{\{\tau u,\tau u'\}:\ \{u,u'\}\in E\}.$$
 <p><b>검증.</b> $P_1=(V,E(P_1))$, $P_2=(V,E(P_2))$로 정의했으므로 $V(P_1)=V(P_2)=V$. (D2): $E(P_1)\cup E(P_2)=\bigl\{\{a,b\},\{b,c\},\{a,c\}\bigr\}=E$. (D1): $K_3=C_3$는 보조명제 1.4에 의해 평면 그래프이다. $P_1$은 $C_3$에서 변 $\{a,c\}$를 삭제한 것이므로 $P_1\preceq C_3$ (T2)이고, (II)에 의해 $P_1$은 평면 그래프이다. 같은 이유로 $P_2$는 $C_3$에서 변 $\{a,b\}$를 삭제한 것이므로 평면 그래프이다. (N1): $n=2$. (N2): $|V(P_k)|=3$. (N3): $\{a,c\}\notin E(P_1)$이므로 $E(P_1)\ne E$이고, $\{a,b\}\notin E(P_2)$이므로 $E(P_2)\ne E$이다. 따라서 (N)을 만족한다.</p>
 
 <h3>명제 5.4 ($K_3$의 변별 분해는 (N2)를 만족하지 않는다)</h3>
-<p>$K_3$의 변 $e_1=\{a,b\}$, $e_2=\{b,c\}$, $e_3=\{a,c\}$에 대해 $P_k:=(e_k,\{e_k\})$로 두고, $(P_1,P_2,P_3)$를 $K_3$의 <b>변별 분해</b>라 한다. 각 $P_k$는 한 변으로 이루어진 그래프이고, $P_k$는 두 끝점을 잇는 선분으로 그릴 수 있고, 그림은 두 끝점 $\psi(a),\psi(b)$를 잇는 선분 $\gamma(t)=(1-t)\psi(a)+t\psi(b)$이다. $V(P_k)=e_k$이므로 $V(P_k)\setminus e_k=\varnothing$이고, (P2)의 조건 $w\in V\setminus e$는 공집합에서만 성립하므로 공허하다. 변이 하나뿐이므로 (P3)의 조건 $e\ne f$를 만족하는 쌍이 없어 공허하다. (P1)은 $\psi(a)\ne\psi(b)$인 점 사상으로 얻는다. 따라서 $P_k$는 평면 그래프이다. $e_1\cup e_2\cup e_3=\{a,b,c\}$이고 $\{e_1,e_2,e_3\}=E$이므로 (D2)가 성립한다. 따라서 변별 분해는 $K_3$의 평면분해이다. 변별 분해는 (N2)를 만족하지 않는다. 이 명제는 (N2)가 실제로 배제하는 분해를 보인다. 변별 분해는 (D1), (D2)를 만족하지만 조각의 점이 둘뿐이므로 (N)에서 떨어진다.</p>
-<p><b>증명.</b> 각 조각 $P_k$의 점집합 $V(P_k)=e_k$는 두 점이므로 $|V(P_k)|=2<3$이다. $\square$</p>
+<p>$K_3$의 변 $d_1=\{a,b\}$, $d_2=\{b,c\}$, $d_3=\{a,c\}$에 대해 $P_k:=(d_k,\{d_k\})$로 두고, $(P_1,P_2,P_3)$를 $K_3$의 <b>변별 분해</b>라 한다. 각 $P_k$는 한 변으로 이루어진 그래프이고, $P_k$는 두 끝점을 잇는 선분으로 그릴 수 있고, 그림은 두 끝점 $\psi(a),\psi(b)$를 잇는 선분 $\gamma(t)=(1-t)\psi(a)+t\psi(b)$이다. $V(P_k)=d_k$이므로 $V(P_k)\setminus d_k=\varnothing$이고, (P2)의 조건 $w\in V\setminus e$는 공집합에서만 성립하므로 공허하다. 변이 하나뿐이므로 (P3)의 조건 $e\ne f$를 만족하는 쌍이 없어 공허하다. (P1)은 $\psi(a)\ne\psi(b)$인 점 사상으로 얻는다. 따라서 $P_k$는 평면 그래프이다. $d_1\cup d_2\cup d_3=\{a,b,c\}$이고 $\{d_1,d_2,d_3\}=E$이므로 (D2)가 성립한다. 따라서 변별 분해는 $K_3$의 평면분해이다. 변별 분해는 (N2)를 만족하지 않는다. 이 명제는 (N2)가 실제로 배제하는 분해를 보인다. 변별 분해는 (D1), (D2)를 만족하지만 조각의 점이 둘뿐이므로 (N)에서 떨어진다.</p>
+<p><b>증명.</b> 각 조각 $P_k$의 점집합 $V(P_k)=d_k$는 두 점이므로 $|V(P_k)|=2<3$이다. $\square$</p>
 
 <h3>예 5.5 ($K_5$의 (N) 분해)</h3>
 <p>예 1.5의 분해 $(P_1,P_2)$는 (N)을 만족한다. (N1): $n=2$. (N2): $|V(P_1)|=|V(P_2)|=5\ge3$. (N3): $|E(P_1)|=|E(P_2)|=5<10=|E(K_5)|$이므로 $E(P_1)\ne E$, $E(P_2)\ne E$이다.</p>
@@ -331,6 +331,7 @@ $$E(X_r)=\{\{\tau u,\tau u'\}:\ \{u,u'\}\in E\}.$$
 <li>$\alpha_1:=(1,1)$, $\alpha_2:=(2,2)$, $\alpha_3:=(3,2)$.</li>
 <li>$\beta_1:=(0,2)$, $\beta_2:=(1,2)$, $\beta_3:=(3,1)$.</li>
 </ul>
+<p>여섯 점은 서로 다르다. $\alpha_1=(1,1)$, $\alpha_2=(2,2)$, $\alpha_3=(3,2)$, $\beta_1=(0,2)$, $\beta_2=(1,2)$, $\beta_3=(3,1)$이므로 서로 다르다.</p>
 <p>다음 아홉 경로 $R_1,\dots,R_9$를 정한다. 각 경로는 $\alpha_i$에서 $\beta_j$로 가며, 내부 점은 $\{\alpha_1,\alpha_2,\alpha_3,\beta_1,\beta_2,\beta_3\}$에 속하지 않는다. 여섯 점 $\alpha_i$, $\beta_j$는 $K_4$의 점 $0,1,2,3$의 복사점이며, 좌표는 이름일 뿐이다. 이 여섯 점은 아래 아홉 경로가 모두 존재하도록 고른 것이다. 증명은 좌표의 기하를 쓰지 않고 아래 표만 쓴다. 표의 근거 열은 각 변이 $\mathfrak M^\circ$의 변임을 보인다. $E_{00}$의 변은 정의 2.1에 의해 같은 층 $k$의 조각 $P_k$의 변이고, $E_{01}$의 변은 정의 2.3에 의해 $x\in F(v)$, $|F(v)|\ge2$인 경우이다 (명제 4.2에 의해 $|F(v)|=2$).</p>
 <table>
 <tr><th>경로</th><th>점열</th><th>각 변의 근거</th></tr>
@@ -369,7 +370,7 @@ $$E(X_r)=\{\{\tau u,\tau u'\}:\ \{u,u'\}\in E\}.$$
 <p>$C_4$와 $C_3$를 보조명제 1.4의 그래프로 하자. 즉 $C_4$는 점 $\{1,2,3,4\}$와 변 $\{1,2\},\{2,3\},\{3,4\},\{1,4\}$, $C_3$는 점 $\{1,2,3\}$과 변 $\{1,2\},\{2,3\},\{1,3\}$이다. 그러면 $C_3\preceq C_4$이고 $\chi(C_4)=2<3=\chi(C_3)$이다.</p>
 <p><b>증명.</b> 수축 $C_4/\{1,4\}$에서 $\rho_{\{1,4\}}$는 $1,4$를 $z$로, $2,3$은 그대로 보낸다. 변 $\{1,2\}\mapsto\{z,2\}$, $\{2,3\}\mapsto\{2,3\}$, $\{3,4\}\mapsto\{3,z\}$이고, $\{1,4\}$는 한 점으로 줄어든다. 결과는 점 $\{z,2,3\}$과 변 $\{z,2\},\{2,3\},\{3,z\}$를 가지며 이것은 $C_3$와 동형이다. $\{1,4\}$는 $C_4$의 변이므로 $C_4/\{1,4\}$는 변 수축 한 번의 결과이고 ((T2)의 변 수축, $u=1$), 이것은 $C_3$와 동형이므로 (T3)에 의해 $C_3\preceq C_4$이다.</p>
 <p>$\chi(C_4)$: 함수 $c(1)=c(3)=1$, $c(2)=c(4)=2$는 두 색으로 $C_4$를 칠한다. 한 색으로는 변이 있는 칠이 불가능하므로 $\chi(C_4)=2$이다.</p>
-<p>$\chi(C_3)$: 세 점이 서로 모두 인접하므로 세 점의 색은 서로 달라야 하고 두 색으로는 불가능하다. 따라서 $\chi(C_3)\ge3$이고, $c(1)=1$, $c(2)=2$, $c(3)=3$은 세 색으로 칠한다. 따라서 $\chi(C_3)=3$이다. $\square$</p>
+<p>$\chi(C_3)$: 세 점이 서로 모두 인접하므로 세 점이 서로 모두 인접하므로 세 점의 색은 모두 달라야 한다. 두 색으로는 서로 다른 세 색을 고를 수 없으므로 (비둘기집 원리) 두 색으로는 칠할 수 없다. 따라서 $\chi(C_3)\ge3$이고, $c(1)=1$, $c(2)=2$, $c(3)=3$은 세 색으로 칠한다. 따라서 $\chi(C_3)=3$이다. $\square$</p>
 <p>따라서 "$H\preceq X$이면 $\chi(H)\le\chi(X)$"는 거짓이다. 색칠수는 마이너에 대해 단조인 불변량이 아니다.</p>
 
 <h2>제8장 범주론적 관점</h2>
