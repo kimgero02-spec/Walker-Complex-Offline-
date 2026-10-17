@@ -49,17 +49,16 @@ document.addEventListener("DOMContentLoaded", function () {
 <h2>제1장 평면분해</h2>
 
 <h3>정의 1.1 (평면분해)</h3>
-<p>그래프 $G=(V,E)$가 주어졌다고 하자. $G$의 <b>평면분해</b>란 다음 조건을 만족하는 족 $\mathcal D=\{P_k\}_{k\in K}$이다. 여기서 $K$는 유한 집합이고, 각 $k\in K$에 대해 $P_k=(V_k,E_k)$는 그래프이다.</p>
+<p>$G=(V,E)$를 그래프라 하자. 그래프들의 순서쌍 $(P_1,\dots,P_n)$ ($n\in\mathbb N$, $P_k=(V_k,E_k)$)이 $G$의 <b>평면분해</b>라는 것은 다음 두 조건이 성립하는 것이다.</p>
 <ul>
-<li>(D0) 각 $k\in K$에 대해 $V_k\subseteq V$.</li>
-<li>(D1) 각 $k\in K$에 대해 $P_k$는 평면 그래프이다.</li>
-<li>(D2) $V=\bigcup_{k\in K}V_k$.</li>
-<li>(D3) $E=\bigcup_{k\in K}E_k$.</li>
+<li>(D1) 각 $k\in\{1,\dots,n\}$에 대해 $P_k$는 평면 그래프이다.</li>
+<li>(D2) 등식 $G=P_1+\cdots+P_n$이 성립한다. 여기서 두 그래프의 합은 $(V_1,E_1)+(V_2,E_2):=(V_1\cup V_2,\ E_1\cup E_2)$이고, 세 개 이상의 합은 차례로 정의한다. 즉 $V=V_1\cup\cdots\cup V_n$이고 $E=E_1\cup\cdots\cup E_n$이다.</li>
 </ul>
-<p>각 $P_k$를 $\mathcal D$의 <b>조각</b>이라 한다. 두 조각은 점이나 변을 공유할 수 있다. 즉 $k\ne l$에 대해 $V_k\cap V_l\ne\varnothing$이거나 $E_k\cap E_l\ne\varnothing$일 수 있다.</p>
+<p>등식 (D2)에서 $V_k\subseteq V$, $E_k\subseteq E$가 따른다. 또 $P_k$의 점과 변은 $G$의 점과 변이므로 $E_k\subseteq\binom{V_k}2$이다. 평면분해를 이렇게 등식으로 지칭하는 것이 이 책의 정의이다. 따라서 평면분해는 "$G=P_1+\cdots+P_n$을 만족하는 평면 그래프들의 순서쌍"이다.</p>
+<p>각 $P_k$를 평면분해의 <b>조각</b>이라 한다. 두 조각은 점이나 변을 공유할 수 있다. 즉 $k\ne l$에 대해 $V_k\cap V_l\ne\varnothing$이거나 $E_k\cap E_l\ne\varnothing$일 수 있다. 같은 그래프가 두 번 나와도 순서쌍에서는 서로 다른 두 조각이다. 이 책에서는 $K:=\{1,\dots,n\}$으로 쓴다.</p>
 
 <h3>예 1.2 (자명 분해)</h3>
-<p>$G=(V,E)$가 평면 그래프이면 $K=\{1\}$, $P_1=(V,E)$로 두면 $\{P_1\}$은 $G$의 평면분해이다. 역으로, $K=\{1\}$인 평면분해 $\{P_1\}$이 존재하면 (D0)–(D3)에 의해 $V_1=V$, $E_1=E$이므로 $P_1=G$이고 $G$는 평면 그래프이다.</p>
+<p>$G=(V,E)$가 평면 그래프이면 $K=\{1\}$, $P_1=(V,E)$로 두면 $(P_1)$은 $G$의 평면분해이다. 역으로, $K=\{1\}$인 평면분해 $(P_1)$이 존재하면 (D2)에 의해 $V_1=V$, $E_1=E$이므로 $P_1=G$이고 $G$는 평면 그래프이다.</p>
 
 <h3>예 1.3 (정사각형 두 장으로 만든 $K_4$)</h3>
 <p>$V=\{0,1,2,3\}$, $E=\binom V2$인 그래프를 $K_4$라 하자. $K=\{1,2\}$로 두고 다음 두 조각을 정의한다.</p>
@@ -67,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>$P_1=(V,E_1)$, $E_1=\bigl\{\{0,1\},\{1,3\},\{3,2\},\{2,0\}\bigr\}$.</li>
 <li>$P_2=(V,E_2)$, $E_2=\bigl\{\{0,3\},\{3,1\},\{1,2\},\{2,0\}\bigr\}$.</li>
 </ul>
-<p><b>검증.</b> (D0): $V_1=V_2=V$. (D2): $V_1\cup V_2=V$. (D3): $E_1\cup E_2=\{\{0,1\},\{1,3\},\{2,3\},\{0,2\},\{0,3\},\{1,2\}\}=\binom V2=E$. (D1): $P_1$은 사이클 $0\text{-}1\text{-}3\text{-}2\text{-}0$이고 $P_2$는 사이클 $0\text{-}3\text{-}1\text{-}2\text{-}0$이다. 길이 $n$의 사이클은 평면 그래프이다 (보조명제 1.4). 따라서 $\mathcal D$는 $K_4$의 평면분해이다. 또 $E_1\cap E_2=\bigl\{\{1,3\},\{0,2\}\bigr\}$이다.</p>
+<p><b>검증.</b> (D2) 로부터 $V_1=V_2=V$. (D2): $E_1\cup E_2=\{\{0,1\},\{1,3\},\{2,3\},\{0,2\},\{0,3\},\{1,2\}\}=\binom V2=E$. (D1): $P_1$은 사이클 $0\text{-}1\text{-}3\text{-}2\text{-}0$이고 $P_2$는 사이클 $0\text{-}3\text{-}1\text{-}2\text{-}0$이다. 길이 $n$의 사이클은 평면 그래프이다 (보조명제 1.4). 따라서 $\mathcal D$는 $K_4$의 평면분해이다. 또 $E_1\cap E_2=\bigl\{\{1,3\},\{0,2\}\bigr\}$이다.</p>
 
 <h3>보조명제 1.4 (사이클과 $K_4$의 평면성)</h3>
 <ol>
@@ -83,11 +82,11 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>$P_1=(V,E_1)$, $E_1=\bigl\{\{0,1\},\{1,2\},\{2,3\},\{3,4\},\{0,4\}\bigr\}$. 사이클 $0\text{-}1\text{-}2\text{-}3\text{-}4\text{-}0$이다.</li>
 <li>$P_2=(V,E_2)$, $E_2=\bigl\{\{0,2\},\{2,4\},\{4,1\},\{1,3\},\{0,3\}\bigr\}$. 사이클 $0\text{-}2\text{-}4\text{-}1\text{-}3\text{-}0$이다.</li>
 </ul>
-<p><b>검증.</b> (D0), (D2): $V_1=V_2=V$. (D3): $E_1\cup E_2=\binom V2$이다 (열 개의 쌍을 전부 세면 된다). (D1): 두 조각은 길이 5인 사이클이므로 보조명제 1.4 (1)에 의해 평면 그래프이다. $E_1\cap E_2=\varnothing$이다. 따라서 $\mathcal D$는 $K_5$의 평면분해이다.</p>
+<p><b>검증.</b> (D2) 로부터 $V_1=V_2=V$. (D2): $E_1\cup E_2=\binom V2$이다 (열 개의 쌍을 전부 세면 된다). (D1): 두 조각은 길이 5인 사이클이므로 보조명제 1.4 (1)에 의해 평면 그래프이다. $E_1\cap E_2=\varnothing$이다. 따라서 $\mathcal D$는 $K_5$의 평면분해이다.</p>
 
 <h2>제2장 복사점과 매뉴얼 그래프</h2>
 
-<p>이 장에서는 그래프 $G=(V,E)$와 $G$의 평면분해 $\mathcal D=\{P_k\}_{k\in K}$를 고정한다.</p>
+<p>이 장에서는 그래프 $G=(V,E)$와 $G$의 평면분해 $\mathcal D=(P_k)_{k\in K}$를 고정한다.</p>
 
 <h3>정의 2.1 (복사점)</h3>
 <ul>
@@ -107,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <p><b>증명.</b> (4)는 정의 2.1에서 바로 나온다.</p>
 <p>(1) $\{x,y\}\in E_{00}$이면 (4)에 의해 $x=(u,k)$, $y=(v,k)$이고 $\{u,v\}\in E_k$이다. $E_k\subseteq\binom{V_k}2$이므로 $u\ne v$이다. 따라서 $x\ne y$이고 $\{x,y\}\in\binom{V_0}2$이다.</p>
 <p>(2) $v\in V$에 대해 (D2)에 의해 $v\in V_k$인 $k$가 있으므로 $(v,k)\in C(v)$이고 $C(v)\neq\varnothing$이다. $\varphi$는 함수이므로 $\varphi^{-1}(v)$와 $\varphi^{-1}(v')$는 $v\ne v'$이면 서로소이다. $V_0=\bigcup_{v\in V}\varphi^{-1}(v)$는 정의에서 나온다.</p>
-<p>(3) (4)에 의해 $x=(u,k)$, $y=(v,k)$, $\{u,v\}\in E_k$이다. (1)의 증명에 의해 $u\ne v$이므로 $\varphi(x)=u\ne v=\varphi(y)$이다. (D3)에 의해 $E_k\subseteq E$이므로 $\{u,v\}\in E$이다. $\square$</p>
+<p>(3) (4)에 의해 $x=(u,k)$, $y=(v,k)$, $\{u,v\}\in E_k$이다. (1)의 증명에 의해 $u\ne v$이므로 $\varphi(x)=u\ne v=\varphi(y)$이다. (D2)에 의해 $E_k\subseteq E$이므로 $\{u,v\}\in E$이다. $\square$</p>
 
 <h3>정의 2.3 (매뉴얼 그래프)</h3>
 <p>기호 $\star$를 $K$의 원소가 아닌 한 기호로 고정한다. 다음을 정의한다.</p>
@@ -121,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 $$V(\mathfrak M):=V_0\sqcup W,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup E_{11}.$$
 <p>이 합집합들이 서로소인 이유는 다음과 같다. $V_0\cap W=\varnothing$이다. $E_{00}$의 원소는 $V_0$의 두 점으로, $E_{01}$의 원소는 $V_0$의 점과 $W$의 점으로, $E_{11}$의 원소는 $W$의 두 점으로 이루어진다. 따라서 세 집합의 원소는 같을 수 없다.</p>
 <p><b>보조명제 2.4 (잘 정의됨).</b> $\{w_v,w_{v'}\}\in E_{11}$이면 $\mu(\{v,v'\})\ge2$이므로 $\{v,v'\}\in E$이다. 또 $|C(v)|\ge2$, $|C(v')|\ge2$이다. 따라서 $E_{11}$의 정의에 쓰인 $w_v,w_{v'}$는 실제로 $W$의 원소이다.</p>
-<p><b>증명.</b> $\mu(\{v,v'\})\ge2$이면 $\{v,v'\}\in E_k$인 $k\in K$가 적어도 두 개 있다. (D3)에 의해 $\{v,v'\}\in E$이다. 또 $\{v,v'\}\in E_k$이면 $v,v'\in V_k$이므로 $(v,k)\in C(v)$, $(v',k)\in C(v')$이다. 두 $k$가 있으므로 $|C(v)|\ge2$, $|C(v')|\ge2$이다. $\square$</p>
+<p><b>증명.</b> $\mu(\{v,v'\})\ge2$이면 $\{v,v'\}\in E_k$인 $k\in K$가 적어도 두 개 있다. (D2)에 의해 $\{v,v'\}\in E$이다. 또 $\{v,v'\}\in E_k$이면 $v,v'\in V_k$이므로 $(v,k)\in C(v)$, $(v',k)\in C(v')$이다. 두 $k$가 있으므로 $|C(v)|\ge2$, $|C(v')|\ge2$이다. $\square$</p>
 <p>$U\mathfrak M(\mathcal D):=(V_0\sqcup W,\ E_{00}\sqcup E_{01})$를 $\mathfrak M$의 <b>접합 그래프</b>라 한다. 이것은 $\mathfrak M$의 부분그래프이다.</p>
 
 <h3>명제 2.5 (매뉴얼 그래프의 기본 성질)</h3>
@@ -152,7 +151,7 @@ $$V(\mathfrak M):=V_0\sqcup W,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup E
 <li>$\{a,b\}\in E_{01}$이면 $a\in C(v)$, $b=w_v$ (어떤 $v$에 대해)이므로 $\rho(a)=v=\rho(b)$이다. 이것은 $\rho(a)\ne\rho(b)$와 모순이므로 이 경우는 없다.</li>
 <li>$\{a,b\}\in E_{11}$이면 $a=w_v$, $b=w_{v'}$이고 정의 2.3에 의해 $\mu(\{v,v'\})\ge2$이다. 보조명제 2.4에 의해 $\{v,v'\}=\{\rho(a),\rho(b)\}\in E$이다.</li>
 </ul>
-<p>($E\subseteq F$) $\{u,v\}\in E$라 하자. (D3)에 의해 $\{u,v\}\in E_k$인 $k$가 있다. 그러면 $(u,k),(v,k)\in V_0$이고 $\{(u,k),(v,k)\}\in E_{00}$이다. $\rho((u,k))=u\ne v=\rho((v,k))$이므로 $\{u,v\}\in F$이다.</p>
+<p>($E\subseteq F$) $\{u,v\}\in E$라 하자. (D2)에 의해 $\{u,v\}\in E_k$인 $k$가 있다. 그러면 $(u,k),(v,k)\in V_0$이고 $\{(u,k),(v,k)\}\in E_{00}$이다. $\rho((u,k))=u\ne v=\rho((v,k))$이므로 $\{u,v\}\in F$이다.</p>
 <p>따라서 $F=E$이고 $G(\mathfrak M)=G$이다. $\square$</p>
 
 <h3>정의 3.3 (간선 수축, 마이너)</h3>
@@ -182,31 +181,31 @@ $$X/T:=\bigl((V_X\setminus T)\sqcup\{z\},\ \{\{\rho_T(a),\rho_T(b)\}:\ \{a,b\}\i
 <h2>제4장 자명 분해와 두 조각 분해</h2>
 
 <h3>명제 4.1 (자명 분해의 매뉴얼 그래프)</h3>
-<p>$G=(V,E)$가 평면 그래프이고 $\mathcal D=\{P_1\}$, $P_1=(V,E)$라 하자. 이때 $\mathcal D$는 $G$의 평면분해이고 $W=\varnothing$, $E_{01}=\varnothing$, $E_{11}=\varnothing$이다. 또 $V_0=\{(v,1):v\in V\}$이고 $E_{00}=\{\{(u,1),(v,1)\}:\{u,v\}\in E\}$이다.</p>
+<p>$G=(V,E)$가 평면 그래프이고 $\mathcal D=(P_1)$, $P_1=(V,E)$라 하자. 이때 $\mathcal D$는 $G$의 평면분해이고 $W=\varnothing$, $E_{01}=\varnothing$, $E_{11}=\varnothing$이다. 또 $V_0=\{(v,1):v\in V\}$이고 $E_{00}=\{\{(u,1),(v,1)\}:\{u,v\}\in E\}$이다.</p>
 <p><b>증명.</b> 평면분해 조건은 예 1.2에서 나온다. $K=\{1\}$이므로 $|C(v)|=1$이 모든 $v$에 대해 성립한다. 따라서 $W=\varnothing$이고 $E_{01}=\varnothing$이다. $\mu(\{v,v'\})\le|K|=1<2$이므로 $E_{11}=\varnothing$이다. $V_0$와 $E_{00}$의 식은 정의 2.1에서 나온다. $\square$</p>
 
 <h3>명제 4.2 (두 조각 분해)</h3>
-<p>$V$를 유한 집합이라 하고, $E_1,E_2\subseteq\binom V2$, $E:=E_1\cup E_2$라 하자. $P_1:=(V,E_1)$, $P_2:=(V,E_2)$가 평면 그래프이면 $G:=(V,E)$의 평면분해 $\mathcal D:=\{P_1,P_2\}$ ($K=\{1,2\}$)가 존재하고, 다음이 성립한다.</p>
+<p>$V$를 유한 집합이라 하고, $E_1,E_2\subseteq\binom V2$, $E:=E_1\cup E_2$라 하자. $P_1:=(V,E_1)$, $P_2:=(V,E_2)$가 평면 그래프이면 $G:=(V,E)$의 평면분해 $\mathcal D:=(P_1,P_2)$ ($K=\{1,2\}$)가 존재하고, 다음이 성립한다.</p>
 <ol>
 <li>$W=\{w_v:\ v\in V\}$이다. 모든 $v$에 대해 $C(v)=\{(v,1),(v,2)\}$이다.</li>
 <li>$E_{11}=\bigl\{\{w_u,w_v\}:\ u\ne v,\ \{u,v\}\in E_1\cap E_2\bigr\}$이다.</li>
 </ol>
-<p><b>증명.</b> (D0): $V_1=V_2=V$이다. (D1)은 가정이다. (D2), (D3)은 $E=E_1\cup E_2$와 $V_1=V_2=V$에서 나온다. 이제 $C(v)=\{(v,1),(v,2)\}$이므로 $|C(v)|=2$이고 $W=\{w_v:v\in V\}$이다. $\mu(\{u,v\})=|\{k\in\{1,2\}:\{u,v\}\in E_k\}|$이므로 $\mu\ge2$는 $\{u,v\}\in E_1\cap E_2$와 같다. 정의 2.3에 의해 (2)가 나온다. $\square$</p>
+<p><b>증명.</b> (D2) 로부터 $V_1=V_2=V$이다. (D1)은 가정이다. (D2)은 $E=E_1\cup E_2$와 $V_1=V_2=V$에서 나온다. 이제 $C(v)=\{(v,1),(v,2)\}$이므로 $|C(v)|=2$이고 $W=\{w_v:v\in V\}$이다. $\mu(\{u,v\})=|\{k\in\{1,2\}:\{u,v\}\in E_k\}|$이므로 $\mu\ge2$는 $\{u,v\}\in E_1\cap E_2$와 같다. 정의 2.3에 의해 (2)가 나온다. $\square$</p>
 
 <h2>제5장 비자명성 조건 (N)</h2>
 
 <h3>정의 5.1 (조건 (N))</h3>
-<p>$G=(V,E)$의 평면분해 $\mathcal D=\{P_k\}_{k\in K}$가 <b>조건 (N)</b>을 만족한다는 것은 다음 세 조건이 성립하는 것이다.</p>
+<p>$G=(V,E)$의 평면분해 $\mathcal D=(P_k)_{k\in K}$가 <b>조건 (N)</b>을 만족한다는 것은 다음 세 조건이 성립하는 것이다.</p>
 <ul>
 <li>(N1) $|K|\ge2$.</li>
 <li>(N2) 모든 $k\in K$에 대해 $|V_k|\ge3$.</li>
 <li>(N3) 모든 $k\in K$에 대해 $E_k\ne E$.</li>
 </ul>
-<p>(N3)에서 $E_k\subseteq E$ ((D3))이므로 $E_k\ne E$는 $E_k\subsetneq E$와 같다.</p>
+<p>(N3)에서 $E_k\subseteq E$ ((D2))이므로 $E_k\ne E$는 $E_k\subsetneq E$와 같다.</p>
 
 <h3>명제 5.2 (점이 세 개 미만이면 (N)을 만족하는 분해가 없다)</h3>
 <p>$|V|\le2$인 그래프 $G=(V,E)$는 조건 (N)을 만족하는 평면분해를 갖지 않는다.</p>
-<p><b>증명.</b> $\mathcal D$가 (N)을 만족한다고 가정하자. (N1)에 의해 $K\ne\varnothing$이므로 $k\in K$를 택할 수 있다. (N2)에 의해 $|V_k|\ge3$이다. (D0)에 의해 $V_k\subseteq V$이므로 $|V|\ge3$이다. 이것은 $|V|\le2$와 모순이다. $\square$</p>
+<p><b>증명.</b> $\mathcal D$가 (N)을 만족한다고 가정하자. (N1)에 의해 $K\ne\varnothing$이므로 $k\in K$를 택할 수 있다. (N2)에 의해 $|V_k|\ge3$이다. (D2)에 의해 $V_k\subseteq V$이므로 $|V|\ge3$이다. 이것은 $|V|\le2$와 모순이다. $\square$</p>
 
 <h3>예 5.3 ($K_3$의 (N) 분해)</h3>
 <p>$V=\{a,b,c\}$, $E=\bigl\{\{a,b\},\{b,c\},\{a,c\}\bigr\}$인 그래프를 $K_3$라 하자. $K=\{1,2\}$로 두고 다음 두 조각을 정의한다.</p>
@@ -214,14 +213,14 @@ $$X/T:=\bigl((V_X\setminus T)\sqcup\{z\},\ \{\{\rho_T(a),\rho_T(b)\}:\ \{a,b\}\i
 <li>$P_1=(V,E_1)$, $E_1=\bigl\{\{a,b\},\{b,c\}\bigr\}$.</li>
 <li>$P_2=(V,E_2)$, $E_2=\bigl\{\{a,c\},\{b,c\}\bigr\}$.</li>
 </ul>
-<p><b>검증.</b> (D0), (D2): $V_1=V_2=V$. (D3): $E_1\cup E_2=E$. (D1): $P_1$은 길이 2인 경로 $a\text{-}b\text{-}c$이고 $P_2$는 경로 $a\text{-}c\text{-}b$이다. $C_3$는 보조명제 1.4 (1)에 의해 평면 그래프이고, 두 경로는 $C_3$의 부분그래프이다. 부분그래프의 평면성은 그림을 제한하여 얻는다. 따라서 두 경로는 평면 그래프이다. (N1): $|K|=2$. (N2): $|V_k|=3$. (N3): $E_1\ne E$ (왜냐하면 $\{a,c\}\notin E_1$)이고 $E_2\ne E$ (왜냐하면 $\{a,b\}\notin E_2$). 따라서 (N)을 만족한다.</p>
+<p><b>검증.</b> (D2) 로부터 $V_1=V_2=V$. (D2): $E_1\cup E_2=E$. (D1): $P_1$은 길이 2인 경로 $a\text{-}b\text{-}c$이고 $P_2$는 경로 $a\text{-}c\text{-}b$이다. $C_3$는 보조명제 1.4 (1)에 의해 평면 그래프이고, 두 경로는 $C_3$의 부분그래프이다. 부분그래프의 평면성은 그림을 제한하여 얻는다. 따라서 두 경로는 평면 그래프이다. (N1): $|K|=2$. (N2): $|V_k|=3$. (N3): $E_1\ne E$ (왜냐하면 $\{a,c\}\notin E_1$)이고 $E_2\ne E$ (왜냐하면 $\{a,b\}\notin E_2$). 따라서 (N)을 만족한다.</p>
 
 <h3>명제 5.4 ($K_3$의 변별 분해는 (N2)를 만족하지 않는다)</h3>
 <p>$K_3$의 세 변 $\{a,b\}$, $\{b,c\}$, $\{a,c\}$ 각각을 조각으로 하는 평면분해 (각 조각의 점집합은 두 점이다)는 (N2)를 만족하지 않는다.</p>
 <p><b>증명.</b> 각 조각 $P_k$의 점집합 $V_k$는 두 점이므로 $|V_k|=2<3$이다. $\square$</p>
 
 <h3>예 5.5 ($K_5$의 (N) 분해)</h3>
-<p>예 1.5의 분해 $\{P_1,P_2\}$는 (N)을 만족한다. (N1): $|K|=2$. (N2): $|V_1|=|V_2|=5\ge3$. (N3): $|E_1|=|E_2|=5<10=|E(K_5)|$이므로 $E_1\ne E$, $E_2\ne E$.</p>
+<p>예 1.5의 분해 $(P_1,P_2)$는 (N)을 만족한다. (N1): $|K|=2$. (N2): $|V_1|=|V_2|=5\ge3$. (N3): $|E_1|=|E_2|=5<10=|E(K_5)|$이므로 $E_1\ne E$, $E_2\ne E$.</p>
 
 <h2>제6장 평면성과 마이너</h2>
 
@@ -230,7 +229,7 @@ $$X/T:=\bigl((V_X\setminus T)\sqcup\{z\},\ \{\{\rho_T(a),\rho_T(b)\}:\ \{a,b\}\i
 <p><b>증명.</b> 정리 3.5에 의해 $G\preceq U\mathfrak M(\mathcal D)$이다. (II)에 의해 $G$는 평면 그래프이다. $\square$</p>
 
 <h3>예 6.2 (역은 성립하지 않는다)</h3>
-<p>예 1.3의 분해 $\mathcal D=\{P_1,P_2\}$를 생각하자. $G=K_4$는 평면 그래프이다 (보조명제 1.4 (2)). 그러나 $U\mathfrak M(\mathcal D)$는 평면 그래프가 아니다. 증명은 다음과 같다.</p>
+<p>예 1.3의 분해 $\mathcal D=(P_1,P_2)$를 생각하자. $G=K_4$는 평면 그래프이다 (보조명제 1.4 (2)). 그러나 $U\mathfrak M(\mathcal D)$는 평면 그래프가 아니다. 증명은 다음과 같다.</p>
 <p>예 1.3에서 $V_1=V_2=V=\{0,1,2,3\}$이므로 명제 4.2에 의해 $W=\{w_0,w_1,w_2,w_3\}$, $C(v)=\{(v,1),(v,2)\}$이다. $E_{00}$의 변은 $\{(u,k),(v,k)\}$ ($\{u,v\}\in E_k$)이다. 다음 여섯 점을 정한다.</p>
 <ul>
 <li>$A_1:=(1,1)$, $A_2:=(2,2)$, $A_3:=(3,2)$.</li>
@@ -276,11 +275,11 @@ $$X/T:=\bigl((V_X\setminus T)\sqcup\{z\},\ \{\{\rho_T(a),\rho_T(b)\}:\ \{a,b\}\i
 <p>$\mathbf{RG}$의 <b>도식</b>은 대상 집합 $\mathcal O$와 두 대상 사이의 사상들의 족 $\mathcal A$의 쌍이다. 도식 $\mathcal S$의 <b>cocone</b>은 대상 $Z$와 각 대상 $X\in\mathcal O$에 대해 사상 $g_X:X\to Z$의 족 $(g_X)$로서, $\mathcal A$의 임의의 사상 $a:X\to Y$에 대해 $g_Y\circ a=g_X$를 만족하는 것이다. 도식 $\mathcal S$의 <b>코리밋</b>은 cocone $(Q,(\iota_X))$로서, 임의의 cocone $(Z,(g_X))$에 대해 $h\circ\iota_X=g_X$ ($X\in\mathcal O$)를 만족하는 사상 $h:Q\to Z$가 유일하게 존재하는 것이다.</p>
 
 <h3>명제 8.3 (조각들의 합집합은 교집합 도식의 코리밋이다)</h3>
-<p>$G=(V,E)$와 평면분해 $\mathcal D=\{P_k\}_{k\in K}$를 고정한다. 각 $k\ne l$에 대해 $I_{kl}:=(V_k\cap V_l,\ E_k\cap E_l)$로 둔다. 이것은 그래프이다: $E_k\cap E_l\subseteq\binom{V_k\cap V_l}2$이다. 도식 $\mathcal S$는 대상 $\{P_k\}_{k\in K}\cup\{I_{kl}\}_{k\ne l}$과, 포함으로 이루어진 사상 $I_{kl}\to P_k$, $I_{kl}\to P_l$을 갖는다. 포함은 점에 대해 항등이고 변을 보존하므로 정의 8.1의 사상이다. 각 $k$에 대해 포함 $\iota_k:P_k\to G$는 사상이다 ((D3)에 의해 $E_k\subseteq E$). 이때 $(G,(\iota_k)_{k\in K})$는 $\mathcal S$의 코리밋이다.</p>
+<p>$G=(V,E)$와 평면분해 $\mathcal D=(P_k)_{k\in K}$를 고정한다. 각 $k\ne l$에 대해 $I_{kl}:=(V_k\cap V_l,\ E_k\cap E_l)$로 둔다. 이것은 그래프이다: $E_k\cap E_l\subseteq\binom{V_k\cap V_l}2$이다. 도식 $\mathcal S$는 대상 $\{P_k\}_{k\in K}\cup\{I_{kl}\}_{k\ne l}$과, 포함으로 이루어진 사상 $I_{kl}\to P_k$, $I_{kl}\to P_l$을 갖는다. 포함은 점에 대해 항등이고 변을 보존하므로 정의 8.1의 사상이다. 각 $k$에 대해 포함 $\iota_k:P_k\to G$는 사상이다 ((D2)에 의해 $E_k\subseteq E$). 이때 $(G,(\iota_k)_{k\in K})$는 $\mathcal S$의 코리밋이다.</p>
 <p><b>증명.</b> cocone 조건을 확인한다. $\iota_k$는 $\mathcal S$의 사상과 가환해야 한다. 즉 $\iota_k\circ(I_{kl}\to P_k)=\iota_{I_{kl}}$이고 $\iota_l\circ(I_{kl}\to P_l)=\iota_{I_{kl}}$이어야 한다. 이것은 $I_{kl}\subseteq P_k$, $I_{kl}\subseteq P_l$과 $\iota$가 포함임에서 나온다. 따라서 $(G,(\iota_k))$는 $\mathcal S$의 cocone이다.</p>
 <p>이제 임의의 cocone $(Z,(g_k)_{k\in K},(g_{kl})_{k\ne l})$를 준다. 여기서 $g_k:P_k\to Z$, $g_{kl}:I_{kl}\to Z$이고 $g_k\circ(I_{kl}\hookrightarrow P_k)=g_{kl}=g_l\circ(I_{kl}\hookrightarrow P_l)$이다. 이 등식은 점에서 $g_k|_{V_k\cap V_l}=g_l|_{V_k\cap V_l}$을 뜻한다.</p>
 <ol>
-<li><b>존재.</b> $v\in V$에 대해 $v\in V_k$인 $k$가 있다 ((D2)). $h(v):=g_k(v)$로 정의한다. 잘 정의되는지 본다. $v\in V_k\cap V_l$이면 점에서의 등식에 의해 $g_k(v)=g_l(v)$이다. $h\circ\iota_k=g_k$는 정의에서 나온다. $h$가 사상임을 본다. $\{x,y\}\in E$이면 (D3)에 의해 $\{x,y\}\in E_k$인 $k$가 있다. $g_k$가 사상이므로 $g_k(x)=g_k(y)$이거나 $\{g_k(x),g_k(y)\}\in E_Z$이다. $h(x)=g_k(x)$, $h(y)=g_k(y)$이므로 $h$는 사상의 조건을 만족한다.</li>
+<li><b>존재.</b> $v\in V$에 대해 $v\in V_k$인 $k$가 있다 ((D2)). $h(v):=g_k(v)$로 정의한다. 잘 정의되는지 본다. $v\in V_k\cap V_l$이면 점에서의 등식에 의해 $g_k(v)=g_l(v)$이다. $h\circ\iota_k=g_k$는 정의에서 나온다. $h$가 사상임을 본다. $\{x,y\}\in E$이면 (D2)에 의해 $\{x,y\}\in E_k$인 $k$가 있다. $g_k$가 사상이므로 $g_k(x)=g_k(y)$이거나 $\{g_k(x),g_k(y)\}\in E_Z$이다. $h(x)=g_k(x)$, $h(y)=g_k(y)$이므로 $h$는 사상의 조건을 만족한다.</li>
 <li><b>유일성.</b> $h':G\to Z$가 $h'\circ\iota_k=g_k$를 만족하면 $v\in V$에 대해 $h'(v)=h'(\iota_k(v))=g_k(v)=h(v)$이다. 따라서 $h'=h$이다.</li>
 </ol>
 <p>$\square$</p>
@@ -288,10 +287,10 @@ $$X/T:=\bigl((V_X\setminus T)\sqcup\{z\},\ \{\{\rho_T(a),\rho_T(b)\}:\ \{a,b\}\i
 <h3>예 8.4 ($E_{11}$은 $G$로부터 정해지지 않는다)</h3>
 <p>$V=\{u,v\}$, $E=\{\{u,v\}\}$인 $G=K_2$를 생각한다. 두 평면분해를 정의한다.</p>
 <ul>
-<li>$\mathcal D_a=\{P_1\}$, $P_1=(V,\{\{u,v\}\})$.</li>
-<li>$\mathcal D_b=\{P_1,P_2\}$, $P_1=P_2=(V,\{\{u,v\}\})$.</li>
+<li>$\mathcal D_a=(P_1)$, $P_1=(V,\{\{u,v\}\})$.</li>
+<li>$\mathcal D_b=(P_1,P_2)$, $P_1=P_2=(V,\{\{u,v\}\})$.</li>
 </ul>
-<p>두 분해는 (D0)–(D3)을 만족한다 (각 조각은 $K_2$이고 $K_2$는 평면 그래프이다). 정리 3.2에 의해 $G(\mathfrak M(\mathcal D_a))=G=G(\mathfrak M(\mathcal D_b))$이다.</p>
+<p>두 분해는 (D2)을 만족한다 (각 조각은 $K_2$이고 $K_2$는 평면 그래프이다). 정리 3.2에 의해 $G(\mathfrak M(\mathcal D_a))=G=G(\mathfrak M(\mathcal D_b))$이다.</p>
 <p>그러나 $E_{11}$은 다르다. $\mathcal D_a$에서는 $\mu(\{u,v\})=1$이므로 $E_{11}=\varnothing$이다. $\mathcal D_b$에서는 $\mu(\{u,v\})=2$이므로 명제 4.2에 의해 $E_{11}=\bigl\{\{w_u,w_v\}\bigr\}$이다.</p>
 <p>따라서 $G$가 같아도 $\mathfrak M$은 다르다. $E_{11}$은 $G$의 함수가 아니다.</p>
 
@@ -299,22 +298,11 @@ $$X/T:=\bigl((V_X\setminus T)\sqcup\{z\},\ \{\{\rho_T(a),\rho_T(b)\}:\ \{a,b\}\i
 <p>$\mathfrak M$을 점집합 $V(\mathfrak M)$과 변집합 $E(\mathfrak M)$을 갖는 그래프로 보자. 정의 3.1의 $\rho:V(\mathfrak M)\to V$는 $\mathbf{RG}$의 사상 $\rho:\mathfrak M\to G(\mathfrak M)$이다.</p>
 <p><b>증명.</b> $\{a,b\}\in E(\mathfrak M)$이고 $\rho(a)\ne\rho(b)$라 하자. 정의 3.1에 의해 $\{\rho(a),\rho(b)\}$는 $G(\mathfrak M)$의 변이다. 따라서 $\rho$는 사상이다 ($\rho(a)=\rho(b)$인 경우는 정의상 허용된다). $\square$</p>
 
-<h2>제9장 이 책이 다루지 않는 것</h2>
-<p>아래 항목은 이 책에 없다. 증명이 완결되면 다음 판에 추가한다.</p>
-<ol>
-<li>매뉴얼 그래프의 색칠 읽기 (색칠수를 접합 그래프의 색칠 가능성으로 옮기는 결과와 그 고원 구조).</li>
-<li>리본 조건 아래의 평면성 판정 (외곽면 선택과 위상 불변량을 쓰는 판정).</li>
-<li>조건 (N) 아래에서 임의의 점이 세 개 이상인 연결 그래프가 실현되는지 여부.</li>
-<li>조각 평면 조건의 유무가 실현되는 그래프의 집합을 바꾸는지 여부.</li>
-<li>세 조각 이상의 접합이 필요한 그래프의 존재 여부.</li>
-<li>예 6.2와 같은 역의 반례들의 완전한 분류.</li>
-</ol>
-
 <h2>부록: 기호 목록</h2>
 <table>
 <tr><th>기호</th><th>뜻과 정의 위치</th></tr>
 <tr><td>$G=(V,E)$</td><td>그래프 (머리말 규약)</td></tr>
-<tr><td>$\mathcal D=\{P_k\}_{k\in K}$, $P_k=(V_k,E_k)$</td><td>평면분해, 정의 1.1</td></tr>
+<tr><td>$\mathcal D=(P_k)_{k\in K}$, $P_k=(V_k,E_k)$</td><td>평면분해, 정의 1.1</td></tr>
 <tr><td>$V_0$, $E_{00}$, $\varphi$, $C(v)$</td><td>복사점, 정의 2.1</td></tr>
 <tr><td>$W$, $E_{01}$, $\mu$, $E_{11}$</td><td>흰 점, 포트 변, 조각 중복도, 파생 흰 변, 정의 2.3</td></tr>
 <tr><td>$\mathfrak M(\mathcal D)$, $U\mathfrak M(\mathcal D)$</td><td>매뉴얼 그래프, 접합 그래프, 정의 2.3</td></tr>
