@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <body>
 
 <h1>평면분해와 매뉴얼 그래프</h1>
-<p class="meta">교재 개정판 (학부 3학년 대상). 증명이 완결된 내용만 싣는다. 증명 없이 쓰는 것은 고전 결과의 인용 (I), (II)뿐이며, 그 밖에 "평면 그래프"와 "마이너"는 표준 용어로 정의 없이 쓴다.</p>
+<p class="meta">교재 개정판 (학부 3학년 대상). 증명이 완결된 내용만 싣는다. 증명 없이 쓰는 것은 고전 결과의 인용 (I), (II), (III)뿐이며, 그 밖에 "평면 그래프"와 "마이너"는 표준 용어로 정의 없이 쓴다.</p>
 
 <h2>머리말: 이 책의 원칙과 규약</h2>
 <ol>
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <li>(III) $K_4$는 평면 그래프이다. 이 사실은 증명 없이 받아들인다.</li>
   </ul>
 </li>
-<li>"평면 그래프"와 "마이너"는 표준 용어이며 정의 없이 쓴다. 마이너의 정의는 제3장에서 조작으로 명시하여 쓴다.</li>
+<li>"평면 그래프", "연결", "부분그래프", "경로", "사이클", "완전 이분 그래프"는 표준 용어이며 정의 없이 쓴다. "마이너"의 정의는 제3장에서 조작으로 명시하여 쓴다.</li>
 <li>이 책은 증명되지 않은 추측을 싣지 않는다.</li>
 </ol>
 
@@ -56,41 +56,42 @@ document.addEventListener("DOMContentLoaded", function () {
 <li>(D1) 각 $k\in[n]$에 대해 $P_k$는 평면 그래프이다.</li>
 <li>(D2) 등식 $G=P_1+\cdots+P_n$이 성립한다. 여기서 두 그래프의 합은 $(V(P_1),E(P_1))+(V(P_2),E(P_2)):=(V(P_1)\cup V(P_2),\ E(P_1)\cup E(P_2))$이고, 세 개 이상의 합은 차례로 정의한다. 즉 $V=V(P_1)\cup\cdots\cup V(P_n)$이고 $E=E(P_1)\cup\cdots\cup E(P_n)$이다.</li>
 </ul>
-<p>등식 (D2)에서 $V(P_k)\subseteq V$, $E(P_k)\subseteq E$가 따른다. 여기서 $V(P_k)$는 조각 $P_k$의 점집합, $E(P_k)$는 조각 $P_k$의 변집합이다. 또 $P_k$의 점과 변은 $G$의 점과 변이므로 $E(P_k)\subseteq\binom{V(P_k)}2$이다. 평면분해를 이렇게 등식으로 지칭하는 것이 이 책의 정의이다. 따라서 평면분해는 "$G=P_1+\cdots+P_n$을 만족하는 평면 그래프들의 순서쌍"이다.</p>
+<p>등식 (D2)에서 $V(P_k)\subseteq V$, $E(P_k)\subseteq E$가 따른다. 여기서 $V(P_k)$는 조각 $P_k$의 점집합, $E(P_k)$는 조각 $P_k$의 변집합이다. $P_k$가 그래프이므로 $E(P_k)\subseteq\binom{V(P_k)}2$이다. 평면분해를 이렇게 등식으로 지칭하는 것이 이 책의 정의이다. 따라서 평면분해는 "$G=P_1+\cdots+P_n$을 만족하는 평면 그래프들의 순서쌍"이다.</p>
 <p>각 $P_k$를 평면분해의 <b>조각</b>이라 한다. 두 조각은 점이나 변을 공유할 수 있다. 즉 $k\ne l$에 대해 $V(P_k)\cap V(P_l)\ne\varnothing$이거나 $E(P_k)\cap E(P_l)\ne\varnothing$일 수 있다. 같은 그래프가 두 번 나와도 순서쌍에서는 서로 다른 두 조각이다.</p>
 
 <h3>예 1.2 (자명 분해)</h3>
 <p>$G=(V,E)$가 평면 그래프이면 $n=1$, $P_1=(V,E)$로 두면 $(P_1)$은 $G$의 평면분해이다. 역으로, $n=1$인 평면분해 $(P_1)$이 존재하면 (D2)에 의해 $V(P_1)=V$, $E(P_1)=E$이므로 $P_1=G$이고 $G$는 평면 그래프이다.</p>
 
 <h3>예 1.3 (정사각형 두 장으로 만든 $K_4$)</h3>
-<p>$V=\{0,1,2,3\}$, $E=\binom V2$인 그래프를 $K_4$라 하자. 다음 두 조각을 정의한다.</p>
+<p>$V=\{0,1,2,3\}$, $E=\binom V2$인 그래프를 $K_4$라 하자. 다음 두 조각을 정의하고 $\mathcal D:=(P_1,P_2)$로 둔다.</p>
 <ul>
 <li>$P_1=(V,E(P_1))$, $E(P_1)=\bigl\{\{0,1\},\{1,3\},\{3,2\},\{2,0\}\bigr\}$.</li>
 <li>$P_2=(V,E(P_2))$, $E(P_2)=\bigl\{\{0,3\},\{3,1\},\{1,2\},\{2,0\}\bigr\}$.</li>
 </ul>
-<p><b>검증.</b> $P_1=(V,E(P_1))$, $P_2=(V,E(P_2))$로 정의했으므로 $V(P_1)=V(P_2)=V$. (D2): $E(P_1)\cup E(P_2)=\{\{0,1\},\{1,3\},\{2,3\},\{0,2\},\{0,3\},\{1,2\}\}=\binom V2=E$. (D1): $P_1$은 사이클 $0\text{-}1\text{-}3\text{-}2\text{-}0$이고 $P_2$는 사이클 $0\text{-}3\text{-}1\text{-}2\text{-}0$이다. 길이 $n$의 사이클은 평면 그래프이다 (보조명제 1.4). 따라서 $\mathcal D$는 $K_4$의 평면분해이다. 또 $E(P_1)\cap E(P_2)=\bigl\{\{1,3\},\{0,2\}\bigr\}$이다.</p>
+<p><b>검증.</b> $P_1=(V,E(P_1))$, $P_2=(V,E(P_2))$로 정의했으므로 $V(P_1)=V(P_2)=V$. (D2): $E(P_1)\cup E(P_2)=\{\{0,1\},\{1,3\},\{2,3\},\{0,2\},\{0,3\},\{1,2\}\}=\binom V2=E$. (D1): $P_1$은 사이클 $0\text{-}1\text{-}3\text{-}2\text{-}0$이고 $P_2$는 사이클 $0\text{-}3\text{-}1\text{-}2\text{-}0$이다. 길이 $m$의 사이클은 평면 그래프이다 (보조명제 1.4). 따라서 $\mathcal D$는 $K_4$의 평면분해이다. 또 $E(P_1)\cap E(P_2)=\bigl\{\{1,3\},\{0,2\}\bigr\}$이다.</p>
 
 <h3>보조명제 1.4 (사이클의 평면성)</h3>
-<p>$n\ge3$이면 $C_n=(\{c_1,\dots,c_n\},\ \{e_1,\dots,e_n\})$은 평면 그래프이다. 여기서 $e_j:=\{c_j,c_{j+1}\}$이고 지표는 $\bmod\ n$으로 읽는다.</p>
+<p>$m\ge3$이면 $C_m=(\{c_1,\dots,c_m\},\ \{e_1,\dots,e_m\})$은 평면 그래프이다. 여기서 $e_j:=\{c_j,c_{j+1}\}$이고 지표는 $\bmod\ m$으로 읽는다.</p>
 <p>여기서 <b>평면 그래프</b>란 다음 자료가 존재하는 그래프 $(V,E)$이다. 점 사상 $\varphi:V\to\mathbb R^2$와 각 변 $e=\{u,v\}\in E$에 대한 단순 곡선 $\gamma_e:[0,1]\to\mathbb R^2$ (단사 연속 함수)이며, $\{\gamma_e(0),\gamma_e(1)\}=\{\varphi(u),\varphi(v)\}$이고 다음이 성립한다.</p>
 <ul>
 <li>(P1) $\varphi$는 단사이다.</li>
 <li>(P2) 모든 $e\in E$와 $w\in V\setminus e$에 대해 $\varphi(w)\notin\gamma_e([0,1])$이다.</li>
 <li>(P3) 서로 다른 $e,f\in E$에 대해 $\gamma_e([0,1])\cap\gamma_f([0,1])\subseteq\varphi(e\cap f)$이다.</li>
 </ul>
+<p>평면성은 동형에 대해 불변이다. 실제로 동형 $f:G\to G'$와 $G$의 그림 $(\varphi,\gamma)$가 있으면 $\varphi':=\varphi\circ f^{-1}$와 $\gamma'_{f(e)}:=\gamma_e$로 $G'$의 그림을 얻는다. $f$가 전단사이므로 (P1)–(P3)은 그대로 성립한다.</p>
 <p>본 증명은 $\gamma_{e_j}$를 선분으로 잡는다.</p>
 
-<p><b>증명.</b> $\mathbb R^2$의 내적을 $x\cdot y$, 행렬식을 $\det(x,y):=x_1y_2-x_2y_1$로 쓴다. $\delta:=2\pi/n$, $\theta_j:=j\delta$, $p(\theta):=(\cos\theta,\sin\theta)$, $p_j:=p(\theta_j)$로 둔다.</p>
+<p><b>증명.</b> $\mathbb R^2$의 내적을 $x\cdot y$, 행렬식을 $\det(x,y):=x_1y_2-x_2y_1$로 쓴다. $\delta:=2\pi/m$, $\theta_j:=j\delta$, $p(\theta):=(\cos\theta,\sin\theta)$, $p_j:=p(\theta_j)$로 둔다.</p>
 
-<p>(G1) $p(\theta)=p(\theta')$이면 $\cos(\theta-\theta')=p(\theta)\cdot p(\theta')=|p(\theta)|^2=1$이므로 $\theta-\theta'\in2\pi\mathbb Z$이다. $p_i=p_j$이면 $2\pi(i-j)/n\in2\pi\mathbb Z$, 즉 $n\mid i-j$이다. 따라서 $p_1,\dots,p_n$은 서로 다른 $n$개의 점이다.</p>
+<p>(G1) $p(\theta)=p(\theta')$이면 $\cos(\theta-\theta')=p(\theta)\cdot p(\theta')=|p(\theta)|^2=1$이므로 $\theta-\theta'\in2\pi\mathbb Z$이다. $p_i=p_j$이면 $2\pi(i-j)/m\in2\pi\mathbb Z$, 즉 $m\mid i-j$이다. 따라서 $p_1,\dots,p_m$은 서로 다른 $m$개의 점이다.</p>
 
 <p>(G2) 단위원 위의 서로 다른 세 점 $x,y,z$는 한 직선 위에 있지 않다. 실제로 $x\ne y$이고 $z=x+t(y-x)$라 하자. $|x|=|y|=1$이므로 $x\cdot(y-x)=-\tfrac12|y-x|^2$이고, 따라서 $|z|^2=1+t(t-1)|y-x|^2$이다. $|z|=1$이면 $t\in\{0,1\}$이므로 $z\in\{x,y\}$이다.</p>
 
 <p>(G3) $a\ne b$인 $a,b\in\mathbb R^2$에 대해 $\ell_{ab}(x):=\det(b-a,\ x-a)$로 둔다. $\ell_{ab}$는 아핀 함수이고 $\ell_{ab}(a)=\ell_{ab}(b)=0$이다. 따라서 $\ell_{ab}((1-t)x+ty)=(1-t)\ell_{ab}(x)+t\,\ell_{ab}(y)$이며, $\ell_{ab}(x)>0$, $\ell_{ab}(y)>0$이면 $\ell_{ab}$는 선분 $[x,y]$ 위에서 양수이다. 또 $\ell_{ab}$의 영점집합은 $a,b$를 지나는 직선 $L_{ab}$이고, 선분 $[a,b]$는 $L_{ab}$에 포함된다. $\det$가 쌍선형이므로 $\ell_{ab}(x)=\det(b-a,x)+\det(a,b)$이다.</p>
 
-<p>(G4) $a=p_j$, $b=p_{j+1}$, $k\not\equiv j,\ j+1\pmod n$이면 $\ell_{ab}(p_k)>0$이다. 증명: $\alpha:=\theta_j$, $\beta:=\alpha+\delta$, $m:=\alpha+\delta/2$, $s:=2\sin(\delta/2)>0$으로 둔다 ($0<\delta/2\le\pi/3$). 합차 공식에 의해 $b-a=s(-\sin m,\ \cos m)$이다. 따라서 $\det(b-a,p(\theta))=-s\cos(\theta-m)$이다. 또 $\det(a,b)=\sin\delta=s\cos(\delta/2)$이다. (G3)에 의해</p>
+<p>(G4) $a=p_j$, $b=p_{j+1}$, $k\not\equiv j,\ j+1\pmod m$이면 $\ell_{ab}(p_k)>0$이다. 증명: $\alpha:=\theta_j$, $\beta:=\alpha+\delta$, $m:=\alpha+\delta/2$, $s:=2\sin(\delta/2)>0$으로 둔다 ($0<\delta/2\le\pi/3$). 합차 공식에 의해 $b-a=s(-\sin m,\ \cos m)$이다. 따라서 $\det(b-a,p(\theta))=-s\cos(\theta-m)$이다. 또 $\det(a,b)=\sin\delta=s\cos(\delta/2)$이다. (G3)에 의해</p>
 <p>$$\ell_{ab}(p(\theta))=s\bigl(\cos\tfrac\delta2-\cos(\theta-m)\bigr).$$</p>
-<p>$q:=k-j$, $o:=2q-1$로 두면 $\theta_k-m=(2q-1)\pi/n=o\pi/n$이므로 $\ell_{ab}(p_k)=s\bigl(\cos\frac\pi n-\cos\frac{o\pi}n\bigr)$이다. $o$를 $2n$으로 나눈 나머지 쪽으로 옮겨 $o'\equiv o\pmod{2n}$, $|o'|\le n$로 두면 $o'$는 홀수이고 $\cos\frac{o\pi}n=\cos\frac{|o'|\pi}n$이다. $\frac{|o'|\pi}n\in[\frac\pi n,\pi]$이고 $\cos$는 $[0,\pi]$에서 엄격 감소하므로 $\cos\frac{o\pi}n\le\cos\frac\pi n$이고, 등호는 $|o'|=1$, 즉 $o\equiv\pm1\pmod{2n}$일 때만 성립한다. $o\equiv1\pmod{2n}\iff q\equiv1\pmod n$이고 $o\equiv-1\pmod{2n}\iff q\equiv0\pmod n$이다. $k\not\equiv j,j+1$이면 $q\not\equiv0,1\pmod n$이므로 부등식이 엄격하고 $\ell_{ab}(p_k)>0$이다.</p>
+<p>$q:=k-j$, $o:=2q-1$로 두면 $\theta_k-m=(2q-1)\pi/m=o\pi/m$이므로 $\ell_{ab}(p_k)=s\bigl(\cos\frac\pi m-\cos\frac{o\pi}m\bigr)$이다. $o$를 $2m$으로 나눈 나머지 쪽으로 옮겨 $o'\equiv o\pmod{2m}$, $|o'|\le m$로 두면 $o'$는 홀수이고 $\cos\frac{o\pi}m=\cos\frac{|o'|\pi}m$이다. $\frac{|o'|\pi}m\in[\frac\pi m,\pi]$이고 $\cos$는 $[0,\pi]$에서 엄격 감소하므로 $\cos\frac{o\pi}m\le\cos\frac\pi m$이고, 등호는 $|o'|=1$, 즉 $o\equiv\pm1\pmod{2m}$일 때만 성립한다. $o\equiv1\pmod{2m}\iff q\equiv1\pmod m$이고 $o\equiv-1\pmod{2m}\iff q\equiv0\pmod m$이다. $k\not\equiv j,j+1$이면 $q\not\equiv0,1\pmod m$이므로 부등식이 엄격하고 $\ell_{ab}(p_k)>0$이다.</p>
 
 <p>(P1) (G1)에 의해 $\varphi(c_j):=p_j$는 단사이다.</p>
 <p>곡선은 $\gamma_{e_j}(t):=(1-t)p_j+t\,p_{j+1}$ ($t\in[0,1]$)이다. $p_j\ne p_{j+1}$이므로 $\gamma_{e_j}(t)=\gamma_{e_j}(t')$이면 $t=t'$이다. 따라서 $\gamma_{e_j}$는 단순 곡선이고 $\{\gamma_{e_j}(0),\gamma_{e_j}(1)\}=\{\varphi(c_j),\varphi(c_{j+1})\}$이다.</p>
@@ -99,13 +100,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <p>(P3) $e_j\ne e_k$라 하자. 두 변은 끝점을 두 개 공유할 수 없으므로 다음 두 경우 중 하나이다.</p>
 <ul>
-<li>경우 A: $\{j,j+1\}\cap\{k,k+1\}=\varnothing$ (mod $n$). 그러면 $k,k+1\not\equiv j,j+1$이다. (G4)에 의해 $p_k,p_{k+1}\in H^+:=\{\ell_{p_jp_{j+1}}>0\}$이다. (G3)에 의해 $[p_k,p_{k+1}]\subseteq H^+$이고, $H^+\cap L_{p_jp_{j+1}}=\varnothing$이다. $\gamma_{e_j}([0,1])\subseteq L_{p_jp_{j+1}}$이므로 두 곡선의 상은 서로소이다.</li>
+<li>경우 A: $\{j,j+1\}\cap\{k,k+1\}=\varnothing$ (mod $m$). 그러면 $k,k+1\not\equiv j,j+1$이다. (G4)에 의해 $p_k,p_{k+1}\in H^+:=\{\ell_{p_jp_{j+1}}>0\}$이다. (G3)에 의해 $[p_k,p_{k+1}]\subseteq H^+$이고, $H^+\cap L_{p_jp_{j+1}}=\varnothing$이다. $\gamma_{e_j}([0,1])\subseteq L_{p_jp_{j+1}}$이므로 두 곡선의 상은 서로소이다.</li>
 <li>경우 B: 두 변이 끝점을 정확히 하나 $c_m$에서 공유한다. 다른 끝점을 $c_a$, $c_b$로 두면 $c_m,c_a,c_b$는 서로 다르고 $\varphi$는 단사이므로 $P:=p_m$, $A:=\varphi(c_a)$, $B:=\varphi(c_b)$는 단위원 위의 서로 다른 세 점이다. 두 곡선의 상은 $[P,A]$, $[P,B]$이다. $x\in[P,A]\cap[P,B]$, $x\ne P$라 하면 $x=P+t(A-P)=P+t'(B-P)$ ($t,t'\in(0,1]$)이므로 $A$와 $B$는 모두 $P$를 지나고 방향 $x-P$인 직선 위에 있다. 이것은 (G2)에 모순이다. 따라서 $[P,A]\cap[P,B]\subseteq\{P\}=\varphi(e_j\cap e_k)$이다.</li>
 </ul>
-<p>두 경우가 모든 경우를 덮으므로 (P1)–(P3)이 성립하고 $C_n$은 평면 그래프이다. $\square$</p>
+<p>두 경우가 모든 경우를 덮으므로 (P1)–(P3)이 성립하고 $C_m$은 평면 그래프이다. $\square$</p>
 
 <h3>예 1.5 (두 오각형으로 만든 $K_5$)</h3>
-<p>$V=\{0,1,2,3,4\}$, $E=\binom V2$인 그래프를 $K_5$라 하자. 다음 두 조각을 정의한다.</p>
+<p>$V=\{0,1,2,3,4\}$, $E=\binom V2$인 그래프를 $K_5$라 하자. 다음 두 조각을 정의하고 $\mathcal D:=(P_1,P_2)$로 둔다.</p>
 <ul>
 <li>$P_1=(V,E(P_1))$, $E(P_1)=\bigl\{\{0,1\},\{1,2\},\{2,3\},\{3,4\},\{0,4\}\bigr\}$. 사이클 $0\text{-}1\text{-}2\text{-}3\text{-}4\text{-}0$이다.</li>
 <li>$P_2=(V,E(P_2))$, $E(P_2)=\bigl\{\{0,2\},\{2,4\},\{4,1\},\{1,3\},\{0,3\}\bigr\}$. 사이클 $0\text{-}2\text{-}4\text{-}1\text{-}3\text{-}0$이다.</li>
@@ -115,40 +116,42 @@ document.addEventListener("DOMContentLoaded", function () {
 <h2>제2장 복사점과 매뉴얼 그래프</h2>
 
 <p>이 장에서는 그래프 $G=(V,E)$와 $G$의 평면분해 $\mathcal D=(P_1,\dots,P_n)$를 고정한다.</p>
+<p><b>동기.</b> 여러 조각이 같은 점 $v$를 공유할 수 있으므로 조각마다 복사점 $(v,k)$를 둔다. 그러면 $F(v)$는 $v$의 모든 복사점의 모임이다. 흰 점 $w_v$는 $|F(v)|\ge2$일 때 $v$의 복사점들을 묶어 기록하고, $E_{01}$은 복사점과 그 기록을 잇는다. $E_{11}$은 두 조각이 같은 변을 두 번 이상 가진다는 사실을 기록한다. 조립 $A(\mathfrak M)$은 이 기록을 풀어 $G$를 돌려준다 (정리 3.2).</p>
 
 <h3>정의 2.1 (복사점)</h3>
 <ul>
 <li>$V_0:=\{(v,k)\in V\times [n]:\ v\in V(P_k)\}$. 원소 $(v,k)$를 $v$의 <b>복사점</b>이라 한다.</li>
 <li>$E_{00}:=\bigl\{\{(u,k),(v,k)\}:\ k\in [n],\ \{u,v\}\in E(P_k)\bigr\}$.</li>
 <li>사상 $\varphi:V_0\to V$를 $\varphi(v,k):=v$로 정의한다.</li>
-<li>각 $v\in V$에 대해 $C(v):=\varphi^{-1}(v)=\{(v,k)\in V_0:\ v\in V(P_k)\}$.</li>
+<li>각 $v\in V$에 대해 $F(v):=\varphi^{-1}(v)=\{(v,k)\in V_0:\ v\in V(P_k)\}$.</li>
 </ul>
 
 <h3>보조명제 2.2 (복사점의 기본 성질)</h3>
 <ol>
 <li>$E_{00}\subseteq\binom{V_0}2$이다.</li>
-<li>각 $v\in V$에 대해 $C(v)\ne\varnothing$이고, $v\ne v'$이면 $C(v)\cap C(v')=\varnothing$이며, $V_0=\bigsqcup_{v\in V}C(v)$이다.</li>
+<li>각 $v\in V$에 대해 $F(v)\ne\varnothing$이고, $v\ne v'$이면 $F(v)\cap F(v')=\varnothing$이며, $V_0=\bigsqcup_{v\in V}F(v)$이다.</li>
 <li>$\{x,y\}\in E_{00}$이면 $\varphi(x)\ne\varphi(y)$이고 $\{\varphi(x),\varphi(y)\}\in E$이다.</li>
 <li>$\{x,y\}\in E_{00}$이면 $x=(u,k)$, $y=(v,k)$를 만족하는 $k\in[n]$와 $u,v\in V$가 있다.</li>
 </ol>
 <p><b>증명.</b> (4)는 정의 2.1에서 바로 나온다.</p>
-<p>(1) $\{x,y\}\in E_{00}$이면 (4)에 의해 $x=(u,k)$, $y=(v,k)$이고 $\{u,v\}\in E(P_k)$이다. $E(P_k)\subseteq\binom{V(P_k)}2$이므로 $u\ne v$이다. 따라서 $x\ne y$이고 $\{x,y\}\in\binom{V_0}2$이다.</p>
-<p>(2) $v\in V$에 대해 (D2)에 의해 $v\in V(P_k)$인 $k$가 있으므로 $(v,k)\in C(v)$이고 $C(v)\neq\varnothing$이다. $\varphi$는 함수이므로 $\varphi^{-1}(v)$와 $\varphi^{-1}(v')$는 $v\ne v'$이면 서로소이다. $V_0=\bigcup_{v\in V}\varphi^{-1}(v)$는 정의에서 나온다.</p>
+<p>(1) $\{x,y\}\in E_{00}$이면 (4)에 의해 $x=(u,k)$, $y=(v,k)$이다. $\{u,v\}\in E(P_k)$이고 $u,v\in V(P_k)$이므로 $x,y\in V_0$이다 (정의 2.1). $E(P_k)\subseteq\binom{V(P_k)}2$이므로 $u\ne v$이다. 따라서 $x\ne y$이고 $\{x,y\}\in\binom{V_0}2$이다.</p>
+<p>(2) $v\in V$에 대해 (D2)에 의해 $v\in V(P_k)$인 $k$가 있으므로 $(v,k)\in F(v)$이고 $F(v)\neq\varnothing$이다. $\varphi$는 함수이므로 $\varphi^{-1}(v)$와 $\varphi^{-1}(v')$는 $v\ne v'$이면 서로소이다. $V_0=\bigcup_{v\in V}\varphi^{-1}(v)$는 정의에서 나온다.</p>
 <p>(3) (4)에 의해 $x=(u,k)$, $y=(v,k)$, $\{u,v\}\in E(P_k)$이다. (1)의 증명에 의해 $u\ne v$이므로 $\varphi(x)=u\ne v=\varphi(y)$이다. (D2)에 의해 $E(P_k)\subseteq E$이므로 $\{u,v\}\in E$이다. $\square$</p>
 
 <h3>정의 2.3 (매뉴얼 그래프)</h3>
-<p>기호 $\star$를 $K$의 원소가 아닌 한 기호로 고정한다. 다음을 정의한다.</p>
+<p>기호 $\star$를 $[n]$의 원소가 아닌 한 기호로 고정한다. 다음을 정의한다.</p>
 <ul>
-<li>$V_1:=\{\,w_v:=(v,\star)\ :\ v\in V,\ |C(v)|\ge2\,\}$. 원소 $w_v$는 흰 점이라 한다. $\star\notin [n]$이므로 $V_1\cap V_0=\varnothing$이다.</li>
-<li>$E_{01}:=\bigl\{\{x,w_v\}:\ v\in V,\ |C(v)|\ge2,\ x\in C(v)\bigr\}$. 각 원소는 $V_0$의 점 하나와 $V_1$의 점 하나로 이루어진 비순서쌍이다.</li>
+<li>$V_1:=\{\,w_v:=(v,\star)\ :\ v\in V,\ |F(v)|\ge2\,\}$. 원소 $w_v$는 흰 점이라 한다. $\star\notin [n]$이므로 $V_1\cap V_0=\varnothing$이다. 또 $v\mapsto w_v$는 단사이다. 실제로 $w_v=w_{v'}$이면 두 번째 성분이 같고 첫 성분이 $v$, $v'$이므로 $v=v'$이다.</li>
+<li>$E_{01}:=\bigl\{\{x,w_v\}:\ v\in V,\ |F(v)|\ge2,\ x\in F(v)\bigr\}$. 각 원소는 $V_0$의 점 하나와 $V_1$의 점 하나로 이루어진 비순서쌍이다.</li>
 <li>$v,v'\in V$, $v\ne v'$에 대해 $\mu(\{v,v'\}):=\bigl|\{k\in[n]:\ \{v,v'\}\in E(P_k)\}\bigr|$.</li>
 <li>$E_{11}:=\bigl\{\{w_v,w_{v'}\}:\ v\ne v',\ w_v,w_{v'}\in V_1,\ \mu(\{v,v'\})\ge2\bigr\}$.</li>
 </ul>
-<p>순서쌍 $\mathfrak M:=(V_0,V_1,E_{00},E_{01},E_{11})$를 $\mathcal D$에 대한 <b>매뉴얼 그래프</b>라 한다. 그 점집합과 변집합은 다음과 같다.</p>
+<p>5항 튜플 $\mathfrak M:=(V_0,V_1,E_{00},E_{01},E_{11})$를 $\mathcal D$에 대한 <b>매뉴얼 그래프</b>라 한다. 그 점집합과 변집합은 다음과 같다.</p>
 $$V(\mathfrak M):=V_0\sqcup V_1,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup E_{11}.$$
+<p>이 점집합과 변집합으로 $\mathfrak M$은 그래프 $(V(\mathfrak M),E(\mathfrak M))$이다. $E(\mathfrak M)\subseteq\binom{V(\mathfrak M)}2$는 $E_{00}\subseteq\binom{V_0}2$ (보조명제 2.2 (1)), $E_{01}$의 원소가 $V_0$의 점과 $V_1$의 점의 쌍, $E_{11}$의 원소가 $V_1$의 서로 다른 두 점의 쌍인 것에서 나온다.</p>
 <p>이 합집합들이 서로소인 이유는 다음과 같다. $V_0\cap V_1=\varnothing$이다. $E_{00}$의 원소는 $V_0$의 두 점으로, $E_{01}$의 원소는 $V_0$의 점과 $V_1$의 점으로, $E_{11}$의 원소는 $V_1$의 두 점으로 이루어진다. 따라서 세 집합의 원소는 같을 수 없다.</p>
-<p><b>보조명제 2.4 (끝점의 성질).</b> $\{w_v,w_{v'}\}\in E_{11}$이면 $v\ne v'$, $\{v,v'\}\in E$, $|C(v)|\ge2$, $|C(v')|\ge2$이다. 따라서 $w_v,w_{v'}\in V_1$이다.</p>
-<p><b>증명.</b> 정의 2.3에 의해 $\{w_v,w_{v'}\}\in E_{11}$이면 $v\ne v'$이고 $\mu(\{v,v'\})\ge2$이다. $\mu(\{v,v'\})\ge2$이면 $\{v,v'\}\in E(P_k)$인 $k$가 적어도 두 개 있다. (D2)에 의해 $\{v,v'\}\in E$이다. $\{v,v'\}\in E(P_k)$이면 $v,v'\in V(P_k)$이므로 $(v,k)\in C(v)$, $(v',k)\in C(v')$이다. 서로 다른 두 $k$에 대해 이것이 성립하므로 $|C(v)|\ge2$, $|C(v')|\ge2$이다. 정의 2.3에 의해 $w_v,w_{v'}\in V_1$이다. $\square$</p>
+<p><b>보조명제 2.4 (끝점의 성질).</b> $\{w_v,w_{v'}\}\in E_{11}$이면 $v\ne v'$, $\{v,v'\}\in E$, $|F(v)|\ge2$, $|F(v')|\ge2$이다. 따라서 $w_v,w_{v'}\in V_1$이다.</p>
+<p><b>증명.</b> 정의 2.3에 의해 $\{w_v,w_{v'}\}\in E_{11}$이면 $v\ne v'$이고 $\mu(\{v,v'\})\ge2$이다. $\mu(\{v,v'\})\ge2$이면 $\{v,v'\}\in E(P_k)$인 $k$가 적어도 두 개 있다. (D2)에 의해 $\{v,v'\}\in E$이다. $\{v,v'\}\in E(P_k)$이면 $v,v'\in V(P_k)$이므로 $(v,k)\in F(v)$, $(v',k)\in F(v')$이다. 서로 다른 두 $k$에 대해 이것이 성립하므로 $|F(v)|\ge2$, $|F(v')|\ge2$이다. 정의 2.3에 의해 $w_v,w_{v'}\in V_1$이다. $\square$</p>
 <p>$\mathfrak M^{-1}:=(V_0\sqcup V_1,\ E_{00}\sqcup E_{01})$를 $\mathfrak M$의 <b>Compression</b>라 한다. 이것은 $\mathfrak M$의 부분그래프이다.</p>
 
 <h3>명제 2.5 (매뉴얼 그래프의 기본 성질)</h3>
@@ -157,14 +160,16 @@ $$V(\mathfrak M):=V_0\sqcup V_1,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup
 <li>(M1) 모든 $w\in V_1$에 대해 $|N(w)|\ge2$.</li>
 <li>(M2) 모든 $x\in V_0$에 대해 $x\in N(w)$인 $w\in V_1$는 많아야 하나이다.</li>
 <li>(M3) 모든 $w\in V_1$와 모든 $x,y\in N(w)$ ($x\ne y$)에 대해 $\{x,y\}\notin E_{00}$.</li>
-<li>모든 $v\in V$ 중 $|C(v)|\ge2$인 것에 대해 $N(w_v)=C(v)$이다.</li>
+<li>모든 $v\in V$ 중 $|F(v)|\ge2$인 것에 대해 $N(w_v)=F(v)$이다.</li>
 </ol>
-<p><b>증명.</b> (4) $N(w_v)=\{x:\{x,w_v\}\in E_{01}\}=C(v)$이다. 정의에서 바로 나온다.</p>
-<p>(1) (4)에 의해 $|N(w_v)|=|C(v)|\ge2$이다.</p>
-<p>(2) $x\in N(w)\cap N(w')$라 하자. (4)에 의해 $w=w_v$, $w'=w_{v'}$이고 $x\in C(v)\cap C(v')$이다. 보조명제 2.2 (2)에 의해 $v=v'$이므로 $w=w'$이다.</p>
-<p>(3) $x,y\in N(w_v)=C(v)$, $x\ne y$라 하자. $x=(v,k)$, $y=(v,l)$이고 $k\ne l$이다. 만약 $\{x,y\}\in E_{00}$이면 보조명제 2.2 (4)에 의해 $x=(u,m)$, $y=(u',m)$을 만족하는 $m$이 있다. 그러면 $m=k$이고 $m=l$이므로 $k=l$이다. 이것은 $k\ne l$과 모순이다. 따라서 $\{x,y\}\notin E_{00}$이다. $\square$</p>
+<p><b>증명.</b> (4) $N(w_v)=\{x:\{x,w_v\}\in E_{01}\}=F(v)$이다. 정의에서 바로 나온다.</p>
+<p>(1) (4)에 의해 $|N(w_v)|=|F(v)|\ge2$이다.</p>
+<p>(2) $x\in N(w)\cap N(w')$라 하자. (4)에 의해 $w=w_v$, $w'=w_{v'}$이고 $x\in F(v)\cap F(v')$이다. 보조명제 2.2 (2)에 의해 $v=v'$이므로 $w=w'$이다.</p>
+<p>(3) $x,y\in N(w_v)=F(v)$, $x\ne y$라 하자. $x=(v,k)$, $y=(v,l)$이고 $k\ne l$이다. 만약 $\{x,y\}\in E_{00}$이면 보조명제 2.2 (4)에 의해 $x=(u,m)$, $y=(u',m)$을 만족하는 $m$이 있다. 그러면 $m=k$이고 $m=l$이므로 $k=l$이다. 이것은 $k\ne l$과 모순이다. 따라서 $\{x,y\}\notin E_{00}$이다. $\square$</p>
 
 <h2>제3장 조립과 마이너</h2>
+
+<p>이 장에서도 $G=(V,E)$, $\mathcal D=(P_1,\dots,P_n)$, $\mathfrak M$을 제2장과 같이 고정한다.</p>
 
 <h3>정의 3.1 (조립)</h3>
 <p>$\mathfrak M$에 대해 사상 $\rho:V(\mathfrak M)\to V$를 $\rho(x):=\varphi(x)$ ($x\in V_0$), $\rho(w_v):=v$ ($w_v\in V_1$)로 정의한다. 그래프 $A(\mathfrak M):=(V,\ \{\{\rho(a),\rho(b)\}:\ \{a,b\}\in E(\mathfrak M),\ \rho(a)\ne\rho(b)\})$를 $\mathfrak M$의 <b>조립</b>이라 한다.</p>
@@ -176,7 +181,7 @@ $$V(\mathfrak M):=V_0\sqcup V_1,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup
 <p>($F\subseteq E$) $\{a,b\}\in E(\mathfrak M)$이고 $\rho(a)\ne\rho(b)$라 하자. 세 경우를 본다.</p>
 <ul>
 <li>$\{a,b\}\in E_{00}$이면 보조명제 2.2 (3)에 의해 $\{\varphi(a),\varphi(b)\}=\{\rho(a),\rho(b)\}\in E$이다.</li>
-<li>$\{a,b\}\in E_{01}$이면 $a\in C(v)$, $b=w_v$ (어떤 $v$에 대해)이므로 $\rho(a)=v=\rho(b)$이다. 이것은 $\rho(a)\ne\rho(b)$와 모순이므로 이 경우는 없다.</li>
+<li>$\{a,b\}\in E_{01}$이면 $a\in F(v)$, $b=w_v$ (어떤 $v$에 대해)이므로 $\rho(a)=v=\rho(b)$이다. 이것은 $\rho(a)\ne\rho(b)$와 모순이므로 이 경우는 없다.</li>
 <li>$\{a,b\}\in E_{11}$이면 $a=w_v$, $b=w_{v'}$이고 정의 2.3에 의해 $\mu(\{v,v'\})\ge2$이다. 보조명제 2.4에 의해 $\{v,v'\}=\{\rho(a),\rho(b)\}\in E$이다.</li>
 </ul>
 <p>($E\subseteq F$) $\{u,v\}\in E$라 하자. (D2)에 의해 $\{u,v\}\in E(P_k)$인 $k$가 있다. 그러면 $(u,k),(v,k)\in V_0$이고 $\{(u,k),(v,k)\}\in E_{00}$이다. $\rho((u,k))=u\ne v=\rho((v,k))$이므로 $\{u,v\}\in F$이다.</p>
@@ -187,11 +192,11 @@ $$V(\mathfrak M):=V_0\sqcup V_1,\qquad E(\mathfrak M):=E_{00}\sqcup E_{01}\sqcup
 <ul>
 <li>점 $x\in V_X$의 <b>삭제</b>: $X-x:=(V_X\setminus\{x\},\ \{f\in E_X:\ x\notin f\})$.</li>
 <li>변 $e\in E_X$의 <b>삭제</b>: $X-e:=(V_X,\ E_X\setminus\{e\})$.</li>
-<li>$\varnothing\ne T\subseteq V_X$와 기호 $z\notin V_X$에 대해 함수 $\rho_T:V_X\to(V_X\setminus T)\sqcup\{z\}$를 $\rho_T(x):=z$ ($x\in T$), $\rho_T(x):=x$ ($x\notin T$)로 정의하고,
+<li>$\varnothing\ne T\subseteq V_X$와 $V_X$ 밖의 기호 $z$ (수축점)에 대해 함수 $\rho_T:V_X\to(V_X\setminus T)\sqcup\{z\}$를 $\rho_T(x):=z$ ($x\in T$), $\rho_T(x):=x$ ($x\notin T$)로 정의하고,
 $$X/T:=\bigl((V_X\setminus T)\sqcup\{z\},\ \{\{\rho_T(a),\rho_T(b)\}:\ \{a,b\}\in E_X,\ \rho_T(a)\ne\rho_T(b)\}\bigr).$$
-$T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이라 하고 $X/\{a,b\}$로 쓴다.</li>
+$T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이라 하고 $X/\{a,b\}$로 쓴다. 수축점 $z$는 $V_X$ 밖의 임의의 기호이며, 기호를 바꾸면 결과는 동형을 제외하고 같다.</li>
 </ul>
-<p>그래프 $H$가 $X$의 <b>마이너</b>라는 것은 $X$에 점 삭제, 변 삭제, 변 수축을 유한 번 (순서대로) 적용하여 얻은 그래프가 $H$와 동형인 것이다. 이것을 $H\preceq X$로 쓴다. 정의에 의해 다음이 성립한다.</p>
+<p>그래프 $H$가 $X$의 <b>마이너</b>라는 것은 $X_0:=X$로 두고 $s\ge0$에 대해 $X_i$ ($1\le i\le s$)를 $X_{i-1}$에 점 삭제, 변 삭제, 변 수축 가운데 하나를 적용한 그래프로 정할 때 $X_s$가 $H$와 동형인 것이다. 이것을 $H\preceq X$로 쓴다. 정의에 의해 다음이 성립한다.</p>
 <ul>
 <li>$X\preceq X$ (0번 적용).</li>
 <li>추이성: $H\preceq X$, $X\preceq Y$이면 $H\preceq Y$이다. 실제로 $X\preceq Y$의 적용열 결과를 $R$이라 하고 $\sigma:X\to R$을 동형이라 하자. $H\preceq X$의 적용열을 $\sigma$를 따라 옮기면 (점과 변을 $\sigma$로 옮기고 수축점은 $R$ 쪽의 새 기호로 바꾼다) $H$와 동형인 $R$ 위의 적용열 결과를 얻는다. 점 삭제, 변 삭제, 수축은 동형 사상으로 보존되기 때문이다. 그러므로 두 적용열을 이어 붙여 $H\preceq Y$를 얻는다.</li>
@@ -231,10 +236,10 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 
 <p><b>증명.</b> 먼저 $\mathfrak M$과 $\mathfrak M^{-1}$이 그래프임을 확인한다. $E_{00}\subseteq\binom{V_0}2$는 보조명제 2.2 (1)이다. $E_{01}$의 원소는 $V_0$의 점과 $V_1$의 점으로 이루어지고 $V_0\cap V_1=\varnothing$이므로 두 점이 서로 다르다. $E_{11}$의 원소는 $w_v\ne w_{v'}$인 쌍이다. 따라서 $E(\mathfrak M)\subseteq\binom{V(\mathfrak M)}2$이고 $E(\mathfrak M^{-1})\subseteq\binom{V(\mathfrak M^{-1})}2$이다. 또 $V(\mathfrak M^{-1})=V(\mathfrak M)$이고 $E(\mathfrak M^{-1})=E(\mathfrak M)\setminus E_{11}$이다.</p>
 
-<p>$X:=\mathfrak M^{-1}$로 둔다. $\mathcal V:=\{v\in V:\ |C(v)|\ge2\}=\{v_1,\dots,v_r\}$로 둔다 ($r=0$도 허용한다). 정의 2.3에 의해 $V_1=\{w_v:\ v\in\mathcal V\}$이다. 각 $v\in\mathcal V$에 대해 $T_v:=C(v)\sqcup\{w_v\}$로 두고 $T_k:=T_{v_k}$로 쓴다. $C(v)\subseteq V_0$이고 $w_v\in V_1$이므로 합집합은 서로소이다.</p>
+<p>$X:=\mathfrak M^{-1}$로 둔다. $\mathcal V:=\{v\in V:\ |F(v)|\ge2\}=\{v_1,\dots,v_r\}$로 둔다 ($r=0$도 허용한다). 정의 2.3에 의해 $V_1=\{w_v:\ v\in\mathcal V\}$이다. 각 $v\in\mathcal V$에 대해 $T_v:=F(v)\sqcup\{w_v\}$로 두고 $T_k:=T_{v_k}$로 쓴다. $F(v)\subseteq V_0$이고 $w_v\in V_1$이므로 합집합은 서로소이다.</p>
 <ul>
-<li>(T-a) $T_v\ne\varnothing$이고 $X[T_v]$는 연결이다. 정의 2.3에 의해 모든 $x\in C(v)$에 대해 $\{x,w_v\}\in E_{01}\subseteq E(X)$이다. 따라서 $C(v)$의 임의의 두 점은 $w_v$를 거쳐 $X[T_v]$ 안에서 이어진다.</li>
-<li>(T-b) $v\ne v'$이면 $T_v\cap T_{v'}=\varnothing$이다. 실제로 $C(v)\cap C(v')=\varnothing$ (보조명제 2.2 (2)), $w_v\ne w_{v'}$ (정의 2.3), $w_v\notin C(v')$, $w_{v'}\notin C(v)$ (이 두 가지는 $V_0\cap V_1=\varnothing$에서 나온다).</li>
+<li>(T-a) $T_v\ne\varnothing$이고 $X[T_v]$는 연결이다. 정의 2.3에 의해 모든 $x\in F(v)$에 대해 $\{x,w_v\}\in E_{01}\subseteq E(X)$이다. 따라서 $F(v)$의 임의의 두 점은 $w_v$를 거쳐 $X[T_v]$ 안에서 이어진다.</li>
+<li>(T-b) $v\ne v'$이면 $T_v\cap T_{v'}=\varnothing$이다. 실제로 $F(v)\cap F(v')=\varnothing$ (보조명제 2.2 (2)), $w_v\ne w_{v'}$ (정의 2.3), $w_v\notin F(v')$, $w_{v'}\notin F(v)$ (이 두 가지는 $V_0\cap V_1=\varnothing$에서 나온다).</li>
 </ul>
 
 <p>$X$, $T_1,\dots,T_r$은 보조명제 3.5의 전제를 만족한다. $z_k$는 $V_X$ 밖의 서로 다른 기호로 고정하고 $z_{v_k}$라고도 쓴다. 보조명제 3.5에 의해 $X_r\preceq X$이고, $\pi:=\pi_r$로 두면 다음이 성립한다.</p>
@@ -242,15 +247,15 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <li>$V(X_r)=(V_X\setminus\bigcup_{v\in\mathcal V}T_v)\sqcup\{z_v:\ v\in\mathcal V\}$.</li>
 <li>$E(X_r)=\{\{\pi p,\pi q\}:\{p,q\}\in E(X),\ \pi p\ne\pi q\}$.</li>
 </ul>
-<p>첫째 식의 첫 항을 계산한다. $V_X\setminus\bigcup_{v\in\mathcal V}T_v=(V_0\setminus\bigcup_{v\in\mathcal V}C(v))\sqcup(V_1\setminus\{w_v:v\in\mathcal V\})=V_0\setminus\bigcup_{v\in\mathcal V}C(v)$이다. 보조명제 2.2 (2)에 의해 $V_0=\bigsqcup_{u\in V}C(u)$이고 각 $C(u)$는 비어 있지 않으므로, $u\notin\mathcal V$이면 $|C(u)|=1$이다. 그러므로 $V_0\setminus\bigcup_{v\in\mathcal V}C(v)=\bigsqcup_{u\in V\setminus\mathcal V}C(u)$이고, $C(u)=\{(u,k_u)\}$로 두면 다음을 얻는다.</p>
+<p>첫째 식의 첫 항을 계산한다. $V_X\setminus\bigcup_{v\in\mathcal V}T_v=(V_0\setminus\bigcup_{v\in\mathcal V}F(v))\sqcup(V_1\setminus\{w_v:v\in\mathcal V\})=V_0\setminus\bigcup_{v\in\mathcal V}F(v)$이다. 보조명제 2.2 (2)에 의해 $V_0=\bigsqcup_{u\in V}F(u)$이고 각 $F(u)$는 비어 있지 않으므로, $u\notin\mathcal V$이면 $|F(u)|=1$이다. 그러므로 $V_0\setminus\bigcup_{v\in\mathcal V}F(v)=\bigsqcup_{u\in V\setminus\mathcal V}F(u)$이고, $F(u)=\{(u,k_u)\}$로 두면 다음을 얻는다.</p>
 <p>$$V(X_r)=\{(u,k_u):\ u\in V\setminus\mathcal V\}\sqcup\{z_v:\ v\in\mathcal V\}.$$</p>
 
 <p>이제 $\iota:V\to V(X_r)$를 $\iota(u):=(u,k_u)$ ($u\notin\mathcal V$), $\iota(v):=z_v$ ($v\in\mathcal V$)로 정의한다. 위 식에 의해 $\iota$는 전단사이다.</p>
 <ul>
-<li>(I1) 모든 $x\in V_0$에 대해 $\pi(x)=\iota(\varphi(x))$이다. 실제로 $x\in C(u)$라 하자. $u\in\mathcal V$이면 $x\in T_u$이므로 $\pi(x)=z_u=\iota(u)$이다. $u\notin\mathcal V$이면 $x=(u,k_u)$이고 $\pi(x)=x=\iota(u)$이다.</li>
+<li>(I1) 모든 $x\in V_0$에 대해 $\pi(x)=\iota(\varphi(x))$이다. 실제로 $x\in F(u)$라 하자. $u\in\mathcal V$이면 $x\in T_u$이므로 $\pi(x)=z_u=\iota(u)$이다. $u\notin\mathcal V$이면 $x=(u,k_u)$이고 $\pi(x)=x=\iota(u)$이다.</li>
 <li>(I2) 모든 $v\in\mathcal V$에 대해 $\pi(w_v)=z_v=\iota(v)$이다.</li>
 </ul>
-<p>$E(X)=E_{00}\sqcup E_{01}$이므로 $E(X_r)$을 두 부분으로 나누어 계산한다. $\{a,b\}\in E_{01}$이면 $\{a,b\}=\{x,w_v\}$ ($v\in\mathcal V$, $x\in C(v)$)이고, $\pi(x)=z_v=\pi(w_v)$이므로 이 변은 $E(X_r)$을 만드는 조건 $\pi a\ne\pi b$를 만족하지 않는다. $\{a,b\}\in E_{00}$이면 $a=(u,k)$, $b=(u',k)$, $\{u,u'\}\in E(P_k)$이고 (I1)에 의해 $\pi a=\iota(u)$, $\pi b=\iota(u')$이다. 따라서</p>
+<p>$E(X)=E_{00}\sqcup E_{01}$이므로 $E(X_r)$을 두 부분으로 나누어 계산한다. $\{a,b\}\in E_{01}$이면 $\{a,b\}=\{x,w_v\}$ ($v\in\mathcal V$, $x\in F(v)$)이고, $\pi(x)=z_v=\pi(w_v)$이므로 이 변은 $E(X_r)$을 만드는 조건 $\pi a\ne\pi b$를 만족하지 않는다. $\{a,b\}\in E_{00}$이면 $a=(u,k)$, $b=(u',k)$, $\{u,u'\}\in E(P_k)$이고 (I1)에 의해 $\pi a=\iota(u)$, $\pi b=\iota(u')$이다. 따라서</p>
 <p>$$E(X_r)=\{\{\iota u,\iota u'\}:\ \exists k\ (\{u,u'\}\in E(P_k)),\ \iota u\ne\iota u'\}.$$</p>
 <p>$\iota$는 단사이므로 $\iota u\ne\iota u'$는 $u\ne u'$와 같다. (D2)에 의해 $E=\bigcup_kE(P_k)$이므로 다음을 얻는다.</p>
 <p>$$E(X_r)=\{\{\iota u,\iota u'\}:\ \{u,u'\}\in E\}.$$</p>
@@ -264,15 +269,15 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 
 <h3>명제 4.1 (자명 분해의 매뉴얼 그래프)</h3>
 <p>$G=(V,E)$가 평면 그래프이고 $\mathcal D=(P_1)$, $P_1=(V,E)$라 하자. 이때 $\mathcal D$는 $G$의 평면분해이고 $V_1=\varnothing$, $E_{01}=\varnothing$, $E_{11}=\varnothing$이다. 또 $V_0=\{(v,1):v\in V\}$이고 $E_{00}=\{\{(u,1),(v,1)\}:\{u,v\}\in E\}$이다.</p>
-<p><b>증명.</b> 평면분해 조건은 예 1.2에서 나온다. $n=1$이므로 $|C(v)|=1$이 모든 $v$에 대해 성립한다. 따라서 $V_1=\varnothing$이고 $E_{01}=\varnothing$이다. $\mu(\{v,v'\})\le n=1<2$이므로 $E_{11}=\varnothing$이다. $V_0$와 $E_{00}$의 식은 정의 2.1에서 나온다. $\square$</p>
+<p><b>증명.</b> 평면분해 조건은 예 1.2에서 나온다. $n=1$이므로 $|F(v)|=1$이 모든 $v$에 대해 성립한다. 따라서 $V_1=\varnothing$이고 $E_{01}=\varnothing$이다. $\mu(\{v,v'\})\le n=1<2$이므로 $E_{11}=\varnothing$이다. $V_0$와 $E_{00}$의 식은 정의 2.1에서 나온다. $\square$</p>
 
 <h3>명제 4.2 (두 조각 분해)</h3>
 <p>$V$를 유한 집합이라 하고, $E(P_1),E(P_2)\subseteq\binom V2$, $E:=E(P_1)\cup E(P_2)$라 하자. $P_1:=(V,E(P_1))$, $P_2:=(V,E(P_2))$가 평면 그래프이면 $G:=(V,E)$의 평면분해 $\mathcal D:=(P_1,P_2)$ ($n=2$)가 존재하고, 다음이 성립한다.</p>
 <ol>
-<li>$V_1=\{w_v:\ v\in V\}$이다. 모든 $v$에 대해 $C(v)=\{(v,1),(v,2)\}$이다.</li>
+<li>$V_1=\{w_v:\ v\in V\}$이다. 모든 $v$에 대해 $F(v)=\{(v,1),(v,2)\}$이다.</li>
 <li>$E_{11}=\bigl\{\{w_u,w_v\}:\ u\ne v,\ \{u,v\}\in E(P_1)\cap E(P_2)\bigr\}$이다.</li>
 </ol>
-<p><b>증명.</b> $P_1=(V,E(P_1))$, $P_2=(V,E(P_2))$로 정의했으므로 $V(P_1)=V(P_2)=V$이다. (D1)은 가정이다. (D2)은 $E=E(P_1)\cup E(P_2)$와 $V(P_1)=V(P_2)=V$에서 나온다. 이제 $C(v)=\{(v,1),(v,2)\}$이므로 $|C(v)|=2$이고 $V_1=\{w_v:v\in V\}$이다. $\mu(\{u,v\})=|\{k\in\{1,2\}:\{u,v\}\in E(P_k)\}|$이므로 $\mu\ge2$는 $\{u,v\}\in E(P_1)\cap E(P_2)$와 같다. 정의 2.3에 의해 (2)가 나온다. $\square$</p>
+<p><b>증명.</b> $P_1=(V,E(P_1))$, $P_2=(V,E(P_2))$로 정의했으므로 $V(P_1)=V(P_2)=V$이다. (D1)은 가정이다. (D2)은 $E=E(P_1)\cup E(P_2)$와 $V(P_1)=V(P_2)=V$에서 나온다. 이제 $F(v)=\{(v,1),(v,2)\}$이므로 $|F(v)|=2$이고 $V_1=\{w_v:v\in V\}$이다. $\mu(\{u,v\})=|\{k\in\{1,2\}:\{u,v\}\in E(P_k)\}|$이므로 $\mu\ge2$는 $\{u,v\}\in E(P_1)\cap E(P_2)$와 같다. 정의 2.3에 의해 (2)가 나온다. $\square$</p>
 
 <h2>제5장 비자명성 조건 (N)</h2>
 <p>개요. 조건 (N)은 평면분해 중 조각이 두 개 이상이고 각 조각이 세 점 이상이며 어떤 조각도 $G$의 변 전체를 갖지 않는 것을 고른다. 이 장은 이 조건이 평면분해에서 어떤 분해를 제외하는지 보이고, 예를 든다. 이후 장의 정리들은 이 조건을 쓰지 않는다.</p>
@@ -281,7 +286,7 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <h3>정의 5.1 (조건 (N))</h3>
 <p>$G=(V,E)$의 평면분해 $\mathcal D=(P_1,\dots,P_n)$가 <b>조건 (N)</b>을 만족한다는 것은 다음 세 조건이 성립하는 것이다.</p>
 <ul>
-<li>(N1) $|K|\ge2$.</li>
+<li>(N1) $n\ge2$.</li>
 <li>(N2) 모든 $k\in[n]$에 대해 $|V(P_k)|\ge3$.</li>
 <li>(N3) 모든 $k\in[n]$에 대해 $E(P_k)\ne E$.</li>
 </ul>
@@ -300,7 +305,7 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <p><b>검증.</b> $P_1=(V,E(P_1))$, $P_2=(V,E(P_2))$로 정의했으므로 $V(P_1)=V(P_2)=V$. (D2): $E(P_1)\cup E(P_2)=E$. (D1): $P_1$은 길이 2인 경로 $a\text{-}b\text{-}c$이고 $P_2$는 경로 $a\text{-}c\text{-}b$이다. $C_3$는 보조명제 1.4에 의해 평면 그래프이고, 두 경로는 $C_3$의 부분그래프이다. 부분그래프의 평면성은 그림을 제한하여 얻는다. 따라서 두 경로는 평면 그래프이다. (N1): $n=2$. (N2): $|V(P_k)|=3$. (N3): $E(P_1)\ne E$ (왜냐하면 $\{a,c\}\notin E(P_1)$)이고 $E(P_2)\ne E$ (왜냐하면 $\{a,b\}\notin E(P_2)$). 따라서 (N)을 만족한다.</p>
 
 <h3>명제 5.4 ($K_3$의 변별 분해는 (N2)를 만족하지 않는다)</h3>
-<p>$K_3$의 세 변 $\{a,b\}$, $\{b,c\}$, $\{a,c\}$ 각각을 조각으로 하는 평면분해 (각 조각의 점집합은 두 점이다)는 (N2)를 만족하지 않는다.</p>
+<p>$K_3$의 변 $e_1=\{a,b\}$, $e_2=\{b,c\}$, $e_3=\{a,c\}$에 대해 $P_k:=(e_k,\{e_k\})$로 두고 $(P_1,P_2,P_3)$를 $K_3$의 <b>변별 분해</b>라 한다. 각 $P_k$는 한 변으로 이루어진 그래프이므로 평면 그래프이고, (D2)가 성립하므로 이것은 $K_3$의 평면분해이다. 변별 분해는 (N2)를 만족하지 않는다.</p>
 <p><b>증명.</b> 각 조각 $P_k$의 점집합 $V(P_k)$는 두 점이므로 $|V(P_k)|=2<3$이다. $\square$</p>
 
 <h3>예 5.5 ($K_5$의 (N) 분해)</h3>
@@ -314,27 +319,27 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 
 <h3>예 6.2 (역은 성립하지 않는다)</h3>
 <p>예 1.3의 분해 $\mathcal D=(P_1,P_2)$를 생각하자. $G=K_4$는 평면 그래프이다 ((III)). 그러나 $\mathfrak M^{-1}$는 평면 그래프가 아니다. 증명은 다음과 같다.</p>
-<p>예 1.3에서 $V(P_1)=V(P_2)=V=\{0,1,2,3\}$이므로 명제 4.2에 의해 $V_1=\{w_0,w_1,w_2,w_3\}$, $C(v)=\{(v,1),(v,2)\}$이다. $E_{00}$의 변은 $\{(u,k),(v,k)\}$ ($\{u,v\}\in E(P_k)$)이다. 다음 여섯 점을 정한다.</p>
+<p>예 1.3에서 $V(P_1)=V(P_2)=V=\{0,1,2,3\}$이므로 명제 4.2에 의해 $V_1=\{w_0,w_1,w_2,w_3\}$, $F(v)=\{(v,1),(v,2)\}$이다. $E_{00}$의 변은 $\{(u,k),(v,k)\}$ ($\{u,v\}\in E(P_k)$)이다. 다음 여섯 점을 정한다.</p>
 <ul>
-<li>$A_1:=(1,1)$, $A_2:=(2,2)$, $A_3:=(3,2)$.</li>
-<li>$B_1:=(0,2)$, $B_2:=(1,2)$, $B_3:=(3,1)$.</li>
+<li>$\alpha_1:=(1,1)$, $\alpha_2:=(2,2)$, $\alpha_3:=(3,2)$.</li>
+<li>$\beta_1:=(0,2)$, $\beta_2:=(1,2)$, $\beta_3:=(3,1)$.</li>
 </ul>
-<p>다음 아홉 경로 $R_1,\dots,R_9$를 정한다. 각 경로의 내부 점은 $\{A_1,A_2,A_3,B_1,B_2,B_3\}$에 속하지 않는다. 각 변이 $\mathfrak M^{-1}$의 변임을 괄호에 적는다.</p>
+<p>다음 아홉 경로 $R_1,\dots,R_9$를 정한다. 각 경로의 내부 점은 $\{\alpha_1,\alpha_2,\alpha_3,\beta_1,\beta_2,\beta_3\}$에 속하지 않는다. 각 변이 $\mathfrak M^{-1}$의 변임을 괄호에 적는다.</p>
 <table>
 <tr><th>경로</th><th>점열</th><th>각 변의 근거</th></tr>
-<tr><td>$R_1$: $A_1$–$B_1$</td><td>$(1,1),\ (0,1),\ w_0,\ (0,2)$</td><td>$\{(1,1),(0,1)\}\in E_{00}$ (는 $\{1,0\}\in E(P_1)$), $\{(0,1),w_0\}\in E_{01}$, $\{w_0,(0,2)\}\in E_{01}$</td></tr>
-<tr><td>$R_2$: $A_1$–$B_2$</td><td>$(1,1),\ w_1,\ (1,2)$</td><td>$\{(1,1),w_1\}\in E_{01}$, $\{w_1,(1,2)\}\in E_{01}$</td></tr>
-<tr><td>$R_3$: $A_1$–$B_3$</td><td>$(1,1),\ (3,1)$</td><td>$\{(1,1),(3,1)\}\in E_{00}$ (는 $\{1,3\}\in E(P_1)$)</td></tr>
-<tr><td>$R_4$: $A_2$–$B_1$</td><td>$(2,2),\ (0,2)$</td><td>$\{(2,2),(0,2)\}\in E_{00}$ (는 $\{2,0\}\in E(P_2)$)</td></tr>
-<tr><td>$R_5$: $A_2$–$B_2$</td><td>$(2,2),\ (1,2)$</td><td>$\{(2,2),(1,2)\}\in E_{00}$ (는 $\{2,1\}\in E(P_2)$)</td></tr>
-<tr><td>$R_6$: $A_2$–$B_3$</td><td>$(2,2),\ w_2,\ (2,1),\ (3,1)$</td><td>$\{(2,2),w_2\}\in E_{01}$, $\{w_2,(2,1)\}\in E_{01}$, $\{(2,1),(3,1)\}\in E_{00}$ (는 $\{2,3\}\in E(P_1)$)</td></tr>
-<tr><td>$R_7$: $A_3$–$B_1$</td><td>$(3,2),\ (0,2)$</td><td>$\{(3,2),(0,2)\}\in E_{00}$ (는 $\{3,0\}\in E(P_2)$)</td></tr>
-<tr><td>$R_8$: $A_3$–$B_2$</td><td>$(3,2),\ (1,2)$</td><td>$\{(3,2),(1,2)\}\in E_{00}$ (는 $\{3,1\}\in E(P_2)$)</td></tr>
-<tr><td>$R_9$: $A_3$–$B_3$</td><td>$(3,2),\ w_3,\ (3,1)$</td><td>$\{(3,2),w_3\}\in E_{01}$, $\{w_3,(3,1)\}\in E_{01}$</td></tr>
+<tr><td>$R_1$: $\alpha_1$–$\beta_1$</td><td>$(1,1),\ (0,1),\ w_0,\ (0,2)$</td><td>$\{(1,1),(0,1)\}\in E_{00}$ (는 $\{1,0\}\in E(P_1)$), $\{(0,1),w_0\}\in E_{01}$, $\{w_0,(0,2)\}\in E_{01}$</td></tr>
+<tr><td>$R_2$: $\alpha_1$–$\beta_2$</td><td>$(1,1),\ w_1,\ (1,2)$</td><td>$\{(1,1),w_1\}\in E_{01}$, $\{w_1,(1,2)\}\in E_{01}$</td></tr>
+<tr><td>$R_3$: $\alpha_1$–$\beta_3$</td><td>$(1,1),\ (3,1)$</td><td>$\{(1,1),(3,1)\}\in E_{00}$ (는 $\{1,3\}\in E(P_1)$)</td></tr>
+<tr><td>$R_4$: $\alpha_2$–$\beta_1$</td><td>$(2,2),\ (0,2)$</td><td>$\{(2,2),(0,2)\}\in E_{00}$ (는 $\{2,0\}\in E(P_2)$)</td></tr>
+<tr><td>$R_5$: $\alpha_2$–$\beta_2$</td><td>$(2,2),\ (1,2)$</td><td>$\{(2,2),(1,2)\}\in E_{00}$ (는 $\{2,1\}\in E(P_2)$)</td></tr>
+<tr><td>$R_6$: $\alpha_2$–$\beta_3$</td><td>$(2,2),\ w_2,\ (2,1),\ (3,1)$</td><td>$\{(2,2),w_2\}\in E_{01}$, $\{w_2,(2,1)\}\in E_{01}$, $\{(2,1),(3,1)\}\in E_{00}$ (는 $\{2,3\}\in E(P_1)$)</td></tr>
+<tr><td>$R_7$: $\alpha_3$–$\beta_1$</td><td>$(3,2),\ (0,2)$</td><td>$\{(3,2),(0,2)\}\in E_{00}$ (는 $\{3,0\}\in E(P_2)$)</td></tr>
+<tr><td>$R_8$: $\alpha_3$–$\beta_2$</td><td>$(3,2),\ (1,2)$</td><td>$\{(3,2),(1,2)\}\in E_{00}$ (는 $\{3,1\}\in E(P_2)$)</td></tr>
+<tr><td>$R_9$: $\alpha_3$–$\beta_3$</td><td>$(3,2),\ w_3,\ (3,1)$</td><td>$\{(3,2),w_3\}\in E_{01}$, $\{w_3,(3,1)\}\in E_{01}$</td></tr>
 </table>
 <p>$H$를 아홉 경로 $R_1,\dots,R_9$의 합집합으로 정의한다. 내부 점은 $(0,1)$, $w_0$, $w_1$, $w_2$, $(2,1)$, $w_3$이다. 이들은 서로 다르고 여섯 분기점과도 다르므로 아홉 경로는 내부 점을 공유하지 않는다. 각 경로의 변은 위 표에서 $\mathfrak M^{-1}$의 변이므로 $H\subseteq \mathfrak M^{-1}$이다.</p>
-<p><b>$H$에서 $K_{3,3}$ 얻기.</b> 각 $i$에 대해 경로 $R_i$의 내부 점 집합을 $J_i$라 하자. $|J_i|$는 $R_1,R_6,R_2,R_9$에 대해 $2,2,1,1$이고, 나머지 다섯 경로에 대해 $0$이다 (표 참조). 아래 방식으로 내부 점을 하나씩 제거한다. 한 내부 점 $x$를 제거할 때는 $x$와 인접한 점 $y$에 대해 변 $\{x,y\}$를 수축한다. 이렇게 하면 $x$는 $y$에 합쳐지고, $x$를 지나던 경로는 한 변 짧아진다. 이 조작은 정의 3.3의 변 수축이다. 내부 점 $(0,1)$, $w_0$ (경로 $R_1$), $w_1$ ($R_2$), $w_2$, $(2,1)$ ($R_6$), $w_3$ ($R_9$)은 각각 한 번의 수축으로 없어진다. 내부 점은 모두 여섯 개이고, 경로 $R_1$, $R_6$은 내부 점을 두 개씩 가진다. 수축 후 각 경로는 변 하나가 되고, 그 변의 양 끝은 $A_i$와 $B_j$이다. 그러면 남는 점은 $A_1,A_2,A_3,B_1,B_2,B_3$이고, 변은 $A_iB_j$ ($1\le i,j\le3$) 아홉 개이다. 이것은 $K_{3,3}$이다. 따라서 $K_{3,3}\preceq H\subseteq \mathfrak M^{-1}$이다 (부분그래프는 마이너이고 추이성을 쓴다).</p>
-<p><b>결론.</b> $\mathfrak M^{-1}$가 평면 그래프라 가정하자. $K_{3,3}\preceq \mathfrak M^{-1}$이므로 (II)에 의해 $K_{3,3}$은 평면 그래프이다. 그러나 $K_{3,3}$은 $|V|=6$, $|E|=9$이고 길이 3인 사이클을 갖지 않는다. 실제로 $K_{3,3}$의 두 점집합 $\{a_1,a_2,a_3\}$, $\{b_1,b_2,b_3\}$의 모든 변은 한 집합의 점과 다른 집합의 점을 잇는다. 길이 3인 사이클은 홀수 길이이므로 두 집합을 번갈아 지나는 것이 불가능하다. 따라서 $K_{3,3}$의 모든 사이클은 짝수 길이이고 길이 3인 사이클은 없다. 인용 (I)에 의해 $K_{3,3}$이 평면 그래프라면 $9\le2\cdot6-4=8$이어야 하므로 모순이다. 따라서 $\mathfrak M^{-1}$은 평면 그래프가 아니다. $\square$</p>
+<p><b>$H$에서 $K_{3,3}$ 얻기.</b> 각 $i$에 대해 경로 $R_i$의 내부 점 집합을 $J_i$라 하자. $|J_i|$는 $R_1,R_6,R_2,R_9$에 대해 $2,2,1,1$이고, 나머지 다섯 경로에 대해 $0$이다 (표 참조). 아래 방식으로 내부 점을 하나씩 제거한다. 한 내부 점 $x$를 제거할 때는 $x$와 인접한 점 $y$에 대해 변 $\{x,y\}$를 수축한다. 이렇게 하면 $x$는 $y$에 합쳐지고, $x$를 지나던 경로는 한 변 짧아진다. 이 조작은 정의 3.3의 변 수축이다. 내부 점 $(0,1)$, $w_0$ (경로 $R_1$), $w_1$ ($R_2$), $w_2$, $(2,1)$ ($R_6$), $w_3$ ($R_9$)은 각각 한 번의 수축으로 없어진다. 내부 점은 모두 여섯 개이고, 경로 $R_1$, $R_6$은 내부 점을 두 개씩 가진다. 수축 후 각 경로는 변 하나가 되고, 그 변의 양 끝은 $\alpha_i$와 $\beta_j$이다. 그러면 남는 점은 $\alpha_1,\alpha_2,\alpha_3,\beta_1,\beta_2,\beta_3$이고, 변은 $\alpha_iB_j$ ($1\le i,j\le3$) 아홉 개이다. 이것은 $K_{3,3}$이다. 따라서 $K_{3,3}\preceq H\subseteq \mathfrak M^{-1}$이다 (부분그래프는 마이너이고 추이성을 쓴다).</p>
+<p><b>결론.</b> $K_{3,3}$은 점집합 $\{a_1,a_2,a_3\}\sqcup\{b_1,b_2,b_3\}$와 변집합 $\bigl\{\{a_i,b_j\}:\ 1\le i,j\le3\bigr\}$을 갖는 그래프이다. $\mathfrak M^{-1}$가 평면 그래프라 가정하자. $K_{3,3}\preceq \mathfrak M^{-1}$이므로 (II)에 의해 $K_{3,3}$은 평면 그래프이다. 그러나 $K_{3,3}$은 $|V|=6$, $|E|=9$이고 길이 3인 사이클을 갖지 않는다. 실제로 $K_{3,3}$의 두 점집합 $\{a_1,a_2,a_3\}$, $\{b_1,b_2,b_3\}$의 모든 변은 한 집합의 점과 다른 집합의 점을 잇는다. 길이 3인 사이클은 홀수 길이이므로 두 집합을 번갈아 지나는 것이 불가능하다. 따라서 $K_{3,3}$의 모든 사이클은 짝수 길이이고 길이 3인 사이클은 없다. 인용 (I)에 의해 $K_{3,3}$이 평면 그래프라면 $9\le2\cdot6-4=8$이어야 하므로 모순이다. 따라서 $\mathfrak M^{-1}$은 평면 그래프가 아니다. $\square$</p>
 <p>이 예에서 $G=K_4$는 평면이지만 Compression는 평면이 아니다. 따라서 정리 6.1의 역은 성립하지 않는다.</p>
 
 <h2>제7장 색칠수는 마이너에 대해 단조가 아니다</h2>
@@ -361,11 +366,11 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <p>$\mathbf{RG}$의 <b>도식</b>은 대상 집합 $\mathcal O$와 두 대상 사이의 사상들의 족 $\mathcal A$의 쌍이다. 도식 $\mathcal S$의 <b>cocone</b>은 대상 $Z$와 각 대상 $X\in\mathcal O$에 대해 사상 $g_X:X\to Z$의 족 $(g_X)$로서, $\mathcal A$의 임의의 사상 $a:X\to Y$에 대해 $g_Y\circ a=g_X$를 만족하는 것이다. 도식 $\mathcal S$의 <b>코리밋</b>은 cocone $(Q,(\iota_X))$로서, 임의의 cocone $(Z,(g_X))$에 대해 $h\circ\iota_X=g_X$ ($X\in\mathcal O$)를 만족하는 사상 $h:Q\to Z$가 유일하게 존재하는 것이다.</p>
 
 <h3>명제 8.3 (조각들의 합집합은 교집합 도식의 코리밋이다)</h3>
-<p>$G=(V,E)$와 평면분해 $\mathcal D=(P_1,\dots,P_n)$를 고정한다. 각 $k\ne l$에 대해 $I_{kl}:=(V(P_k)\cap V(P_l),\ E(P_k)\cap E(P_l))$로 둔다. 이것은 그래프이다: $E(P_k)\cap E(P_l)\subseteq\binom{V(P_k)\cap V(P_l)}2$이다. 도식 $\mathcal S$는 대상 $\{P_k\}_{k\in[n]}\cup\{I_{kl}\}_{k\ne l}$과, 포함으로 이루어진 사상 $I_{kl}\to P_k$, $I_{kl}\to P_l$을 갖는다. 포함은 점에 대해 항등이고 변을 보존하므로 정의 8.1의 사상이다. 각 $k\ne l$에 대해 포함 $\iota_{kl}:I_{kl}\to G$를 둔다. 이것도 정의 8.1의 사상이다. 각 $k$에 대해 포함 $\iota_k:P_k\to G$는 사상이다 ((D2)에 의해 $E(P_k)\subseteq E$). 이때 $(G,(\iota_k)_{k\in[n]})$는 $\mathcal S$의 코리밋이다.</p>
+<p>$G=(V,E)$와 평면분해 $\mathcal D=(P_1,\dots,P_n)$를 고정한다. 각 $k\ne l$에 대해 $I_{kl}:=(V(P_k)\cap V(P_l),\ E(P_k)\cap E(P_l))$로 둔다. 이것은 그래프이다: $E(P_k)\cap E(P_l)\subseteq\binom{V(P_k)\cap V(P_l)}2$이다. 도식 $\mathcal S$는 대상 $\{P_k\}_{k\in[n]}\cup\{I_{kl}\}_{k\ne l}$과, 포함으로 이루어진 사상 $I_{kl}\to P_k$, $I_{kl}\to P_l$을 갖는다. 포함은 점에 대해 항등이고 변을 보존하므로 정의 8.1의 사상이다. 각 $k\ne l$에 대해 포함 $\iota_{kl}:I_{kl}\to G$를 둔다. 이것도 정의 8.1의 사상이다. 각 $k$에 대해 포함 $\iota_k:P_k\to G$는 사상이다 ((D2)에 의해 $E(P_k)\subseteq E$). 이때 $(G,(\iota_k)_{k\in[n]},(\iota_{kl})_{k\ne l})$는 $\mathcal S$의 코리밋이다.</p>
 <p><b>증명.</b> 포함 $\iota_{kl}:I_{kl}\to G$ (점은 항등, 변은 포함)을 둔다. $\iota_k:P_k\to G$와 $I_{kl}\to P_k$의 합성은 $\iota_{kl}$이다. 같은 방식으로 $I_{kl}\to P_l$과의 합성도 $\iota_{kl}$이다. 따라서 $(G,(\iota_k))$는 $\mathcal S$의 cocone이다.</p>
-<p>이제 임의의 cocone $(Z,(g_k)_{k\in[n]},(g_{kl})_{k\ne l})$를 준다. 여기서 $g_k:P_k\to Z$, $g_{kl}:I_{kl}\to Z$이고 $g_k\circ(I_{kl}\hookrightarrow P_k)=g_{kl}=g_l\circ(I_{kl}\hookrightarrow P_l)$이다. 이 등식은 점에서 $g_k|_{V(P_k)\cap V(P_l)=g_l|_{V(P_k)\cap V(P_l)$을 뜻한다.</p>
+<p>이제 임의의 cocone $(Z,(g_k)_{k\in[n]},(g_{kl})_{k\ne l})$를 준다. 여기서 $g_k:P_k\to Z$, $g_{kl}:I_{kl}\to Z$이고 $g_k\circ(I_{kl}\hookrightarrow P_k)=g_{kl}=g_l\circ(I_{kl}\hookrightarrow P_l)$이다. 이 등식은 점에서 $g_k|_{V(P_k)\cap V(P_l)}=g_l|_{V(P_k)\cap V(P_l)}$을 뜻한다.</p>
 <ol>
-<li><b>존재.</b> $v\in V$에 대해 $v\in V(P_k)$인 $k$가 있다 ((D2)). $h(v):=g_k(v)$로 정의한다. 잘 정의되는지 본다. $v\in V(P_k)\cap V(P_l)$이면 점에서의 등식에 의해 $g_k(v)=g_l(v)$이다. $h\circ\iota_k=g_k$는 정의에서 나온다. $h$가 사상임을 본다. $\{x,y\}\in E$이면 (D2)에 의해 $\{x,y\}\in E(P_k)$인 $k$가 있다. $g_k$가 사상이므로 $g_k(x)=g_k(y)$이거나 $\{g_k(x),g_k(y)\}\in E_Z$이다. $h(x)=g_k(x)$, $h(y)=g_k(y)$이므로 $h$는 사상의 조건을 만족한다.</li>
+<li><b>존재.</b> $v\in V$에 대해 $v\in V(P_k)$인 $k$가 있다 ((D2)). $h(v):=g_k(v)$로 정의한다. 잘 정의되는지 본다. $v\in V(P_k)\cap V(P_l)$이면 점에서의 등식에 의해 $g_k(v)=g_l(v)$이다. $h\circ\iota_k=g_k$는 정의에서 나온다. $h\circ\iota_{kl}=g_{kl}$은 $v\in V(P_k)\cap V(P_l)$에 대해 $h(v)=g_k(v)=g_{kl}(v)$에서 나온다. $h$가 사상임을 본다. $\{x,y\}\in E$이면 (D2)에 의해 $\{x,y\}\in E(P_k)$인 $k$가 있다. $g_k$가 사상이므로 $g_k(x)=g_k(y)$이거나 $\{g_k(x),g_k(y)\}\in E_Z$이다. $h(x)=g_k(x)$, $h(y)=g_k(y)$이므로 $h$는 사상의 조건을 만족한다.</li>
 <li><b>유일성.</b> $h':G\to Z$가 $h'\circ\iota_k=g_k$를 만족하면 $v\in V$에 대해 $h'(v)=h'(\iota_k(v))=g_k(v)=h(v)$이다. 따라서 $h'=h$이다.</li>
 </ol>
 <p>$\square$</p>
@@ -393,13 +398,19 @@ $T=\{a,b\}$, $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>이�
 <tr><td>$G=(V,E)$</td><td>그래프 (머리말 규약)</td></tr>
 <tr><td>$[n]$</td><td>$\{1,\dots,n\}$ (기호 절)</td></tr>
 <tr><td>$\mathcal D=(P_1,\dots,P_n)$, $P_k=(V(P_k),E(P_k))$</td><td>평면분해, 정의 1.1</td></tr>
-<tr><td>$V_0$, $E_{00}$, $\varphi$, $C(v)$</td><td>복사점, 정의 2.1</td></tr>
+<tr><td>$V_0$, $E_{00}$, $\varphi$, $F(v)$</td><td>복사점, 정의 2.1</td></tr>
 <tr><td>$V_1$, $E_{01}$, $\mu$, $E_{11}$</td><td>흰 점 집합, 포트 변, 조각 중복도, 파생 흰 변, 정의 2.3</td></tr>
 <tr><td>$\mathfrak M$, $\mathfrak M^{-1}$</td><td>매뉴얼 그래프, Compression, 정의 2.3</td></tr>
 <tr><td>$\rho$, $A(\mathfrak M)$</td><td>조립, 정의 3.1</td></tr>
 <tr><td>$X/T$, $\preceq$</td><td>연결 집합 수축과 마이너, 정의 3.3</td></tr>
 <tr><td>$\chi(G)$</td><td>색칠수, 정의 7.1</td></tr>
 <tr><td>$\mathbf{RG}$</td><td>반사 그래프의 범주, 정의 8.1</td></tr>
+<tr><td>$\star$</td><td>흰 점의 두 번째 성분 기호, 정의 2.3</td></tr>
+<tr><td>$N(w)$</td><td>흰 점 $w$의 이웃 복사점 모임, 명제 2.5</td></tr>
+<tr><td>$I_{kl}$</td><td>두 조각의 교집합 그래프, 명제 8.3</td></tr>
+<tr><td>$\mathcal V$, $T_v$</td><td>$|F(v)|\ge2$인 점 모임과 수축할 집합 $F(v)\sqcup\{w_v\}$, 정리 3.5</td></tr>
+<tr><td>$z$, $\rho_T$, $\rho_e$</td><td>수축점과 수축 사상, 정의 3.3과 보조명제 3.4</td></tr>
+<tr><td>$\mathcal O$, $\mathcal A$, $\mathcal S$</td><td>도식의 대상 집합, 사상 족, 도식, 정의 8.2</td></tr>
 </table>
 
 </body>
