@@ -221,7 +221,8 @@ $T=\{a,b\}$이고 $\{a,b\}\in E_X$이면 $X/T$를 변 $\{a,b\}$의 <b>수축</b>
 <h3>보조명제 3.4 (연결 집합의 수축)</h3>
 <p>모든 그래프 $X=(V_X,E_X)$와 모든 $\varnothing\ne T\subseteq V_X$에 대해, $X[T]:=(T,\{f\in E_X:\ f\subseteq T\})$가 연결이면 $X/T\preceq X$이다. 여기서 수축점은 $V_X$ 밖의 기호 $z$이다.</p>
 <p><b>사실 (마이너 모형의 특징짓기).</b> 그래프 $H$가 $X$의 마이너 ($H\preceq X$)인 것은, $X$의 서로소인 부분집합 $B_h\subseteq V_X$ ($h\in V_H$)가 있어 (i) 각 $X[B_h]$가 연결이고, (ii) $\{h,h'\}\in E_H$이면 $B_h$와 $B_{h'}$ 사이에 $X$의 변이 있는 것과 동치이다.</p>
-<p><b>출처.</b> Reinhard Diestel, <i>Graph Theory</i>, 5판 (Springer, Graduate Texts in Mathematics 173, 2017), §1.7 "Contraction and minors", 19–20쪽. 19쪽에서 $X$의 모형(model)을 통해 $X\preceq Y$를 정의하고, 20쪽에서 위 특징짓기를 얻는다. 이 사실의 증명은 그 쪽을 참고한다.</p>
+<p><b>정의 (모형).</b> 그래프 $G$가 그래프 $X$의 <b>$IX$ 모형</b>이라는 것은, $V(G)$가 연결된 부분집합들 $V_x$ ($x\in V_X$)로 분할되어, 서로 다른 $x,y\in V_X$에 대해 $xy\in E_X$인 것과 $V_x$와 $V_y$ 사이에 $G$의 변이 있는 것이 동치인 것이다. 그래프 $Y$가 $X$의 $IX$ 모형을 부분그래프로 가지면 $X\preceq Y$라 쓴다.</p>
+<p><b>출처.</b> Reinhard Diestel, <i>Graph Theory</i>, 5판 (Springer, Graduate Texts in Mathematics 173, 2017), §1.7 "Contraction and minors", 19쪽에 위 정의가 있고, 20쪽에 위 특징짓기가 있다. 이 사실의 증명은 그 쪽을 참고한다.</p>
 <p><b>보조명제 3.4의 증명.</b> 위 사실을 $H:=X/T$에 적용한다. $B_z:=T$, $x\in V_X\setminus T$에 대해 $B_x:=\{x\}$로 둔다. 이들은 서로소이다. $X[T]$는 연결이고 $X[\{x\}]$는 자명하게 연결이므로 (i)이 성립한다. $X/T$의 변은 $\{\rho_T a,\rho_T b\}$ ($\{a,b\}\in E_X$, $\rho_T a\ne\rho_T b$)의 꼴이고, $a\in B_{\rho_T a}$, $b\in B_{\rho_T b}$이며 $\{a,b\}$는 $X$의 변이므로 (ii)가 성립한다. 따라서 위 사실에 의해 $X/T\preceq X$이다. $\square$</p>
 
 <h3>보조명제 3.5 (연속 수축)</h3>
