@@ -1,0 +1,8 @@
+  k 1 tuples 360
+  k 2 tuples 4200
+  k 3 tuples 37800
+  k 4 tuples 288360
+  k 5 tuples 2013960
+  k 6 tuples 13398600
+  too many
+C5K2 join None
