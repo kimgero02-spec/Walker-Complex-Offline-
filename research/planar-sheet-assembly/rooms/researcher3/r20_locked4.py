@@ -49,7 +49,8 @@ def cover(E, m, rng, tries):
 
 if __name__=="__main__":
     t=int(sys.argv[1]); n=int(sys.argv[2]); rng=random.Random(int(sys.argv[3])); iters=int(sys.argv[4])
-    base=[dual_cubic(bal_tri(t,rng)) for _ in range(n)]
+    from r20_geo import geodesic2
+    base=[dual_cubic(geodesic2() if t==0 else bal_tri(t,rng)) for _ in range(n)]
     N=base[0][2]
     P=[list(range(N)) for _ in range(n)]
     for p in P[1:]: rng.shuffle(p)
@@ -79,7 +80,11 @@ if __name__=="__main__":
     print("N",N,"n",n,"violations",cur,"it",it, flush=True)
     if cur==0:
         Q=[sorted(q) for q,_ in QV]; E=[e for q in Q for e in q]
-        T=cover(E,n-1,rng,200)
+        json.dump({"Q":Q},open("r20_locked_only_N%d_n%d.json"%(N,n),"w"))
+        S0=[set(q) for q in Q]
+        okL=all(planar(q) for q in Q) and all(not planar(Q[k]+[e]) for k in range(n) for e in E if e not in S0[k])
+        print("locked (direct planarity check):",okL, "edge-disjoint:",len(set(E))==len(E), "G planar:",planar(E))
+        T=cover(E,n-1,rng,int(sys.argv[5]) if len(sys.argv)>5 else 200)
         print("cover found" if T else "no cover")
         if T and certify(Q,T):
             print("CERTIFIED")
