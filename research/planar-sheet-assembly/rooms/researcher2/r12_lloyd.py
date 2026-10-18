@@ -41,14 +41,15 @@ def lloyd_structures(X,smax=4):
                 N=check_W(X,W)
                 if N is not None: out.add((W,N))
     return sorted(out)
-tests=[('C7',nx.cycle_graph(7)),('C9',nx.cycle_graph(9)),('C8',nx.cycle_graph(8)),('petersen',nx.petersen_graph()),('heawood',nx.heawood_graph()),('K4',nx.complete_graph(4))]
-# 실현 예 몇 개 (비정칙): 예 1.5 (K5 = 오각형 + 오각별), K5=(K5-e)+K2
-P1=(list(range(5)),[(i,(i+1)%5) for i in range(5)]); P2=(list(range(5)),[(i,(i+2)%5) for i in range(5)])
-Mo,_,_,_=manual([P1,P2]); tests.append(('Ex1.5 Mo',nx.convert_node_labels_to_integers(Mo)))
-E5=[e for e in itertools.combinations(range(5),2) if e!=(0,1)]
-Mo,_,_,_=manual([(list(range(5)),E5),([0,1],[(0,1)])]); tests.append(('K5-e+K2 Mo',nx.convert_node_labels_to_integers(Mo)))
-for name,X in tests:
-    L=lloyd_structures(X)
-    bf=sorted((tuple(W),N) for W,N in recognize(X,'Mo')) if X.number_of_nodes()<=16 else 'skip'
-    print(name,'n',X.number_of_nodes(),'lloyd:',L if L=='singular' else [(len(W),N) for W,N in L],'| brute:',bf if bf=='skip' else [(len(W),N) for W,N in bf], '| same' if L!='singular' and bf!='skip' and L==bf else '')
-X=nx.LCF_graph(30,[-13,-9,7,-7,9,13],5); print('tutte-coxeter lloyd',lloyd_structures(X,smax=2))
+if __name__=='__main__':
+    tests=[('C7',nx.cycle_graph(7)),('C9',nx.cycle_graph(9)),('C8',nx.cycle_graph(8)),('petersen',nx.petersen_graph()),('heawood',nx.heawood_graph()),('K4',nx.complete_graph(4))]
+    # 실현 예 몇 개 (비정칙): 예 1.5 (K5 = 오각형 + 오각별), K5=(K5-e)+K2
+    P1=(list(range(5)),[(i,(i+1)%5) for i in range(5)]); P2=(list(range(5)),[(i,(i+2)%5) for i in range(5)])
+    Mo,_,_,_=manual([P1,P2]); tests.append(('Ex1.5 Mo',nx.convert_node_labels_to_integers(Mo)))
+    E5=[e for e in itertools.combinations(range(5),2) if e!=(0,1)]
+    Mo,_,_,_=manual([(list(range(5)),E5),([0,1],[(0,1)])]); tests.append(('K5-e+K2 Mo',nx.convert_node_labels_to_integers(Mo)))
+    for name,X in tests:
+        L=lloyd_structures(X)
+        bf=sorted((tuple(W),N) for W,N in recognize(X,'Mo')) if X.number_of_nodes()<=16 else 'skip'
+        print(name,'n',X.number_of_nodes(),'lloyd:',L if L=='singular' else [(len(W),N) for W,N in L],'| brute:',bf if bf=='skip' else [(len(W),N) for W,N in bf], '| same' if L!='singular' and bf!='skip' and L==bf else '')
+    X=nx.LCF_graph(30,[-13,-9,7,-7,9,13],5); print('tutte-coxeter lloyd',lloyd_structures(X,smax=2))
