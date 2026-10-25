@@ -17,14 +17,15 @@ def emb_cost(q, others):
             for b in fs:
                 if a<b: cof.add((a,b))
     return sum(1 for e in others if e in cof or e[0] not in H or e[1] not in H)
-def run(N, rng, steps, n=3):
+def run(N, rng, steps, n=3, keep=1.0):
     A=rand_tri(N,rng,flips=10*N); B=rand_tri(N,rng,flips=10*N); EA=set(tuple(sorted(e)) for e in A.edges())
     best=None
     for _ in range(5000):
         p=list(range(N)); rng.shuffle(p); EB=set(tuple(sorted((p[u],p[v]))) for u,v in B.edges())
         if best is None or len(EA&EB)<len(EA&best): best=EB
         if not EA&EB: break
-    EB=best; E=sorted(EA|EB)
+    EB=best
+    EA=set(e for e in EA if rng.random()<keep); EB=set(e for e in EB if rng.random()<keep); E=sorted(EA|EB)
     col={e:rng.randrange(n) for e in E}
     def cls(k): return [e for e in E if col[e]==k]
     def cost(k): q=cls(k); return emb_cost(q,[e for e in E if col[e]!=k])
@@ -43,10 +44,10 @@ def run(N, rng, steps, n=3):
         else: col[e]=old
     return cur,E,EA,EB,col
 if __name__=="__main__":
-    N=int(sys.argv[1]); seed=int(sys.argv[2]); trials=int(sys.argv[3]); steps=int(sys.argv[4])
+    N=int(sys.argv[1]); seed=int(sys.argv[2]); trials=int(sys.argv[3]); steps=int(sys.argv[4]); keep=float(sys.argv[5]) if len(sys.argv)>5 else 1.0
     rng=random.Random(seed)
     for t in range(trials):
-        cur,E,EA,EB,col=run(N,rng,steps)
+        cur,E,EA,EB,col=run(N,rng,steps,keep=keep)
         print("N",N,"trial",t,"|E|",len(E),"overlap",len(EA&EB),"cost",cur,flush=True)
         if cur==0:
             Q=[[list(e) for e in E if col[e]==k] for k in range(3)]
