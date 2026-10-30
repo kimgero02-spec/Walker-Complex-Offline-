@@ -105,7 +105,7 @@ $$J_q(\mathfrak M):=\big\langle\,y_x^q-1,\ \ h(y_x,y_{x'})\ (\{x,x'\}\in E_{00})
 *증명.*
 - (a) 정리 2.1.
 - (b) $K_t$ 모형의 가지 집합 $B_1,\dots,B_t$ 가 있으면, $G$ 가 연결이므로 남은 점을 이웃한 가지 집합에 하나씩 흡수해 $V$ 의 분할로 만들 수 있다 (흡수해도 연결이고 인접은 유지된다). 그러면 $\pi=\{B_i\}\in L_G$ 이다. $[\pi,\hat1]$ 의 원소는 $B_i$ 들을 합친 것이다. 모든 쌍이 인접하면 어떤 합도 연결이다. 역으로 $[\pi,\hat1]\subseteq L_G$ 이면 두 블록만 합친 것이 연결이므로 두 블록이 인접한다. 제한 배열의 초평면은 인접한 블록 쌍에 대응하므로 셋째 조건과 같다.
-- (c) $B$ 가 $G$ 에서 연결이면 $\rho^{-1}(B)=\bigcup_{v\in B}(F(v)\cup\{w_v\}\cap V_1)$ 은 $\mathfrak M^\circ$ 에서 연결이다 (층 안의 변 $\{(u,k),(v,k)\}$ 와 포트 경로 $(v,k)\!-\!w_v\!-\!(v,l)$). 역으로 $\rho$ 는 $\mathfrak M^\circ$ 의 변을 $G$ 의 변이나 한 점으로 보낸다 (교재 명제 8.5) 이므로 연결성과 인접이 내려간다. □
+- (c) $B$ 가 $G$ 에서 연결이면 $\rho^{-1}(B)=\bigcup_{v\in B}\rho^{-1}(v)$ ($\rho^{-1}(v)$ 는 $F(v)$ 와, $|F(v)|\ge2$ 이면 $w_v$) 은 $\mathfrak M^\circ$ 에서 연결이다 (층 안의 변 $\{(u,k),(v,k)\}$ 와 포트 경로 $(v,k)\!-\!w_v\!-\!(v,l)$). 역으로 $\rho$ 는 $\mathfrak M^\circ$ 의 변을 $G$ 의 변이나 한 점으로 보낸다 (교재 명제 8.5) 이므로 연결성과 인접이 내려간다. □
 - **해드위거 (격자형):** 원자 집합 $\mathcal A\subseteq\mathrm{atoms}(\Pi_V)$ 에 대해, 블록이 $t-1$ 개 이하인 모든 분할이 $\mathcal A$ 의 어떤 원자 위에 있으면, $|\pi|=t$ 이고 $[\pi,\hat1]\subseteq\langle\mathcal A\rangle_\vee$ 인 $\pi$ 가 있다. 조각은 $\mathcal A=\bigcup_k\mathcal A_{P_k}$ 로만 들어간다. [증명 (정리 2.4 의 다시 쓰기)]
 - 조각이 평면이라는 것은 이 언어로 "각 $\langle\mathcal A_{P_k}\rangle_\vee$ 에 $|\pi|\ge5$ 인 꽉 찬 위 구간이 없다" (교재 (II) 와 $K_5$ 비평면) 와 "각 $D_{P_k}$ 에 $|\pi|\le4$ 인 원소가 있다" (4색 정리 [고전 인용]) 이다.
 
