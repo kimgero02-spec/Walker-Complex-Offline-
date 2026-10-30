@@ -1,0 +1,5 @@
+m= 8 tries 300 hits 0 example None
+m= 9 tries 300 hits 0 example None
+m= 10 tries 300 hits 0 example None
+m= 11 tries 300 hits 0 example None
+m= 12 tries 11 hits 1 example [(3, 7), (4, 8), (5, 8), (0, 6), (5, 6), (2, 7), (5, 7), (2, 8), (4, 7), (3, 8), (2, 6), (3, 6)]

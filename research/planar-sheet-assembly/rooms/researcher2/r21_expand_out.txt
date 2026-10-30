@@ -1,0 +1,15 @@
+base {'N': 7, 'exact': True, 'planar': True, 'sigma': 7, 'Delta': 2, 'floorN3': 2, 'disjoint': True, 'npairs_ok': True, 'sharp': True, 'chis': [3, 4], 'omegas': [2, 3]} [[(2, 4)], [(5, 0), (6, 1)]]
+  step {'N': 10, 'exact': True, 'planar': True, 'sigma': 10, 'Delta': 3, 'floorN3': 3, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 13, 'exact': True, 'planar': True, 'sigma': 13, 'Delta': 4, 'floorN3': 4, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 16, 'exact': True, 'planar': True, 'sigma': 16, 'Delta': 5, 'floorN3': 5, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 19, 'exact': True, 'planar': True, 'sigma': 19, 'Delta': 6, 'floorN3': 6, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+base {'N': 8, 'exact': True, 'planar': True, 'sigma': 8, 'Delta': 2, 'floorN3': 2, 'disjoint': True, 'npairs_ok': True, 'sharp': True, 'chis': [4, 4], 'omegas': [3, 3]} [[(1, 2), (3, 4)], [(6, 7), (5, 0)]]
+  step {'N': 11, 'exact': True, 'planar': True, 'sigma': 11, 'Delta': 3, 'floorN3': 3, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 14, 'exact': True, 'planar': True, 'sigma': 14, 'Delta': 4, 'floorN3': 4, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 17, 'exact': True, 'planar': True, 'sigma': 17, 'Delta': 5, 'floorN3': 5, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 20, 'exact': True, 'planar': True, 'sigma': 20, 'Delta': 6, 'floorN3': 6, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+base {'N': 9, 'exact': True, 'planar': True, 'sigma': 9, 'Delta': 3, 'floorN3': 3, 'disjoint': True, 'npairs_ok': True, 'sharp': True, 'chis': [3, 3, 3], 'omegas': [2, 2, 2]} [[(0, 1)], [(3, 4)], [(6, 7)]]
+  step {'N': 12, 'exact': True, 'planar': True, 'sigma': 12, 'Delta': 4, 'floorN3': 4, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 15, 'exact': True, 'planar': True, 'sigma': 15, 'Delta': 5, 'floorN3': 5, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 18, 'exact': True, 'planar': True, 'sigma': 18, 'Delta': 6, 'floorN3': 6, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
+  step {'N': 21, 'exact': True, 'planar': True, 'sigma': 21, 'Delta': 7, 'floorN3': 7, 'disjoint': True, 'npairs_ok': True, 'sharp': True}
