@@ -1,0 +1,705 @@
+                                            HADWIGER’S CONJECTURE AND TOPOLOGICAL BOUNDS
+
+
+                                                                               RAPHAEL STEINER
+
+
+
+
+                                                   Abstract. The Odd Hadwiger’s conjecture, formulated by Gerards and Sey-
+                                                   mour in 1995, is a substantial strengthening of Hadwiger’s famous coloring
+                                                   conjecture from 1943. We investigate whether the hierarchy of topological
+arXiv:2312.17130v2 [math.CO] 2 Jan 2024
+
+
+
+
+                                                   lower bounds on the chromatic number, introduced by Matoušek and Ziegler
+                                                   (2003) and refined recently by Daneshpajouh and Meunier (2023), forms a po-
+                                                   tential avenue to a disproof of Hadwiger’s conjecture or its odd-minor variant.
+                                                   In this direction, we prove that, in a very general sense, every graph G that ad-
+                                                   mits a topological lower bound of t on its chromatic number, contains K⌊t/2⌋+1
+                                                   as an odd-minor. This solves a problem posed by Simonyi and Zsbán [Euro-
+                                                   pean Journal of Combinatorics, 31(8), 2110–2119 (2010)].
+                                                   We also prove that if for a graph G the Dol’nikov-Křı́ž lower bound on the
+                                                   chromatic number (one of the lower bounds in the aforementioned hierarchy)
+                                                   attains a value of at least t, then G contains Kt as a minor.
+                                                   Finally, extending results by Simonyi and Zsbán, we show that the Odd Had-
+                                                   wiger’s conjecture holds for Schrijver and Kneser graphs for any choice of the
+                                                   parameters. The latter are canonical examples of graphs for which topological
+                                                   lower bounds on the chromatic number are tight.
+
+
+                                                                                1. Introduction
+                                             Given two finite graphs G and H, we say that G contains H as a minor if
+                                          there exists a sequence of vertex-deletions, edge-deletions and edge-contractions (in
+                                          arbitrary order) that transforms G into a graph that is isomorphic to H. Hadwiger’s
+                                          conjecture, formulated more than 80 years ago by Hadwiger [9], is the major open
+                                          problem in the theory of graph coloring, and arguably one of the most challenging
+                                          open problems in all of combinatorics. It suggests a deep connection between the
+                                          chromatic number of a graph and the containment of clique-minors.
+                                          Conjecture 1 (Hadwiger 1943 [9]). Let t be a positive integer. Every graph G
+                                          satisfying χ(G) ≥ t contains Kt as a minor.
+                                             Hadwiger’s conjecture is known to hold for t ≤ 6, but remains widely open for
+                                          any value t ≥ 7. It was proven for t ≤ 4 by Hadwiger himself [9] and independently
+                                          by Dirac [5]. The case t = 5 was proven to be equivalent to the 4-Color-Theorem
+                                          by Wagner [26], and also the case t = 6 was reduced to the 4-Color-Theorem in
+                                          a landmark paper by Robertson, Seymour and Thomas [20] in 1993. Recently,
+                                          there has been some exciting progress towards the linear weakening of Hadwiger’s
+                                          conjecture, which states that there exists some absolute constant C > 0 such that
+                                          every graph G with χ(G) ≥ Ct contains Kt as a minor [17, 4]. The current state
+                                          of the art-result coming from these works is a theorem by Delcourt and Postle [4],
+                                          stating that for some absolute constant C > 0 and t large enough every graph of
+                                          chromatic number at least Ct log log t contains Kt as a minor. For more background
+
+                                             Date: January 3, 2024.
+                                             Department of Computer Science, Institute of Theoretical Computer Science, ETH Zürich,
+                                          Switzerland. raphaelmario.steiner@inf.ethz.ch. Research funded by SNSF Ambizione grant
+                                          No. 216071.
+                                                                                          1
+2                                RAPHAEL STEINER
+
+
+on Hadwiger’s conjecture, we refer to Seymour’s 2016-survey [22] and a very recent
+update on the developments by Norin [15].
+   A substantial qualitative strengthening of Hadwiger’s conjecture was proposed
+in 1995 by Gerards and Seymour [10]. It states that, in any graph of chromatic
+number at least t, not only should it be possible to find Kt as a minor, but in
+fact one should be able to find Kt as a so-called odd-minor. Given two graphs
+G and H, we say that G contains H as an odd-minor, if a graph isomorphic to
+H can be obtained from a subgraph G′ ⊆ G by selecting an edge-cut in G′ and
+contracting all the edges in this cut simultaneously. It is clear by definition that
+whenever a graph G contains a graph H as an odd-minor, it also contains H as
+a minor. However, odd-minors are significantly more restricted than minors, for
+instance they preserve the parity of cycle-lengths. A good example to illustrate this
+difference are the complete bipartite graphs: While they can contain huge cliques
+as ordinary minors, none of them contains even K3 as an odd-minor, since the
+containment of K3 as an odd-minor necessitates the existence of an odd cycle.
+Conjecture 2 (Gerards and Seymour 1995 [10]). Let t be a positive integer. Every
+graph G satisfying χ(G) ≥ t contains Kt as an odd-minor.
+   Given that Conjecture 2 is a substantial strengthening of Hadwiger’s tremen-
+dously challenging conjecture, it is not surprising that it has resisted all attempts
+of resolution thus far. The cases t ≤ 4 of the conjecture were proven by Catlin [2],
+and a proof of the case t = 5 (a strengthening of the 4-Color-Theorem!) was an-
+nounced by Guenin in 2004, cf. [22], but still has not been made public. While
+the precise form of the conjecture remains widely open for t ≥ 6, as for Hadwiger’s
+conjecture, there has been progress regarding asymptotic results [8, 16, 18, 25], with
+the current state of the art being a bound of O(t log log t) on the chromatic number
+of odd Kt -minor-free graphs from [25].
+Topological lower bounds. If, as many researchers in the community seem to be-
+lieve, the precise or even asymptotic form of Hadwiger’s conjecture or its odd-minor
+variant is false, then one should put efforts into constructing counterexamples. In
+order to do so, it would be necessary to construct Kt -minor-free graphs of high chro-
+matic number. But chromatic number is a surprisingly complex parameter, and we
+do not really understand in depth what makes the chromatic number of a graph
+large—in particular, approximating the chromatic number of an n-vertex graph to
+within a factor better than n1−ε is computationally intractable [7]. This suggests
+that one will have to rely on one of the few known lower bounds on the chromatic
+number to construct such graphs. One of the simplest such lower bounds is the
+clique number ω(G), but since a clique subgraph directly yields a clique minor of
+the same order, it seems badly suited for the problem. A much stronger and more
+general lower bound is the fractional chromatic number χf (G), that is obtained by
+a linear programming relaxation of an integer program for the chromatic number.
+In fact, for many graphs of large chromatic number that one typically encounters,
+including random graphs, χf (G) will also be large and close to χ(G). However, the
+hopes of disproving Hadwiger’s or the Odd Hadwiger’s conjecture using fractional
+chromatic number as a lower bound are dampened by results of Reed and Sey-
+mour [19] and Kawarabayashi and Reed [11], showing that any graph G satisfying
+χf (G) > t − 1 contains a rather big clique, namely K⌊(t+1)/2⌋ , as an odd-minor.
+If we cannot rely on fractional chromatic number as a lower bound to disprove
+(Odd) Hadwiger’s conjecture, maybe we should consider lower bounds that work
+orthogonally to the fractional chromatic number, in the sense that they can be large
+on graphs with small fractional chromatic number. The most well-explored such
+bounds are the topological lower bounds on the chromatic number. The probably
+                   HADWIGER’S CONJECTURE AND TOPOLOGICAL BOUNDS                                   3
+
+
+most famous usage of topology to determine the chromatic number of a graph is the
+proof of Kneser’s conjecture by Lovász [13], showing that the chromatic number of
+the Kneser graph1 K(n, k) with n ≥ 2k equals n − 2k + 2. This is much larger than
+the fractional chromatic number of these graphs, which equals n/k.
+   In 2003, Matoušek and Ziegler [14] generalized the method for lower-bounding
+the chromatic number of Kneser graphs employed by Lovász to arbitrary graphs G
+via topological parameters based on the so-called box complexes B(G) and B0 (G).
+These are certain abstract simplicial complexes associated with G, as follows.
+Definition 1 (Box complexes, cf. [14, 3]). Let G be a graph. The vertex-set of
+both B(G) and B0 (G) is V (G) × {1, 2}. A subset X ⊆ V (G) × {1, 2} forms a
+face of B0 (G) if and only if the two projections X1 := {x ∈ V (G)|(x, 1) ∈ X} and
+X2 := {x ∈ V (G)|(x, 2) ∈ X} are complete to each other in G, i.e., form the two
+sides of a complete bipartite subgraph of G (the sides are allowed to be empty).
+Similarly, a subset X ⊆ V (G) × {1, 2} forms a face of B(G) if it forms a face of
+B0 (G) and additionally both the projections X1 , X2 of X have at least one common
+neighbor in G.
+   With every abstract simplicial complex K = (V, F), one can naturally associate
+a topological space, called its geometric realization. One way to define this space is
+to consider a geometric representation of K in Rd for some sufficiently large2 d and
+to take the subspace-topology induced on this geometric representation by Rd with
+
+
+
+
+                                                                                                  ≤
+its natural topology. This allows to define various topological parameters on sim-
+plical complexes, including the box complexes B(G), B0 (G). Via the Borsuk-Ulam
+theorem on coverings of high-dimensional spheres and the relation of graph homo-
+morphisms to so-called Z2 -maps between their associated box-complexes, several of
+those parameters can be used to give lower bounds on the chromatic number χ(G).
+
+                                           χ(G)
+                                            ≤
+
+
+
+
+                                           zig(G)
+                                            ≤
+
+
+
+
+                                 Xind(Hom(K2, G)) + 2
+                                            ≤
+
+
+
+
+                                      ind(B(G)) + 2
+                                            ≤
+
+
+
+
+                                     ind(B0(G)) + 1
+                                            ≤
+
+
+
+
+                     ch − indZ2 (B(G)) + 2 = ch − indZ2 (B0(G)) + 1
+                                 ≤                         ≤
+     cd(H)     ≤    coind(B0(G)) + 1          connZ2 (B(G)) + 3 = connZ2 (B0(G)) + 2
+                                                           ≤
+                       ≤
+
+
+
+
+                                     ≤
+             coind(B(G)) + 2           conn(B0(G)) + 2
+                             ≤
+
+
+                                       ≤
+
+
+
+
+                           conn(B(G)) + 3
+
+          Figure 1. Illustration of the topological lower bounds on the chromatic
+          number of a graph and their relations.
+
+   1For a definition of Kneser graphs, see Definition 4.
+   2Such a representation can be obtained, for instance, by mapping V to the set of unit vectors
+{ev |v ∈ V } in RV and considering the collection of simplices that is obtained by assigning to each
+face F ∈ F the simplex conv{ev |v ∈ F }.
+4                                      RAPHAEL STEINER
+
+
+   In the well-written and comprehensive surveys on this topic by Matoušek and
+Ziegler [14] from 2003 and by Daneshpajou and Meunier [3] from 2023, these pa-
+rameters are compared to each other and put into a hierarchy. In Figure 1 that is
+emulated from the paper by Daneshpajou and Meunier, we display the currently
+known topological lower bounds on the chromatic number and their relations.
+Combinatorial parameters. Since the focus of the paper at hand is combina-
+torial, and since it will not be necessary to understand our results or proofs, we
+refrain from giving the detailed definitions of all the parameters displayed in the
+figure, and instead focus on the two purely combinatorial ones, namely zig(G) and
+cd(H). Detailed explanations of all parameters and background can be found in [3].
+Definition 2 (Zig-Zag-number, cf. [3], Section 4.1). Let c : V (G) → N be a proper
+coloring of a graph G. A zigzag of length k in the properly colored graph (G, c) is
+defined as a sequence of vertices z1 , . . . , zk ∈ V (G) such that c(z1 ) < · · · < c(zk )
+and such that the sets of vertices {zi |i odd} and {zi |i even} are complete to each
+other in G, i.e., form the two sides of a complete bipartite subgraph.
+
+   The zig-zag-number zig(G) of a graph is then defined as the minimum, over all
+proper colorings c : V (G) → N of G, of the maximum length of a zigzag in (G, c).
+   For most of the parameters in Figure 1 the proof that they provide a lower
+bound on χ(G) relies on topology, and in most cases on the Borsuk-Ulam theorem.
+However, one does not need topology to see that zig(G) ≤ χ(G) for every graph G,
+since the latter follows directly by definition of a zigzag. Furthermore, note that
+zig(G) is the strongest of all the lower bounds in Figure 1. Thus, zig(G) provides a
+combinatorial tool to simultaneously bound all the known topological parameters
+that provide lower bounds on χ(G).
+Definition 3 (2-colorability defect, Kneser representation, cf. [14], page 8–9 and [3],
+Section 4.1). Let H = (V, E) be a hypergraph. The Kneser graph KG(H) induced
+by H is the graph with vertex-set E in which two hyperedges e1 , e2 are adjacent
+if and only if e1 ∩ e2 = ∅. If G is a graph, we say that a hypergraph H is a
+Kneser-representation of G if KG(H) is isomorphic to G.
+
+     The 2-colorability defect of a hypergraph H = (V, E) is defined as3
+    cd(H) := min{|U | : U ⊆ V such that (V \ U, {e ∈ E : e ∩ U = ∅}) is 2-colorable}.
+   It is worth mentioning and not hard to prove that every graph admits at least
+one (and in fact, many) Kneser-representations. Therefore, the following result,
+a wide-ranging generalization of Lovász’ lower bound on the chromatic number of
+Kneser graphs due to Dol’nikov [6] and Křı́ž [12], can be used as a lower bound for
+the chromatic number of any graph G.
+Theorem 1 (Dol’nikov [6], Křı́ž [12]). Let G be a graph with a Kneser-representation
+H. Then χ(G) ≥ cd(H).
+
+Our results. In this paper, we investigate how the hierarchy of topological lower
+bounds on the chromatic number interacts with the presence of clique minors, and
+thus evaluate the potential these lower bounds provide for attacking Hadwiger’s
+conjecture or its odd-minor variant. The investigation of this topic was initiated
+in previous work of Simonyi and Zsbán [24] and even earlier by Simonyi and Tar-
+dos [23], where they investigate the relaxations of Hadwiger’s conjecture and its
+
+   3Recall that a hypergraph is said to be 2-colorable if it is possible to assign one of two colors
+to each vertex such that no hyperedge is fully contained in one color class.
+               HADWIGER’S CONJECTURE AND TOPOLOGICAL BOUNDS                            5
+
+
+odd-minor variant obtained by putting one of the topological lower bounds on the
+chromatic number in place of χ(G).
+   Regarding Hadwiger’s conjecture, Simonyi and Tardos (see Corollary 25 in [23])
+observed that known results from the literature, in particular the so-called Kℓ,m -
+theorem and the stronger Zig-Zag-theorem (relating to zig(G) defined above), imply
+that every graph for which one of the topological lower bounds on the chromatic
+number attains a value of at least t, contains K⌊t/2⌋,⌈t/2⌉ as a subgraph and therefore
+K⌊t/2⌋+1 as a minor. Due to this observation, Simonyi and Zsbán [24] focused on the
+stronger Odd Hadwiger’s conjecture and stated that “Our main concern here is that
+the Odd Hadwiger’s conjecture looks much more difficult in this respect”. Indeed,
+while the presence of a large clique minor can be directly deduced from the presence
+of a large balanced complete bipartite subgraph, the latter does not at all imply
+the existence of a large odd clique minor—as mentioned before, bipartite graphs
+are odd-K3 -minor-free. In fact, for the right choice of parameters, graphs like the
+Kneser graphs K(n, k), for which the topological lower bounds on the chromatic
+number are tight, can exhibit arbitrarily large odd girth, meaning that it will not
+be possible to find a bounded-size subgraph that provides a large odd clique minor.
+This led Simonyi and Zsbán to explicitely pose the following open problem in [24],
+which remained unsolved thus far:
+Problem 1 (Problem in Section 5 of [24]). Does there exist an absolute constant
+c > 0 for which the following is true? If a graph G satisfies zig(G) ≥ t, then G
+contains an odd complete minor on at least ct vertices.
+   As the main result of this paper, we solve the above problem in the affirmative,
+with the constant c = 21 :
+Theorem 2. Let t be a positive integer. If a graph G satisfies zig(G) ≥ t, then G
+contains K⌊t/2⌋+1 as an odd-minor.
+   As one can see from Figure 1, if any one of the known topological lower bounds
+for χ(G) attains a value of at least t, also zig(G) is of value at least t, and thus
+the statement of Theorem 2 yields the presence of large odd clique minors in all
+graphs for which at least one of the topological parameters displayed in the figure
+gets large.
+   In the results mentioned so far, both for the topological relaxation of Hadwiger’s
+and of the Odd Hadwiger’s conjecture, we can only find a clique minor of half
+the size that would be guaranteed if the conjectures were true. Motivated by this
+gap, in our second main result, we show that the precise statement of Hadwiger’s
+conjecture can be recovered when chromatic number is replaced by one of the lower
+bounds in Figure 1, namely cd(H):
+Theorem 3. Let t be a positive integer. If a graph G admits a Kneser representa-
+tion H such that cd(H) ≥ t, then G contains Kt as a minor.
+   In particular, this shows that Hadwiger’s conjecture is true for any graph for
+which the Dol’nikov-Křı́ž bound provides a tight estimate of its chromatic number
+(such as Kneser graphs, for example).
+   It would be nice to also get a similar tight result for other parameters in Figure 1,
+or to strengthen Theorem 3 to odd-minors. While we did not succeed at this task
+in general, we could at least prove that the precise version of Odd Hadwiger’s
+conjecture does hold for the most prominent examples of graphs for which the
+topological lower bounds are tight, namely for all Kneser and all Schrijver graphs.
+Definition 4 (Kneser graph, Schrijver graph, cf. [21]). Let n, k be positive integers
+with n ≥ 2k. The Kneser graph K(n, k) is the graph with vertex-set [n]
+                                                                          
+                                                                        k   in which
+6                                    RAPHAEL STEINER
+
+
+two k-subsets of [n] = {1, . . . , n} are made adjacent iff they are disjoint. The
+Schrijver graph S(n, k) is the subgraph of K(n, k) induced by all those k-subsets of
+[n] that are cyclically stable, i.e. that do not contain two consecutive elements in
+the natural cyclical ordering of [n].
+    Following Lovász proof of Kneser’s conjecture that χ(K(n, k)) = n − 2k + 2,
+Schrijver [21] proved that the same tight estimate holds for all Schrijver graphs,
+i.e., χ(S(n, k)) = n−2k+2 and that moreover, S(n, k) is minimal with this property,
+in that the chromatic number drops if any vertex is removed. The following result
+proves the Odd Hadwiger’s conjecture for all Kneser and Schrijver graphs.
+Theorem 4. For every choice of positive integers n, k such that n ≥ 2k, the Schri-
+jver graph S(n, k) (and thus also the Kneser graph K(n, k)) contains Kn−2k+2 as
+an odd-minor.
+   We remark that under the restrictive assumption that n − 2k + 2 = t is fixed
+as a constant while n and k are sufficiently large as a function of t, the result in
+Theorem 4 was already proved by Simonyi and Zsbán [24]. Our result is more
+general in that no conditions on n and k are required for Theorem 4 to hold.
+
+                          2. Proofs of Theorems 2 and 3
+   In this section, we present the proofs of Theorem 2 and Theorem 3. The proof
+of Theorem 2 builds on the following key lemma from [25]. The statement given
+here is slightly stronger than the statement of Lemma 4 in [25], but looking at the
+proof of Lemma 4 in [25] one readily checks that it does in fact yield Lemma 5 as
+stated here.
+Lemma 5 (cf. Lemma 4 in [25]). Let G be a graph. There exists n ∈ N and a
+partition of V (G) into n non-empty sets X1 , . . . , Xn such that the following holds:
+    (1) For every 1 ≤ i ≤ n, the graph G[Xi ] is bipartite and connected.
+    (2) For every 1 ≤ i < j ≤ n, and every vertex v ∈ Xj , the following holds.
+         Either v has no neighbors in Xi , or it has two distinct neighbors u1 , u2
+         where u1 and u2 lie on different sides of the bipartition of G[Xi ].
+   To present the proof of Theorem 2, it will be convenient to work with the notion
+of odd Kk -expansions from [8], defined as follows.
+Definition 5. A Kk -expansion is a graph F that consists of the disjoint union of
+k trees T1 , . . . , Tk , together with exactly one edge joining every pair of two distinct
+trees. We say that F is an odd Kk -expansion, if there exists a color-assignment
+ctree : V (T1 ) ∪ · · · ∪ V (Tk ) → {1, 2} such that for every i = 1, . . . , k, the restriction
+of ctree to V (Ti ) forms a proper coloring of the tree Ti , while every edge connecting
+two distinct trees is monochromatic with respect to ctree .
+    The following fact is folklore, see also [8]:
+Observation 1. If G is a graph and k a positive integer, then G contains Kk as an
+odd-minor if and only if there exists a subgraph of G that is an odd Kk -expansion.
+    We are now ready for the proof of Theorem 2.
+Proof of Theorem 2. Since ⌊t/2⌋ + 1 = ⌊(t − 1)/2⌋ + 1 if t is an odd number, we
+may restrict ourselves to proving the assertion of Theorem 2 for the case when t is
+an even number. Let k ≥ 2 be an integer such that t = 2(k − 1). Our goal is then
+to prove that G contains K⌊t/2⌋+1 = Kk as an odd-minor.
+   We start by constructing a proper coloring c : V (G) → N of G as follows. We
+take a partition X = (Xi )ni=1 of the vertex-set of G as given by Lemma 5, and let
+                 HADWIGER’S CONJECTURE AND TOPOLOGICAL BOUNDS                                   7
+
+
+η : V (G) → {1, . . . , n} be the mapping that assigns to any vertex x ∈ V (G) the
+unique index i =: η(x) satisfying x ∈ Xi . Next, we let Ai , Bi denote the two sides
+of the unique bipartition of G[Xi ] for every i. We then define
+                                   (
+                                    2η(x) − 1, if x ∈ Aη(x) ,
+                           c(x) :=
+                                    2η(x),       if x ∈ Bη(x)
+
+for every x ∈ V (G). Clearly c is a proper coloring of G, and thus zig(G) ≥ t =
+2k − 2 implies the existence of a sequence of vertices z1 , z2 , . . . , z2k−2 in G such that
+c(z1 ) < c(z2 ) < . . . < c(z2k−2 ) and such that the edges between the two vertex-sets
+Z1 := {zi |i odd} and Z2 := {zi |i even} form a complete bipartite subgraph B of G,
+which is isomorphic to Kk−1,k−1 .
+   Let M := {zi zj |1 ≤ i < j ≤ 2k − 2 and η(zi ) = η(zj )}. Observe that by
+definition of the coloring c, if zi zj ∈ M , then we have |c(zi ) − c(zj )| ≤ 1. Using
+the strict ordering c(z1 ) < · · · < c(z2k−2 ), it follows that j = i + 1. This implies
+that zi zj forms an edge of B. It is furthermore clear from the definition of c and
+c(z1 ) < · · · < c(z2k−2 ) that any two distinct pairs in M must be disjoint. Thus,
+M forms a matching in B. In the following, for each i = 1, . . . , n pick and fix a
+spanning tree Ti of the connected graph G[Xi ]. The following claim will be used
+repeatedly in the arguments below.
+                                          S
+Claim (∗). Let I ⊆ [n] and let f : i∈I V (Ti ) → {1, 2} be any assignment that,
+restricted to each tree Ti with i ∈ I, forms a proper coloring. If for some distinct
+indices i, j ∈ I there exists an edge in G connecting Ti and Tj , then there also exists
+a monochromatic edge (with respect to f ) connecting Ti and Tj .
+
+Proof. W.l.o.g. assume i < j and let ab ∈ E(G) be such that a ∈ V (Ti ), b ∈ V (Tj ).
+By choice of the partition X , we know that b has neighbors on both sides of the
+unique bipartition of the connected bipartite subgraph G[Xi ], which is the same as
+the unique bipartition of the spanning tree Ti . Since f properly colors each of the
+trees T1 , . . . , Tn , this implies that b has neighbors of both colors 1 and 2 in Ti , and
+so in particular a neighbor of the same color as itself.                                   □
+
+   We split the rest of the proof into two cases, depending on the size of M .
+Case 1. |M | ≤ k − 2. Let M ′ ⊇ M be a perfect matching of the complete
+bipartite graph B that extends M ′ . Let us label the edges in M ′ as M ′ =
+{x1 y1 , . . . , xk−1 yk−1 } such that x1 , . . . , xk−1 ∈ Z1 , y1 , . . . , yk−1 ∈ Z2 as well as
+M = {x1 y1 , . . . , xr yr } for some 0 ≤ r ≤ k − 2. For each index j ∈ {1, . . . , k}, we
+define a tree Tj′ ⊆ G as follows. If j ≤ r, then we define Tj′ := Tη(xj ) = Tη(yj ) .
+If r + 1 ≤ j ≤ k − 2, then define Tj′ as the tree obtained from the disjoint union
+                                                                               ′
+of Tη(xj ) and Tη(yj ) by adding the edge xj yj . Finally, let Tk−1               := Tη(xk−1 ) and
+  ′
+                                                            Sk              ′
+Tk := Tη(yk−1 ) . Let us consider a mapping ctree : j=1 V (Tj ) → {1, 2} that is ob-
+tained by piecing together proper colorings of the trees T1′ , . . . , Tk′ . We claim that
+for every 1 ≤ j1 < j2 ≤ k, there exists an edge in G connecting Tj′1 and Tj′2 that is
+monochromatic with respect to ctree . Indeed, by definition there exists at least one
+edge in G that connects Tj′1 and Tj′2 , namely the edge xj1 yj2 if j2 ≤ k − 2, the edge
+yj1 xk−1 if j2 = k − 1, and the edge xj1 yk−1 if j2 = k. Since the vertex-set of both
+trees Tj′1 and Tj′2 are disjoint unions of the vertex-sets of some of the trees T1 , . . . , Tn ,
+by Claim (∗) the existence of at least one edge between Tj′1 and Tj′2 already implies
+the existence of such an edge which is monochromatic w.r.t. ctree . This shows that
+T1′ , . . . , Tk′ indeed form an odd Kk -expansion in G, and this concludes the proof in
+this first case.
+8                                     RAPHAEL STEINER
+
+
+Case 2. |M | = k − 1. Label the edges in M as x1 y1 , . . . , xk−1 yk−1 such that
+x1 , . . . , xk−1 ∈ Z1 , y1 , . . . , yk−1 ∈ Z2 and η(xj ) = η(yj ) < η(xk−1 ) = η(yk−1 ) for all
+1 ≤ j ≤ k − 2. Let Tj′ := Tη(xj ) = Tη(yj ) for every 1 ≤ j ≤ k − 2, and let Tk−1      ′
+                                                                                            and
+  ′
+Tk be defined as the single-vertex trees consisting of xk−1 and yk−1 , respectively.
+                  Sk
+Let ctree : j=1 V (Tj′ ) → {1, 2} be obtained by piecing together proper colorings of
+the trees T1′ , . . . , Tk−2
+                           ′
+                               (which by definition are clearly vertex-disjoint) and assigning
+color 1 to both xk−1 and yk−1 . We now claim that between any two of the trees
+T1′ , . . . , Tk′ , there exists at least one connecting edge in G that is monochromatic
+w.r.t. ctree . For any 1 ≤ j1 < j2 ≤ k − 2, it follows directly by definition that
+xj1 yj2 forms a connecting edge between Tj1 = Tη(xj1 ) and Tj2 = Tη(yj2 ) , and thus
+by Claim (∗) also a monochromatic connecting edge w.r.t. ctree must exist. Fur-
+thermore, it follows directly by definition that xk−1 yk−1 is a monochromatic edge
+                                ′            ′
+connecting the trees Tk−1              and Tk−2 . Finally, for every 1 ≤ j ≤ k − 2 we have
+that η(xj ) = η(yj ) < η(xk−1 ) = η(yk−1 ), and both xk−1 and yk−1 have at least
+one neighbor in Tj′ = Tη(xj ) , namely yj and xj , respectively. These facts and the
+choice of X imply that both xk−1 and yk−1 have neighbors on both sides of the
+bipartition of G[Xη(xj ) ], which is the same as the bipartition of Tj′ . Hence, both of
+them are connected to a vertex in Tj′ via a monochromatic edge. This establishes
+that T1′ , . . . , Tk′ form an odd Kk -expansion in G, concluding the proof also in the
+second case.                                                                                   □
+
+    Next, we present the compact proof of Theorem 3.
+
+Proof of Theorem 3. Let G be a graph that admits a Kneser-representation H =
+(V, E) such that cd(H) ≥ t. W.l.o.g. we may assume G = KG(H). Let U ⊆ V be a
+smallest set such that the restricted hypergraph H−U := (V \U, {e ∈ E : e∩U = ∅})
+is 2-colorable. Then |U | = cd(H) ≥ t. Finally, let X1 , X2 denote the two color
+classes of a 2-coloring of the hypergraph H − U .
+Claim 1. For every u ∈ U and every i ∈ {1, 2} there exists a hyperedge e ∈ E
+such that e ⊆ Xi ∪ {u} and u ∈ e.
+
+Proof. Suppose that for some u ∈ U and i ∈ {1, 2} no hyperedge e with the stated
+properties exists. Then there exists no hyperedge of H that is fully contained in
+the set Xi ∪ {u}, and thus the two sets Xi ∪ {u} and X2−i form the color classes
+of a proper coloring of the hypergraph (V \ (U \ {u}), {e ∈ E : e ∩ (U \ {u}) = ∅}).
+This contradicts our minimality assumption on U , which concludes the proof. □
+
+  Let U1 := {u ∈ U |{u} ∈ E} and U2 := U \ U1 . By the Claim 1, for every u ∈ U2
+and every i ∈ {1, 2} there exists some edge e(u, i) ∈ E such that u ∈ e(u, i) ⊆
+Xi ∪ {u} and, since {u} ∈/ E, such that e(u, i) ∩ Xi ̸= ∅. These properties imply in
+particular that all elements of the multi-set
+               S := {{u}{u′ }|u ̸= u′ ∈ U1 } ∪ {e(u, i)|u ∈ U2 , i ∈ {1, 2}}
+are pairwise distinct, and so the latter is a set.
+    By definition of these hyperedges, for every choice of elements u, u′ ∈ U and
+i, j ∈ {1, 2} such that u1 ̸= u2 and i ̸= j, we have
+                    e(u, i) ∩ e(u′ , j) ⊆ (Xi ∪ {u}) ∩ (Xj ∪ {u′ }) = ∅,
+and hence e(u, i) and e(u′ , j) are adjacent in G. Furthermore, by definition of U1 , for
+every u1 ∈ U1 , u2 ∈ U2 and i ∈ {1, 2}, we have {u1 } ∩ e(u2 , i) ⊆ U1 ∩ (U2 ∪ Xi ) = ∅,
+and hence {u1 } and e(u2 , i) are adjacent in G. Finally, the singletons {u}, u ∈ U1
+are clearly pairwise adjacent in G.
+                HADWIGER’S CONJECTURE AND TOPOLOGICAL BOUNDS                                   9
+
+
+   Altogether, this implies that the graph H, defined via V (H) := S and
+                 E(H) : = {{u}{u′ }|u ̸= u′ ∈ U1 }
+                          ∪ {{u1 }e(u2 , i)|u1 ∈ U1 , u2 ∈ U2 , i ∈ {1, 2}}
+                          ∪ {e(u, i)e(u′ , j)|u ̸= u′ ∈ U2 , i ̸= j ∈ {1, 2}},
+forms a subgraph of G. In the following, for any integer n ≥ 0, let us denote by
+   ∗
+Kn,n  the graph obtained from the complete bipartite graph Kn,n by deleting the
+edges of a perfect matching, and for two graphs G1 and G2 on disjoint vertex-sets,
+let us denote by G1 + G2 the graph obtained from G1 ∪ G2 by adding the edges
+{ab|a ∈ V (G1 ), b ∈ V (G2 )}. We can then observe that the graph H ⊆ G defined
+                                            ∗
+above is isomorphic to the graph K|U1 | + K|U 2 |,|U2 |
+                                                        .
+Claim 2. For every pair of integers n1 , n2 ≥ 0 such that n1 + n2 ≥ t, the graph
+Kn1 + Kn∗2 ,n2 contains Kt as a minor.
+Proof. Let us write the vertex-set of Kn1 as {1, . . . , n1 }, and the vertex-set of Kn∗2 ,n2
+as {n1 + 1, . . . , n1 + n2 } × {1, 2}, such that two vertices (x, i), (y, i) ∈ V (Kn∗2 ,n2 ) are
+adjacent if and only if x ̸= y and i ̸= j. We claim that Kn∗2 ,n2 contains Kn2 as a
+minor. Indeed, this is easy to see if n2 ≤ 2. Now suppose n2 ≥ 3 and consider the
+perfect matching
+  M = {(x, 1)(x + 1, 2)|x ∈ {n1 + 1, . . . , n1 + n2 − 1}} ∪ {(n1 + n2 , 1)(n1 + 1, 2)}
+in Kn∗2 ,n2 . Pause to note that contracting the edges in M transforms Kn∗2 ,n2 into a
+complete graph Kn2 . This shows that Kn∗2 ,n2 always contains Kn2 as a minor. It
+then readily follows that Kn1 + Kn∗2 ,n2 contains Kn1 + Kn2 = Kn1 +n2 ⊇ Kt as a
+minor, and this concludes the proof.                                                □
+   Recalling that we have |U1 | + |U2 | = |U | ≥ t, Claim 2 now implies that H (and
+thus G) contains Kt as a minor, and this concludes the proof.                     □
+
+   3. Odd Hadwiger’s conjecture for Kneser and Schrijver graphs
+   In this section, we give the self-contained proof of Theorem 4. Again, we work
+with the notion of odd clique-expansions introduced in the previous section.
+Proof of Theorem 4. Let n, k be positive integers such that n ≥ 2k. In order to
+show that the Schrijver graph S(n, k) contains Kn−2k+2 as an odd-minor, we will
+construct n−2k + 2 vertex-disjoint trees T1 , . . . , Tn−2k , Tn−2k+1 , Tn−2k+2 contained
+in S(n, k), and equip each of them with a proper coloring using colors 1 and 2 such
+that any pair of trees is joined by at least one monochromatic edge. The reader
+is encouraged to look at Figure 2 for an illustration of the somewhat technical
+construction.
+    Let us start by describing the first n − 2k trees T1 , . . . , Tn−2k . We define a
+collection A of (k − 1)-subsets of [2k − 1] as follows. A set A ⊆ [2k − 1] is contained
+in A if and only if it is a vertex of the Schrijver graph S(2k−1, k−1), i.e., if and only
+if |A| = k − 1 and A is a cyclically stable subset of [2k − 1]. In particular this means
+that no set A ∈ A contains both of the elements 1 and 2k − 1. Moreover, it is easy
+to see that apart from one special set in A, namely the set A0 := {2, 4, . . . , 2k − 2}
+of even elements, all members of A need to contain exactly one of the elements 1
+and 2k − 1. The latter fact allows us to naturally assign colors 1 or 2 to each set in
+A, by defining a mapping c : A → {1, 2} as
+                              
+                              1, if A = A0 ,
+                              
+                   c(A) := 1, if A ̸= A0 , 1 ∈ A and 2k − 1 ∈      / A,
+                              
+                                2, if A ̸= A0 , 1 ∈
+                                                  / A and 2k − 1 ∈ A.
+                              
+10                                            RAPHAEL STEINER
+
+                                                 n = 14, k = 4
+               A = {A0 = {2, 4, 6}, {3, 5, 7}, {1, 4, 6}, {2, 5, 7}, {1, 3, 6}, {2, 4, 7}, A1 = {1, 3, 5}}
+
+
+        T1   {2, 4, 6, 8}   {3, 5, 7, 9}   {1, 4, 6, 8}   {2, 5, 7, 9}   {1, 3, 6, 8}   {2, 4, 7, 9}   {1, 3, 5, 8}
+
+
+
+        T2   {2, 4, 6, 9}   {3, 5, 7, 10} {1, 4, 6, 9}    {2, 5, 7, 10} {1, 3, 6, 9}    {2, 4, 7, 10} {1, 3, 5, 9}
+
+
+
+        T3   {2, 4, 6, 10} {3, 5, 7, 11} {1, 4, 6, 10} {2, 5, 7, 11} {1, 3, 6, 10} {2, 4, 7, 11} {1, 3, 5, 10}
+
+
+
+        T4   {2, 4, 6, 11} {3, 5, 7, 12} {1, 4, 6, 11} {2, 5, 7, 12} {1, 3, 6, 11} {2, 4, 7, 12} {1, 3, 5, 11}
+
+
+
+        T5   {2, 4, 6, 12} {3, 5, 7, 13} {1, 4, 6, 12} {2, 5, 7, 13} {1, 3, 6, 12} {2, 4, 7, 13} {1, 3, 5, 12}
+
+
+
+        T6   {2, 4, 6, 13} {3, 5, 7, 14} {1, 4, 6, 13} {2, 5, 7, 14} {1, 3, 6, 13} {2, 4, 7, 14} {1, 3, 5, 13}
+
+
+
+        T7                                            {1, 3, 5, 7}
+
+
+
+        T8                                           {2, 4, 6, 14}
+
+
+         Figure 2. Illustration for the construction of the odd Kn−2k+2 -
+         expansion in S(n, k) for the case n = 14, k = 4. Colors red and blue in
+         the picture correspond to colors 1 and 2 in the proof, respectively. For
+         the sake of readability, only some of the monochromatic edges connect-
+         ing pairs of distinct trees Ti and Tj are indicated.
+
+
+For i = 1, . . . , n − 2k, we now define the vertex-set of the tree Ti as the collection
+of k-sets Ai := {A ∪ {i + c(A) + (2k − 2)}|A ∈ A}. Note that each set in Ai is
+indeed a cyclically stable k-subset of [n]: Suppose towards a contradiction that for
+some A ∈ A, the set A ∪ {i + c(A) + (2k − 2)} contains two cyclically consecutive
+elements of [n]. Since A is a cyclically stable subset of [2k − 1], one of those two
+elements must be equal to i + c(A) + (2k − 2). Since i + c(A) + (2k − 2) ∈ [2k, n]
+and A ⊆ [2k − 1], this is only possible if i + c(A) + (2k − 2) = 2k and 2k − 1 ∈ A,
+or i + c(A) + (2k − 2) = n and 1 ∈ A. By definition of c, we have c(A) = 2 in
+the first case and c(A) = 1 in the second, implying i = 0 and i = n − 2k + 1
+respectively, a contradiction. Thus, we indeed have Ai ⊆ V (S(n, k)) for every
+i = 1, . . . , n − 2k, as desired. To finish the description of the trees T1 , . . . , Tn−2k ,
+we also have to specify their edge-sets. To do so let us understand the set of edges
+that S(n, k) induces on the vertex-set Ai . So let B ∪ {i + c(B) + (2k − 2)} and
+D ∪ {i + c(D) + (2k − 2)} be two members of Ai , where C, D ∈ A. We then have
+that (B ∪ {i + c(B) + (2k − 2)}) ∩ (D ∪ {i + c(D) + (2k − 2)}) = ∅ if and only if
+B ∩ D = ∅ and c(B) ̸= c(D). From the definition of c we can see that B ∩ D = ∅
+enforces c(B) ̸= c(D), unless c(B) = c(D) = 1 and one of B and D is equal to A0 .
+There is a unique member of A of c-value 1 that is disjoint from A0 , namely the set
+A1 := {1, 3, 5, . . . , 2k−3}. We therefore find that the two sets B∪{i+c(B)+(2k−2)}
+and D ∪ {i + c(D) + (2k − 2)} are adjacent in S(n, k) if and only if B and D are
+adjacent in S(2k − 1, k − 1) and {B, D} ̸= {A0 ∪ {i + 2k − 1}, A1 ∪ {i + 2k − 1}}.
+Since the graph S(2k − 1, k − 1) is isomorphic to the odd cycle C2k−1 , this implies
+that S(n, k)[Ai ] is obtained from a (2k −1)-cycle by removing a single edge between
+                HADWIGER’S CONJECTURE AND TOPOLOGICAL BOUNDS                                   11
+
+
+the pair {A0 ∪ {i + 2k − 1}, A1 ∪ {i + 2k − 1}}. Thus, the graph S(n, k)[Ai ] is a
+(2k − 1)-vertex path with endpoints A0 ∪ {i + 2k − 1} and A1 ∪ {i + 2k − 1}. We
+can therefore simply set Ti := S(n, k)[Ai ] for every i = 1, . . . , n − 2k, knowing that
+these graphs indeed form trees (in fact, paths). We can observe that the coloring c
+of the sets A naturally induces a 2-coloring of each of the trees Ti , by assigning to
+every vertex X ∈ V (T1 ) ∪ · · · ∪ V (Tn−2k ) the color given by c(X ∩ [2k]). It is then
+not hard to see from the definition of c and the trees Ti that this indeed forms a
+proper coloring of each of the trees T1 , . . . , Tn−2k .
+   Finally, let us complete the description of the trees by defining Tn−2k+1 and
+Tn−2k+2 . Both of these trees consist of a single vertex, namely V (Tn−2k+1 ) =
+{1, 3, . . . , 2k − 1}, and V (Tn−2k+2 ) = {2, 4, . . . , 2k − 2, n}. Their associated proper
+colorings both consist of assigning color 1 to their respective vertex.
+   We now claim that the collection of trees T1 , . . . , Tn−2k+2 , with each tree equipped
+with a proper {1, 2}-coloring as described above, forms an odd Kn−2k+2 -expansion
+in the Schrijver graph S(n, k). All that is left to verify here is that (A) all the trees
+are pairwise vertex-disjoint and (B) for every two distinct i, j ∈ [n − 2k + 2] there
+exists at least one monochromatic edge connecting Ti and Tj .
+   To verify (A), first note that the sets {1, 3, . . . , 2k − 1}, {2, 4, . . . , 2k − 2, n}
+that form the single vertices of Tn−2k+1 and Tn−2k+2 are not contained in any
+of the sets Ai , i = 1, . . . , n − 2k. For {1, 3 . . . , 2k − 1} this follows directly by
+definition, since each set in one of the Ai has at most k − 1 elements within [2k],
+while {1, 3 . . . , 2k − 1} has k. For {2, 4, . . . , 2k − 2, n} this follows since the only
+way a set of the form B ∪ {c(B) + i + (2k − 2)} for some B ∈ A can contain the
+element n is if i = n − 2k and c(B) = 2, however, the latter implies 2k − 1 ∈ B, in
+contrast to the set {2, 4, . . . , 2k − 2, n}, which does not contain this element. It thus
+remains to be shown that Ai ∩ Aj = ∅ for 1 ≤ i < j ≤ n − 2k. Suppose towards a
+contradiction that B ∪ {c(B) + i + (2k − 2)} ∈ Aj for some B ∈ A. This implies
+that c(B) + j + (2k − 2) = c(B) + i + (2k − 2), a contradiction.
+   To verify (B), let any pair {i, j} ⊆ [n − 2k + 2] with i < j be given, and let us
+find a monochromatic edge between Ti and Tj . Suppose first j ≤ n − 2k. Then
+we have A0 ∪ {i + 2k − 1} ∈ Ai = V (Ti ) and A1 ∪ {j + 2k − 1} ∈ Aj = V (Tj ),
+and clearly (A0 ∪ {i + 2k − 1}) ∩ (A1 ∪ {j + 2k − 1}) = ∅. Since the proper
+colorings of Ti and Tj assign color 1 to both of these sets, we have found an edge of
+S(n, k) going between Ti and Tj that is monochromatic, as desired. Next, suppose
+j ∈ {n − 2k + 1, n − 2k + 2} and i ≤ n − 2k. It is then easy to see that the pair of
+sets A0 ∪ {i + (2k − 1)}, {1, 3, . . . , 2k − 1} (if j = n − 2k + 1), and the pair of sets
+A1 ∪ {i + (2k − 1)}, {2, 4, . . . , 2k − 2, n} (if j = n − 2k + 2) forms a monochromatic
+edge between Ti and Tj in this case. Finally, if i = n − 2k + 1, j = n − 2k + 2
+the unique edge between Ti and Tj is clearly monochromatic. Finally, this shows
+that S(n, k) contains an odd Kn−2k+2 -expansion, and thus contains Kn−2k+2 as an
+odd-minor. This concludes the proof.                                                       □
+
+                                        References
+ [1] M. Alishali, H. Hajiabolhassan and F. Meunier. Strengthening topological colorful results for
+     graphs. European Journal of Combinatorics, 64, 27–44 (2017).
+ [2] P. Catlin. Hajós’ graph colouring conjecture: variations and counterexamples. Journal of
+     Combinatorial Theory, Series B, 26, 268–274 (1979).
+ [3] H. R. Daneshpajouh and F. Meunier. Box complexes: At the crossroad of graph theory and
+     topology. arXiv preprint, arXiv: 2307.00299 (2023).
+ [4] M. Delcourt and L. Postle. Reducing linear Hadwiger’s conjecture to coloring small graphs,
+     arXiv preprint, arXiv: 2108.01633 (2021).
+ [5] G. A. Dirac. A property of 4-chromatic graphs and some remarks on critical graphs. Journal
+     of the London Mathematical Society, 27, 85–92 (1952).
+ [6] V. Dol’nikov. A combinatorial inequality. Siberian Mathematical Journal, 29, 375–397 (1988).
+12                                    RAPHAEL STEINER
+
+
+ [7] U. Feige and J. Kilian. Zero knowledge and the chromatic number. Journal of Computer and
+     System Sciences, 57(2), 187–199 (1998).
+ [8] J. Geelen, B. Gerards, B. Reed, P. Seymour and A. Vetta. On the odd-minor variant of
+     Hadwiger’s conjecture. Journal of Combinatorial Theory, Series B, 99(1), 20–29 (2009).
+ [9] H. Hadwiger. Über eine Klassifikation der Streckenkomplexe. Vierteljahrsschrift der Natur-
+     forschenden Gesellschaft Zürich, 88, 133–143 (1943).
+[10] T. Jensen and B. Toft. Graph Coloring Problems, Wiley, 1995, p. 115.
+[11] K. Kawarabayashi and B. Reed. Fractional coloring and the Odd Hadwiger’s conjecture.
+     European Journal of Combinatorics, 29(2), 411–417 (2008).
+[12] I. Křı́ž. Equivariant cohomology and lower bounds for chromatic numbers. Transactions of
+     the American Mathematical Society, 33, 567–577 (1992).
+[13] L. Lovász. Kneser’s conjecture, chromatic number, and homotopy. Journal of Combinatorial
+     Theory, Series A, 25(3), 319–324 (1978).
+[14] J. Matoušek and G. Ziegler. Topological lower bounds for the chromatic number: A hierarchy.
+     Jahresberichte der Deutschen Mathematiker-Vereinigung, 106, 71–90 (2004).
+[15] S. Norin. Recent progress towards Hadwiger’s conjecture. in: ICM Proceedings 2022, EMS
+     Press, Vol. VI, 4606–4620 (2023).
+[16] S. Norin and Z.-X. Song. A new upper bound on the chromatic number of graphs with no
+     odd Kt minor. Combinatorica, 42(1), 137–149 (2022).
+[17] S. Norin, L. Postle and Z.-X. Song. Breaking the degeneracy barrier for coloring graphs with
+     no Kt -minor. Advances in Mathematics, 422, 109020 (2023).
+[18] L. Postle. Further progress towards the list and odd versions of Hadwiger’s conjecture. arXiv
+     preprint, arXiv:2010.05999 (2020).
+[19] B. Reed and P. Seymour. Fractional colouring and Hadwiger’s conjecture. Journal of Com-
+     binatorial Theory, Series B, 74(2), 147–152 (1998).
+[20] N. Robertson, P. Seymour and R. Thomas. Hadwiger’s conjecture for K6 -free graphs. Com-
+     binatorica, 13, 279–361 (1993).
+[21] A. Schrijver. Vertex-critical subgraphs of Kneser graphs. Nieuw Archief foor Wiskunde, 26(3),
+     454–461 (1978).
+[22] P. Seymour. Hadwiger’s conjecture, in: Open Problems in Mathematics, Springer, 417–437
+     (2016). https://web.math.princeton.edu/˜pds/papers/hadwiger/paper.pdf
+[23] G. Simonyi and G. Tardos. Local chromatic number, Ky Fan’s theorem, and circular colorings.
+     Combinatorica, 26, 587–626 (2006).
+[24] G. Simonyi and A. Zsbán. On topological relaxations of chromatic conjectures. European
+     Journal of Combinatorics, 31(8), 2110–2119 (2010).
+[25] R. Steiner. Asymptotic equivalence of Hadwiger’s conjecture and its odd minor-variant. Jour-
+     nal of Combinatorial Theory, Series B, 155, 45–51 (2022).
+[26] K. Wagner. Über eine Eigenschaft der ebenen Komplexe. Mathematische Annalen, 114(1),
+     570–590 (1937).
+
