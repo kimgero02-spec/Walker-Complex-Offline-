@@ -1,0 +1,11 @@
+t^3-2 (Y^2=X^3-16)
+dim L(S,2) = 4  |H(S)| = 2
+ place 0 Kummer classes found: 1
+ place 2 Kummer classes found: 2
+ place 3 Kummer classes found: 1
+(0, 0, 0, 0) {0: ('eps0', 'inW'), 2: ('eps0', 'inW'), 3: ('eps0', 'inW')}
+(0, 0, 1, 0) {0: ('eps0', 'inW'), 2: ('eps0', 'notW'), 3: ('eps0', 'inW')}
+|H(S)| = 2  #in all ker eps_v = 2  |Sel2| = 1
+ |W_0| found 1
+ |W_2| found 2
+ |W_3| found 1

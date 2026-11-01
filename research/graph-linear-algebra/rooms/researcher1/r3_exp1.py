@@ -1,6 +1,18 @@
 import random, sys
 from r3lib import *
 
+_fac_cache = {}
+def fac_mod(alg, p):
+    key = (tuple(alg.a), p)
+    if key not in _fac_cache:
+        import sympy
+        t = sympy.symbols('t')
+        a1, a2, a3 = alg.a
+        P = sympy.Poly(t**3 + int(a1)*t**2 + int(a2)*t + int(a3), t, modulus=p)
+        fl = P.factor_list()[1]
+        _fac_cache[key] = [[int(c) % p for c in reversed(g.all_coeffs())] for g, e in fl]
+    return _fac_cache[key]
+
 def sample_H(alg, p, n, R=6, rng=None):
     rng = rng or random.Random(1)
     out = []
@@ -8,13 +20,20 @@ def sample_H(alg, p, n, R=6, rng=None):
     while len(out) < n and tries < 400000:
         tries += 1
         d = [Fr(rng.randint(-R, R)) for _ in range(3)]
-        if rng.random() < 0.6:
-            # multiply by a few linear factors (theta - a) and primes to reach odd valuations
+        r = rng.random()
+        if p > 1 and r < 0.6:
+            facs = fac_mod(alg, p)
+            g = rng.choice(facs)           # coefficients low->high, monic
+            g3 = [Fr(c) for c in g] + [Fr(0)] * (3 - len(g))
+            gg = alg.mul(g3, [Fr(rng.randint(-R, R)) for _ in range(3)]) if len(g) < 4 else g3
+            d = [gg[i] + p * rng.randint(-R, R) for i in range(3)]
+            if rng.random() < 0.5:
+                g2 = rng.choice(facs); g23 = [Fr(c) for c in g2] + [Fr(0)] * (3 - len(g2))
+                d = alg.mul(d, [g23[i] + p * rng.randint(-2, 2) for i in range(3)])
+        elif r < 0.8:
             for _ in range(rng.randint(1, 2)):
                 a = rng.randint(-40, 40)
                 d = alg.mul(d, [Fr(-a), Fr(1), Fr(0)])
-            if rng.random() < 0.5 and p > 1:
-                d = [x * (p if rng.random() < 0.5 else 1) for x in d]
         N = alg.norm(d)
         if N == 0: continue
         if not is_square_p(N, p): continue
