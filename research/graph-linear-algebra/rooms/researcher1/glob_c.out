@@ -1,0 +1,13 @@
+t^3-t-1 (disc -23)
+dim L(S,2) = 5  |H(S)| = 4
+ place 0 Kummer classes found: 1
+ place 2 Kummer classes found: 2
+ place 23 Kummer classes found: 2
+(0, 0, 0, 0, 0) {0: ('eps0', 'inW'), 2: ('eps0', 'inW'), 23: ('eps0', 'inW')}
+(0, 1, 0, 0, 0) {0: ('eps0', 'inW'), 2: ('eps0', 'notW'), 23: ('eps0', 'inW')}
+(1, 0, 0, 1, 1) {0: ('eps0', 'inW'), 2: ('eps1', 'notW'), 23: ('eps1', 'notW')}
+(1, 1, 0, 1, 1) {0: ('eps0', 'inW'), 2: ('eps0', 'inW'), 23: ('eps0', 'notW')}
+|H(S)| = 4  #in all ker eps_v = 3  |Sel2| = 1
+ |W_0| found 1
+ |W_2| found 2
+ |W_23| found 2
