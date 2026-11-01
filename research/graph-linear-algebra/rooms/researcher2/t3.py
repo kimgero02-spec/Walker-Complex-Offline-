@@ -33,7 +33,10 @@ def aut_perms(n,adj):
 C4=[[1 if (i-j)%4 in (1,3) else 0 for j in range(4)] for i in range(4)]
 P3=[[1 if abs(i-j)==1 else 0 for j in range(3)] for i in range(3)]
 K3=[[1 if i!=j else 0 for j in range(3)] for i in range(3)]
-for name,adj,n in [("P3",P3,3),("K3",K3,3),("C4",C4,4)]:
+def main():
+  pass
+if __name__=="__main__":
+ for name,adj,n in [("P3",P3,3),("K3",K3,3),("C4",C4,4)]:
   ps=aut_perms(n,adj)
   for q in (3,5):
     if n==4 and q==5: 
