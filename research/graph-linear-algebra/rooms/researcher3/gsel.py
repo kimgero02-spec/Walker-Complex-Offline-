@@ -82,10 +82,12 @@ if __name__=="__main__":
     print("theta",th,"S",S,"|Sel2|",len(sel),"|global ker|",len(ker))
     print("Sel2",sel)
     places=[0]+S
+    import time
     for delta in ker:
+        t0=time.time()
         M=M_from_delta(th,delta)
         if M is None: print(delta,"no M found (search limit)"); continue
         assert delta_of_M(th,M)==tuple(delta) , (delta_of_M(th,M),delta)
         c=quartic_int(M)
         sol=[solv_quartic(c,0 if v==0 else v) for v in places]
-        print(delta,"in Sel:",delta in sel,"M-quartic solvable at",dict(zip(places,sol)))
+        print(delta,"in Sel:",delta in sel,"M-quartic solvable at",dict(zip(places,sol)),"M=",M.tolist(),"time %.1f"%(time.time()-t0),flush=True)
